@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presupuesto - TechnoPhoenix</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Bienvenido a TechnoPhoenix</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="productos.html">Productos</a></li>
+                <li><a href="como-funciona.html">Cómo Funciona</a></li>
+                <li><a href="presupuesto.html">Presupuesto</a></li>
+                <li><a href="acerca-de.html">Acerca de Nosotros</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="testimonios.html">Testimonios</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="presupuesto">
+            <h2>Encuentra tu PC Gamer Ideal</h2>
+            <p>Selecciona tu rango de precios y descubre las máquinas que ofrecemos dentro de tu presupuesto.</p>
+            <form action="resultados-presupuesto.html" method="get">
+                <label for="min-price">Precio mínimo:</label>
+                <input type="number" id="min-price" name="min-price" min="0" placeholder="Ej. 500">
+                
+                <label for="max-price">Precio máximo:</label>
+                <input type="number" id="max-price" name="max-price" min="0" placeholder="Ej. 2000">
+                
+                <input type="submit" value="Buscar PCs">
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 TechnoPhoenix. Todos los derechos reservados.</p>
+    </footer>
+    
+    <!-- Aquí irían los scripts relacionados con la página, si los hubiera -->
+    <script src="scripts.js"></script>
+    
+</body>
+</html>
