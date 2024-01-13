@@ -1,0 +1,289 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+    scroll-behavior: smooth;
+    background-color: #EAE7F8; /* Color de fondo general */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.navbar {
+    background: #FFFFFF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo img {
+    height: 50px; /* Ajusta al tamaño de tu logo */
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    padding: 0 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #5D5C61;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #9A8C98; /* Color al pasar el ratón */
+}
+
+.intro-section {
+    text-align: center;
+    padding: 100px 0;
+    color: #5D5C61; /* Color del texto */
+}
+
+.intro-section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #4A4E69; /* Color del título */
+}
+
+.intro-section p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.contact-button {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #C9ADA7;
+    color: #fff;
+    padding: 10px 25px;
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
+}
+
+.contact-button:hover {
+    background-color: #9A8C98;
+}
+
+footer {
+    text-align: center;
+    padding: 20px 0;
+    color: #5D5C61;
+    font-size: 0.9rem;
+}
+
+/* Estilos existentes... no se repiten aquí */
+
+/* Nuevos estilos para la sección 'Events' */
+.events-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 100px 0;
+    background: #F0EEFF; /* Ajusta este color para que coincida con el de tu diseño */
+    color: #5D5C61;
+}
+
+.events-content {
+    width: 50%;
+    padding-right: 50px; /* Ajusta según necesidad para dar espacio entre el texto y la imagen */
+}
+
+.events-content h2 {
+    color: #6A6D9E; /* Color para el subtítulo */
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.events-content h1 {
+    color: #4A4E69; /* Color para el título principal */
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.events-content hr {
+    border: none;
+    height: 4px;
+    background-color: #6A6D9E; /* Color para la línea horizontal */
+    width: 50%; /* Ancho de la línea */
+    margin-bottom: 2rem;
+}
+
+.events-content p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.events-graphics {
+    width: 40%;
+    background-image: url('recursos/CATTLEYA\ OFICIAL.png');
+    background-size: cover;
+    background-position: center;
+    height: 500px; /* Ajusta la altura según tu diseño */
+    border-radius: 20px; /* Ajusta para redondear las esquinas */
+}
+
+/* ... estilos existentes ... */
+
+/* Estilos para la sección 'Sponsors' */
+.sponsors-section {
+    background-color: #EAE7F8; /* Color de fondo general */
+    text-align: center;
+    padding: 100px 0;
+}
+
+.sponsors-section h2 {
+    color: #6A6D9E; /* Color de los títulos de sección */
+    margin-bottom: 50px;
+    font-size: 2.5rem;
+}
+
+.sponsor-cards-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.sponsor-card {
+    width: 300px;
+    background-color: #fff;
+    border-radius: 20px;
+    margin: 20px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.sponsor-card img {
+    width: 100%; /* Asegúrate de que las imágenes de los sponsors se ajusten al contenedor */
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.sponsor-card h3 {
+    color: #4A4E69; /* Color para el título del sponsor */
+    margin-bottom: 15px;
+}
+
+.sponsor-card p {
+    color: #5D5C61; /* Color para la descripción del sponsor */
+    margin-bottom: 15px;
+}
+
+.sponsor-card .price-tag {
+    /* Estilos para la etiqueta de precio, si es necesaria */
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #C9ADA7;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 25px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.sponsor-card .sponsor-button {
+    /* Estilos para el botón 'Get Started' */
+    background-color: #C9ADA7;
+    color: #fff;
+    padding: 10px 25px;
+    border-radius: 25px;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.sponsor-card .sponsor-button:hover {
+    background-color: #9A8C98;
+}
+
+@media (max-width: 992px) {
+    .sponsor-cards-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .sponsor-card {
+        width: 80%; /* Ajusta este valor según prefieras */
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* O puedes cambiar a un menú de hamburguesa */
+    }
+
+    .nav-links li {
+        padding: 10px 0;
+    }
+
+    .logo img {
+        height: 40px;
+    }
+
+    /* ... */
+}
+
+
+
+@media (max-width: 768px) {
+    .events-section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .events-content {
+        width: 100%;
+        padding-right: 0;
+    }
+
+    .events-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .events-graphics {
+        width: 80%;
+        margin: 0 auto;
+        height: 300px; /* Ajusta la altura según la responsividad */
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+    display: none; /* O puedes cambiar a un menú de hamburguesa */
+    }
+
+.nav-links li {
+    padding: 10px 0;
+    }
+
+.logo img {
+    height: 40px;
+    }
+}
+
+/* Añade aquí más estilos responsivos y para otros elementos que incluyas */
+
