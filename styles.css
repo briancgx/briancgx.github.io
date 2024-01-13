@@ -93,7 +93,7 @@ footer {
 /* Estilos existentes... no se repiten aquí */
 
 /* Nuevos estilos para la sección 'Events' */
-.events-section {
+.sponsors-section {
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -102,24 +102,24 @@ footer {
     color: #5D5C61;
 }
 
-.events-content {
+.sponsors-content {
     width: 50%;
     padding-right: 50px; /* Ajusta según necesidad para dar espacio entre el texto y la imagen */
 }
 
-.events-content h2 {
+.sponsors-content h2 {
     color: #6A6D9E; /* Color para el subtítulo */
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
 }
 
-.events-content h1 {
+.sponsors-content h1 {
     color: #4A4E69; /* Color para el título principal */
     font-size: 3rem;
     margin-bottom: 1rem;
 }
 
-.events-content hr {
+.sponsors-content hr {
     border: none;
     height: 4px;
     background-color: #6A6D9E; /* Color para la línea horizontal */
@@ -127,12 +127,12 @@ footer {
     margin-bottom: 2rem;
 }
 
-.events-content p {
+.sponsors-content p {
     margin-bottom: 1rem;
     line-height: 1.6;
 }
 
-.events-graphics {
+.sponsors-graphics {
     width: 40%;
     background-image: url('recursos/CATTLEYA\ OFICIAL.png');
     background-size: cover;
@@ -144,26 +144,26 @@ footer {
 /* ... estilos existentes ... */
 
 /* Estilos para la sección 'Sponsors' */
-.sponsors-section {
+.events-section {
     background-color: #EAE7F8; /* Color de fondo general */
     text-align: center;
     padding: 100px 0;
 }
 
-.sponsors-section h2 {
+.events-section h2 {
     color: #6A6D9E; /* Color de los títulos de sección */
     margin-bottom: 50px;
     font-size: 2.5rem;
 }
 
-.sponsor-cards-container {
+.event-cards-container {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
     margin-top: 30px;
 }
 
-.sponsor-card {
+.event-card {
     width: 300px;
     background-color: #fff;
     border-radius: 20px;
@@ -174,23 +174,23 @@ footer {
     overflow: hidden;
 }
 
-.sponsor-card img {
+.event-card img {
     width: 100%; /* Asegúrate de que las imágenes de los sponsors se ajusten al contenedor */
     height: auto;
     margin-bottom: 20px;
 }
 
-.sponsor-card h3 {
+.event-card h3 {
     color: #4A4E69; /* Color para el título del sponsor */
     margin-bottom: 15px;
 }
 
-.sponsor-card p {
+.event-card p {
     color: #5D5C61; /* Color para la descripción del sponsor */
     margin-bottom: 15px;
 }
 
-.sponsor-card .price-tag {
+.event-card .price-tag {
     /* Estilos para la etiqueta de precio, si es necesaria */
     position: absolute;
     top: 20px;
@@ -203,7 +203,7 @@ footer {
     font-weight: bold;
 }
 
-.sponsor-card .sponsor-button {
+.event-card .sponsor-button {
     /* Estilos para el botón 'Get Started' */
     background-color: #C9ADA7;
     color: #fff;
@@ -216,17 +216,17 @@ footer {
     margin-top: 20px;
 }
 
-.sponsor-card .sponsor-button:hover {
+.event-card .sponsor-button:hover {
     background-color: #9A8C98;
 }
 
 @media (max-width: 992px) {
-    .sponsor-cards-container {
+    .event-cards-container {
         flex-direction: column;
         align-items: center;
     }
 
-    .sponsor-card {
+    .event-card {
         width: 80%; /* Ajusta este valor según prefieras */
     }
 }
@@ -250,21 +250,21 @@ footer {
 
 
 @media (max-width: 768px) {
-    .events-section {
+    .sponsors-section {
         flex-direction: column;
         text-align: center;
     }
 
-    .events-content {
+    .sponsors-content {
         width: 100%;
         padding-right: 0;
     }
 
-    .events-content h1 {
+    .sponsors-content h1 {
         font-size: 2.5rem;
     }
 
-    .events-graphics {
+    .sponsors-graphics {
         width: 80%;
         margin: 0 auto;
         height: 300px; /* Ajusta la altura según la responsividad */
