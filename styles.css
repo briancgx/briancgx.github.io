@@ -17,15 +17,33 @@ body, html {
     margin: 0 auto;
 }
 
+/* Estilos actualizados de la barra de navegación */
 .navbar {
-    background: #FFFFFF;
+    background: linear-gradient(to right, #6A6D9E, #EAE7F8); /* Ejemplo de degradado */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem;
-    position: sticky;
+    padding: 0.5rem 1rem; /* Reducido para una barra más delgada */
+    position: fixed; /* Fija en la parte superior */
     top: 0;
+    left: 0;
+    width: 100%; /* Asegura que se extienda a lo ancho de la página */
     z-index: 1000;
+    transition: padding 0.3s ease;
+}
+
+.navbar.smaller {
+    padding: 0.25rem 1rem; /* Aún más reducido */
+}
+
+/* Media queries para responsividad */
+@media (max-width: 768px) {
+    /* Ajustes para la barra de navegación en pantallas más pequeñas */
+    .navbar {
+        padding: 0.25rem 1rem; /* Ajuste el padding como desees para dispositivos móviles */
+    }
+    
+    /* ... otros estilos responsivos ... */
 }
 
 .logo img {
@@ -89,8 +107,6 @@ footer {
     color: #5D5C61;
     font-size: 0.9rem;
 }
-
-/* Estilos existentes... no se repiten aquí */
 
 /* Nuevos estilos para la sección 'Events' */
 .sponsors-section {
@@ -287,3 +303,161 @@ footer {
 
 /* Añade aquí más estilos responsivos y para otros elementos que incluyas */
 
+
+
+/* Estilos para la sección 'Champions' */
+.champions-section {
+    background-color: #6A6D9E; /* El color de fondo de la sección */
+    color: #FFFFFF;
+    padding: 100px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden; /* En caso de que haya elementos que salgan del contenedor */
+}
+
+.champions-banner {
+    position: relative;
+    z-index: 2; /* Asegura que el contenido se muestre por encima del fondo */
+}
+
+.champions-section h2 {
+    font-size: 3rem; /* Ajusta el tamaño del texto según sea necesario */
+    margin-bottom: 0.5rem;
+    color: #FFFFFF; /* Puede que necesites cambiar el color dependiendo del fondo */
+}
+
+.champions-section h1 {
+    font-size: 5rem; /* Ajusta el tamaño del texto según sea necesario */
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #FFFFFF;
+}
+
+.champions-section p {
+    font-size: 1.5rem; /* Ajusta el tamaño del texto según sea necesario */
+    margin-bottom: 2rem;
+}
+
+.champions-section .contact-button {
+    background-color: #C9ADA7; /* Color de fondo del botón */
+    color: #FFFFFF;
+    padding: 10px 25px;
+    border-radius: 25px;
+    font-size: 1.2rem; /* Ajusta el tamaño del texto según sea necesario */
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.champions-section .contact-button:hover {
+    background-color: #9A8C98; /* Color de fondo del botón al pasar el ratón */
+}
+
+/* Estilo para cualquier decoración de fondo o imagen que desees incluir */
+.champions-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('path_to_your_decorative_background_image.png') no-repeat center center;
+    background-size: cover;
+    opacity: 0.2; /* Ajusta la opacidad para el efecto deseado */
+    z-index: 1; /* Coloca el fondo detrás del contenido */
+}
+
+
+@media (max-width: 992px) {
+    .champions-section h2 {
+        font-size: 2.5rem;
+    }
+    .champions-section h1 {
+        font-size: 4rem;
+    }
+
+    .champions-section p {
+        font-size: 1.2rem;
+    }
+
+}
+
+@media (max-width: 768px) {
+    .champions-section {
+        padding: 50px 0;
+    }
+
+    .champions-section h2 {
+        font-size: 2rem;
+    }
+    
+    .champions-section h1 {
+        font-size: 3.5rem;
+    }
+    
+    .champions-section p {
+        font-size: 1rem;
+    }
+    
+    .champions-section .contact-button {
+        padding: 8px 20px;
+        font-size: 1rem;
+    }
+
+}
+
+/* Asegúrate de seguir la convención de tus estilos existentes para coherencia */
+
+/* Estilos para la sección 'Testimonios' */
+.testimonials-section {
+    background: linear-gradient(90deg, #EAE7F8 50%, #6A6D9E 50%);
+    color: #ffffff;
+    padding: 100px 0;
+    text-align: center;
+    position: relative;
+}
+
+.testimonials-header {
+    max-width: 50%;
+    margin: 0 auto;
+}
+
+.testimonials-section h2 {
+    font-size: 2.5rem; /* Ajusta esto según tu diseño */
+    margin-bottom: 20px;
+}
+
+.testimonials-section p {
+    margin-bottom: 50px; /* Ajusta esto según tu diseño */
+    font-size: 1.2rem; /* Ajusta esto según tu diseño */
+}
+
+/* Media queries para responsividad */
+@media (max-width: 992px) {
+    .testimonials-header {
+        max-width: 70%;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar .nav-links {
+    display: none; /* Cambia a un menú de hamburguesa si es necesario */
+    }
+
+    .navbar .logo img {
+        height: 40px;
+    }
+    
+    .testimonials-section {
+        padding: 50px 0;
+    }
+    
+    .testimonials-section h2 {
+        font-size: 2rem;
+    }
+    
+    .testimonials-section p {
+        font-size: 1rem;
+    }
+}
