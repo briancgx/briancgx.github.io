@@ -20,7 +20,7 @@ body, html {
 
 /* Barra de navegación */
 .navbar {
-    background: linear-gradient(to right, #f2e8fd, #6d7af4);
+    background: linear-gradient(to right, #e3c0ff, #dfbeff, #7d97ff, #6060ea);
     position: relative;
     display: flex;
     justify-content: space-between;
