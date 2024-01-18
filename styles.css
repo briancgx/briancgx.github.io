@@ -35,8 +35,8 @@ body, html {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
     height: 80px;
-    border-bottom-left-radius: 20px; /* Redondea la esquina inferior izquierda */
-    border-bottom-right-radius: 20px; /* Redondea la esquina inferior derecha */
+    border-bottom-left-radius: 40px; /* Redondea la esquina inferior izquierda */
+    border-bottom-right-radius: 40px; /* Redondea la esquina inferior derecha */
     justify-content: flex-start; /* Cambiado para alinear el logo a la izquierda */
 }
 
