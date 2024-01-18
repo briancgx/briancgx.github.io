@@ -1,3 +1,4 @@
+/* Estilos base */
 * {
     margin: 0;
     padding: 0;
@@ -9,7 +10,7 @@ body, html {
     height: 100%;
     font-family: 'Arial', sans-serif;
     scroll-behavior: smooth;
-    background-color: #EAE7F8; /* Color de fondo general */
+    background-color: #EAE7F8;
 }
 
 .container {
@@ -17,40 +18,54 @@ body, html {
     margin: 0 auto;
 }
 
-/* Estilos actualizados de la barra de navegación */
+/* Barra de navegación */
 .navbar {
-    background: linear-gradient(to right, #6A6D9E, #EAE7F8); /* Ejemplo de degradado */
+    background: linear-gradient(to right, #f2e8fd, #6d7af4);
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.5rem 1rem; /* Reducido para una barra más delgada */
-    position: fixed; /* Fija en la parte superior */
+    padding: 0.5rem 1rem;
+    position: fixed;
     top: 0;
     left: 0;
-    width: 100%; /* Asegura que se extienda a lo ancho de la página */
+    width: 100%;
     z-index: 1000;
     transition: padding 0.3s ease;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    height: 80px;
+    border-bottom-left-radius: 20px; /* Redondea la esquina inferior izquierda */
+    border-bottom-right-radius: 20px; /* Redondea la esquina inferior derecha */
+    justify-content: flex-start; /* Cambiado para alinear el logo a la izquierda */
 }
 
-.navbar.smaller {
-    padding: 0.25rem 1rem; /* Aún más reducido */
-}
+/* Logo y navegación */
+.logo {
+    background: #FFFFFF; /* Fondo blanco para el círculo */
+    position: absolute;
+    border-radius: 50%; /* Hace que el fondo sea circular */
+    transform: translateY(50%); /* Desplazar hacia arriba la mitad de su propia altura para centrarlo verticalmente */
+    top: 10%; /* Posiciona el logo a la mitad de la altura del navbar */
+    left: 2rem; /* Aumenta la distancia desde la izquierda para mover el logo hacia la derecha */
+    margin-top: 0; /* Elimina el margen superior si existe */
+    /* Ajusta el siguiente valor para que el logo quede a la mitad fuera de la barra */
+    z-index: 10; /* Asegúrate de que el logo esté sobre otros elementos */
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3); /* Sombra desplazada hacia la derecha */
+    display: flex; /* Centra la imagen del logo */
+    justify-content: center;
+    align-items: center;
+    width: 80px; /* Tamaño del círculo */
+    height: 80px; /* Tamaño del círculo */
 
-/* Media queries para responsividad */
-@media (max-width: 768px) {
-    /* Ajustes para la barra de navegación en pantallas más pequeñas */
-    .navbar {
-        padding: 0.25rem 1rem; /* Ajuste el padding como desees para dispositivos móviles */
-    }
-    
-    /* ... otros estilos responsivos ... */
 }
 
 .logo img {
-    height: 50px; /* Ajusta al tamaño de tu logo */
+    height: 60px;
 }
 
 .nav-links {
+    margin-left: auto; /* Empuja los enlaces de navegación a la derecha */
     list-style: none;
     display: flex;
 }
@@ -61,46 +76,83 @@ body, html {
 
 .nav-links a {
     text-decoration: none;
-    color: #5D5C61;
+    color: #ffffff;
     font-weight: bold;
     transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
-    color: #9A8C98; /* Color al pasar el ratón */
+    color: #9A8C98;
 }
 
+
+/* Sección de introducción */
 .intro-section {
+    background: linear-gradient(135deg, #B6AEFF 0%, #EAE7F8 100%);
     text-align: center;
-    padding: 100px 0;
-    color: #5D5C61; /* Color del texto */
+    padding: 150px 0;
+    color: #4A4E69;
+    position: relative;
+    overflow: hidden;
 }
 
 .intro-section h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    color: #4A4E69; /* Color del título */
+    font-size: 3.5rem; /* Ajusta el tamaño según el diseño */
+    color: #4A4E69;
+    margin-bottom: 0.5rem;
 }
 
 .intro-section p {
-    font-size: 1.2rem;
+    font-size: 1.5rem; /* Ajusta el tamaño según el diseño */
     margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #5D5C61;
 }
 
 .contact-button {
-    display: inline-block;
+    background-color: #C9ADA7;
+    color: #FFFFFF;
+    padding: 15px 35px;
+    border-radius: 30px;
+    font-size: 1.2rem;
     text-decoration: none;
+    display: inline-block;
+    margin-top: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Ajustes para el fondo de la sección Home, si es necesario */
+.intro-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: url('path_to_your_flower_background_image.png') no-repeat center center;
+    background-size: contain;
+    opacity: 0.5;
+    z-index: -1;
+}
+
+/* Botones de contacto */
+.contact-button, .event-card .sponsor-button {
     background-color: #C9ADA7;
     color: #fff;
     padding: 10px 25px;
     border-radius: 25px;
     transition: background-color 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
 }
 
-.contact-button:hover {
+.contact-button:hover, .event-card .sponsor-button:hover {
     background-color: #9A8C98;
 }
 
+/* Pie de página */
 footer {
     text-align: center;
     padding: 20px 0;
@@ -108,71 +160,8 @@ footer {
     font-size: 0.9rem;
 }
 
-/* Nuevos estilos para la sección 'Events' */
-.sponsors-section {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    padding: 100px 0;
-    background: #F0EEFF; /* Ajusta este color para que coincida con el de tu diseño */
-    color: #5D5C61;
-}
-
-.sponsors-content {
-    width: 50%;
-    padding-right: 50px; /* Ajusta según necesidad para dar espacio entre el texto y la imagen */
-}
-
-.sponsors-content h2 {
-    color: #6A6D9E; /* Color para el subtítulo */
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-}
-
-.sponsors-content h1 {
-    color: #4A4E69; /* Color para el título principal */
-    font-size: 3rem;
-    margin-bottom: 1rem;
-}
-
-.sponsors-content hr {
-    border: none;
-    height: 4px;
-    background-color: #6A6D9E; /* Color para la línea horizontal */
-    width: 50%; /* Ancho de la línea */
-    margin-bottom: 2rem;
-}
-
-.sponsors-content p {
-    margin-bottom: 1rem;
-    line-height: 1.6;
-}
-
-.sponsors-graphics {
-    width: 40%;
-    background-image: url('recursos/CATTLEYA\ OFICIAL.png');
-    background-size: cover;
-    background-position: center;
-    height: 500px; /* Ajusta la altura según tu diseño */
-    border-radius: 20px; /* Ajusta para redondear las esquinas */
-}
-
-/* ... estilos existentes ... */
-
-/* Estilos para la sección 'Sponsors' */
-.events-section {
-    background-color: #EAE7F8; /* Color de fondo general */
-    text-align: center;
-    padding: 100px 0;
-}
-
-.events-section h2 {
-    color: #6A6D9E; /* Color de los títulos de sección */
-    margin-bottom: 50px;
-    font-size: 2.5rem;
-}
-
-.event-cards-container {
+/* Sección de eventos */
+.events-container, .event-cards-container {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
@@ -191,23 +180,22 @@ footer {
 }
 
 .event-card img {
-    width: 100%; /* Asegúrate de que las imágenes de los sponsors se ajusten al contenedor */
+    width: 100%;
     height: auto;
     margin-bottom: 20px;
 }
 
 .event-card h3 {
-    color: #4A4E69; /* Color para el título del sponsor */
+    color: #4A4E69;
     margin-bottom: 15px;
 }
 
 .event-card p {
-    color: #5D5C61; /* Color para la descripción del sponsor */
+    color: #5D5C61;
     margin-bottom: 15px;
 }
 
 .event-card .price-tag {
-    /* Estilos para la etiqueta de precio, si es necesaria */
     position: absolute;
     top: 20px;
     right: 20px;
@@ -219,245 +207,60 @@ footer {
     font-weight: bold;
 }
 
-.event-card .sponsor-button {
-    /* Estilos para el botón 'Get Started' */
-    background-color: #C9ADA7;
-    color: #fff;
-    padding: 10px 25px;
-    border-radius: 25px;
-    text-transform: uppercase;
-    font-weight: bold;
-    text-decoration: none;
-    display: inline-block;
-    margin-top: 20px;
-}
-
-.event-card .sponsor-button:hover {
-    background-color: #9A8C98;
-}
-
+/* Media queries */
 @media (max-width: 992px) {
-    .event-cards-container {
+    .event-cards-container, .events-container {
         flex-direction: column;
         align-items: center;
     }
 
     .event-card {
-        width: 80%; /* Ajusta este valor según prefieras */
-    }
-}
-
-@media (max-width: 768px) {
-    .nav-links {
-        display: none; /* O puedes cambiar a un menú de hamburguesa */
-    }
-
-    .nav-links li {
-        padding: 10px 0;
-    }
-
-    .logo img {
-        height: 40px;
-    }
-
-    /* ... */
-}
-
-
-
-@media (max-width: 768px) {
-    .sponsors-section {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .sponsors-content {
-        width: 100%;
-        padding-right: 0;
-    }
-
-    .sponsors-content h1 {
-        font-size: 2.5rem;
-    }
-
-    .sponsors-graphics {
         width: 80%;
-        margin: 0 auto;
-        height: 300px; /* Ajusta la altura según la responsividad */
     }
-}
-
-@media (max-width: 768px) {
-    .nav-links {
-    display: none; /* O puedes cambiar a un menú de hamburguesa */
-    }
-
-.nav-links li {
-    padding: 10px 0;
-    }
-
-.logo img {
-    height: 40px;
-    }
-}
-
-/* Añade aquí más estilos responsivos y para otros elementos que incluyas */
-
-
-
-/* Estilos para la sección 'Champions' */
-.champions-section {
-    background-color: #6A6D9E; /* El color de fondo de la sección */
-    color: #FFFFFF;
-    padding: 100px 0;
-    text-align: center;
-    position: relative;
-    overflow: hidden; /* En caso de que haya elementos que salgan del contenedor */
-}
-
-.champions-banner {
-    position: relative;
-    z-index: 2; /* Asegura que el contenido se muestre por encima del fondo */
-}
-
-.champions-section h2 {
-    font-size: 3rem; /* Ajusta el tamaño del texto según sea necesario */
-    margin-bottom: 0.5rem;
-    color: #FFFFFF; /* Puede que necesites cambiar el color dependiendo del fondo */
-}
-
-.champions-section h1 {
-    font-size: 5rem; /* Ajusta el tamaño del texto según sea necesario */
-    font-weight: bold;
-    margin-bottom: 1rem;
-    color: #FFFFFF;
-}
-
-.champions-section p {
-    font-size: 1.5rem; /* Ajusta el tamaño del texto según sea necesario */
-    margin-bottom: 2rem;
-}
-
-.champions-section .contact-button {
-    background-color: #C9ADA7; /* Color de fondo del botón */
-    color: #FFFFFF;
-    padding: 10px 25px;
-    border-radius: 25px;
-    font-size: 1.2rem; /* Ajusta el tamaño del texto según sea necesario */
-    text-decoration: none;
-    display: inline-block;
-    margin-top: 20px;
-    transition: background-color 0.3s ease;
-}
-
-.champions-section .contact-button:hover {
-    background-color: #9A8C98; /* Color de fondo del botón al pasar el ratón */
-}
-
-/* Estilo para cualquier decoración de fondo o imagen que desees incluir */
-.champions-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('path_to_your_decorative_background_image.png') no-repeat center center;
-    background-size: cover;
-    opacity: 0.2; /* Ajusta la opacidad para el efecto deseado */
-    z-index: 1; /* Coloca el fondo detrás del contenido */
-}
-
-
-@media (max-width: 992px) {
-    .champions-section h2 {
-        font-size: 2.5rem;
-    }
-    .champions-section h1 {
-        font-size: 4rem;
-    }
-
-    .champions-section p {
-        font-size: 1.2rem;
-    }
-
-}
-
-@media (max-width: 768px) {
-    .champions-section {
-        padding: 50px 0;
-    }
-
-    .champions-section h2 {
-        font-size: 2rem;
-    }
-    
-    .champions-section h1 {
-        font-size: 3.5rem;
-    }
-    
-    .champions-section p {
-        font-size: 1rem;
-    }
-    
-    .champions-section .contact-button {
-        padding: 8px 20px;
-        font-size: 1rem;
-    }
-
-}
-
-/* Asegúrate de seguir la convención de tus estilos existentes para coherencia */
-
-/* Estilos para la sección 'Testimonios' */
-.testimonials-section {
-    background: linear-gradient(90deg, #EAE7F8 50%, #6A6D9E 50%);
-    color: #ffffff;
-    padding: 100px 0;
-    text-align: center;
-    position: relative;
-}
-
-.testimonials-header {
-    max-width: 50%;
-    margin: 0 auto;
-}
-
-.testimonials-section h2 {
-    font-size: 2.5rem; /* Ajusta esto según tu diseño */
-    margin-bottom: 20px;
-}
-
-.testimonials-section p {
-    margin-bottom: 50px; /* Ajusta esto según tu diseño */
-    font-size: 1.2rem; /* Ajusta esto según tu diseño */
 }
 
 /* Media queries para responsividad */
 @media (max-width: 992px) {
-    .testimonials-header {
-        max-width: 70%;
-    }
+    /* Ajustes intermedios si es necesario */
 }
 
 @media (max-width: 768px) {
+
+    .navbar {
+        padding: 0.5rem; /* Ajusta el padding para vistas más pequeñas si es necesario */
+        padding-top: 0.25rem; /* Ajustar según sea necesario */
+        padding-bottom: 0.25rem; /* Ajustar según sea necesario */
+    }
+
     .navbar .nav-links {
-    display: none; /* Cambia a un menú de hamburguesa si es necesario */
+        display: none;
+    }
+
+    .navbar .logo {
+        width: 50px; /* Reduce el tamaño del círculo para dispositivos móviles */
+        height: 50px; /* Reduce el tamaño del círculo para dispositivos móviles */
+        left: 0.5rem; /* Ajusta la posición horizontal para vistas más pequeñas */
     }
 
     .navbar .logo img {
-        height: 40px;
+        height: 80%; /* Asegúrate de que el logo se ajusta bien dentro del círculo más pequeño */
     }
     
-    .testimonials-section {
+    .intro-section, .events-section, .sponsors-section, .champions-section, .testimonials-section {
         padding: 50px 0;
     }
-    
-    .testimonials-section h2 {
+
+    .intro-section h1, .events-section h2, .sponsors-section h2, .champions-section h2, .testimonials-section h2 {
         font-size: 2rem;
     }
+
+    .intro-section p, .sponsors-section p, .champions-section p, .testimonials-section p {
+        font-size: 1rem;
+    }
     
-    .testimonials-section p {
+    .contact-button, .event-card .sponsor-button {
+        padding: 8px 20px;
         font-size: 1rem;
     }
 }
+
