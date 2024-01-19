@@ -10,16 +10,37 @@ body, html {
     height: 100%;
     font-family: 'Arial', sans-serif;
     scroll-behavior: smooth;
-    background-color: #EAE7F8;
+    background-color: #eeeafe;
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1500px; /*Contenedor Home*/
     margin: 0 auto;
+}
+
+.questrial-regular {
+    font-family: 'Questrial', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.montserrat-regular {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400; /* Ajusta el peso según necesites */
+    font-style: normal;
+}
+
+/* Ajuste de anclaje para navegación interna */
+:target::before {
+    content: '';
+    display: block;
+    height: 80px; /* Altura de tu navbar */
+    margin: -80px 0 0; /* Negativo de la altura de tu navbar */
 }
 
 /* Barra de navegación */
 .navbar {
+    font-family: 'Montserrat', sans-serif; /* Aplica Montserrat a los enlaces de navegación */
     background: linear-gradient(to right, #e3c0ff, #dfbeff, #7d97ff, #6060ea);
     position: relative;
     display: flex;
@@ -79,6 +100,7 @@ body, html {
     color: #ffffff;
     font-weight: bold;
     transition: color 0.3s ease;
+    font-family: 'Montserrat', sans-serif; /* Aplica Montserrat a los enlaces de navegación */
 }
 
 .nav-links a:hover {
@@ -88,31 +110,41 @@ body, html {
 
 /* Sección de introducción */
 .intro-section {
-    background: linear-gradient(135deg, #B6AEFF 0%, #EAE7F8 100%);
-    text-align: center;
-    padding: 150px 0;
-    color: #4A4E69;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Esto separará el contenido y la imagen */
+    min-height: 100vh; /* Asegura que la sección ocupe al menos toda la altura de la ventana */
     position: relative;
-    overflow: hidden;
+    border: none;
+    box-shadow: none;
 }
 
 .intro-section h1 {
-    font-size: 3.5rem; /* Ajusta el tamaño según el diseño */
-    color: #4A4E69;
+    font-size: 7rem; /* Ajusta el tamaño según el diseño */
+    color: #7694ff;
     margin-bottom: 0.5rem;
+    font-weight: 750;
+}
+
+.intro-section h2 {
+    font-size: 3rem;
+    color: #ccb7ff;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
 }
 
 .intro-section p {
-    font-size: 1.5rem; /* Ajusta el tamaño según el diseño */
+    font-size: 1.65rem; /* Ajusta el tamaño según el diseño */
     margin-bottom: 2rem;
-    max-width: 600px;
+    max-width: 700px;
     margin-left: auto;
     margin-right: auto;
-    color: #5D5C61;
+    color: #a6a6a6;
+    text-align: center;
 }
 
 .contact-button {
-    background-color: #C9ADA7;
+    background: linear-gradient(to right, #e3c0ff, #dfbeff, #7d97ff, #6060ea);
     color: #FFFFFF;
     padding: 15px 35px;
     border-radius: 30px;
@@ -120,10 +152,34 @@ body, html {
     text-decoration: none;
     display: inline-block;
     margin-top: 1.5rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
 }
 
-/* Ajustes para el fondo de la sección Home, si es necesario */
+/* Ajustes para el contenido Home y la imagen */
+
+.home-image {
+    flex: 1;
+    padding: 20px;
+    border: none;
+    box-shadow: none;
+}
+
+.home-content {
+    flex: 1; /* Esto permite que el contenido tome la mitad del espacio disponible */
+    padding: 20px; /* Ajusta el relleno según sea necesario */
+    margin-right: auto; /* Empuja el contenido hacia la izquierda */
+    /* Si necesitas un ajuste más fino, puedes especificar un padding a la derecha */
+    text-align: left; /* Alinea el texto a la izquierda */
+    /* Asegúrate de que el ancho máximo del contenido no sea tan grande como para empujar la imagen fuera de la pantalla */
+    max-width: 55%; /* Disminuye si el texto está demasiado cerca de la imagen */
+}
+
+.home-image img {
+    width: 115%; /* Asegura que la imagen se expanda para llenar la división */
+    max-width: none; /* Puedes ajustar esto según el tamaño deseado */
+    height: auto; /* Mantiene la proporción de la imagen */
+}icon
+
 .intro-section::before {
     content: '';
     position: absolute;
@@ -160,52 +216,175 @@ footer {
     font-size: 0.9rem;
 }
 
-/* Sección de eventos */
-.events-container, .event-cards-container {
+.events-section {
+    padding-top: 130px; /* Aumenta esto para compensar la altura de tu barra de navegación fija */
+    padding-bottom: 30px;
+    text-align: center;
+    min-height: 100vh; /* Asegura que la sección ocupe al menos toda la altura de la ventana */
+}
+
+/* Asegúrate de que el título tenga suficiente espacio en la parte superior */
+.section-title {
+    font-size: 2.5rem; /* Ajusta el tamaño de la fuente según sea necesario */
+    color: #5c3d99;
+}
+
+.events-section h1 {
+    font-size: 5rem; /* Ajusta el tamaño según el diseño */
+    color: #7694ff;
+    font-weight: 660;
+}
+
+.events-section h2 {
+    font-size: 1.8rem; /* Ajusta el tamaño según el diseño */
+    color: #ccb7ff;
+    font-weight: 750;
+}
+
+.events-section h3 {
+    font-size: 2rem; /* Ajusta el tamaño según el diseño */
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+    font-weight: 750;
+}
+  
+/* Para centrar la tarjeta del evento y hacerla más grande */
+
+  .events-container {
     display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    margin-top: 30px;
-}
-
+    justify-content: center; /* Esto centrará la tarjeta horizontalmente */
+    align-items: center; /* Esto centrará la tarjeta verticalmente */
+    height: 765px; /* Ajusta la altura para centrarla verticalmente */
+    gap: 30px;
+  }
+  
+/* Estilos para todas las tarjetas de eventos */
 .event-card {
-    width: 300px;
-    background-color: #fff;
+    /* Estilos comunes a todas las tarjetas */
+    background: #6060ea;
     border-radius: 20px;
-    margin: 20px;
     padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 320px; /* Ajusta el ancho según sea necesario */
+    height: 600px; /* Ajustar el alto */
+    color: white;
+    text-align: center;
+    margin: auto;
+    transition: transform 0.3s ease-in-out;
     position: relative;
-    overflow: hidden;
-}
 
-.event-card img {
-    width: 100%;
-    height: auto;
-    margin-bottom: 20px;
-}
+  }
 
-.event-card h3 {
-    color: #4A4E69;
-    margin-bottom: 15px;
-}
+/* Estilos específicos para las tarjetas laterales */
+.side-card {
+    /* Cambia el fondo o cualquier otro estilo para diferenciar */
+    background: #9a86ff; /* Un tono más claro para las tarjetas laterales, por ejemplo */
+    /* Otros estilos específicos para las tarjetas laterales si es necesario */
+  }
+  
+  /* Estilos específicos para la tarjeta central */
+  .center-card {
+    /* Resalta la tarjeta central con un sombreado o cualquier otro estilo */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Un sombreado más prominente */
+    /* Otros estilos específicos para la tarjeta central si es necesario */
+  }
+  
+  /* Estilos para cuando se pase el ratón por encima de las tarjetas laterales */
+  .side-card:hover {
+    /* Un efecto más suave para las tarjetas laterales, por ejemplo */
+    transform: scale(1.02); /* Menos escala para un efecto más sutil */
+  }
+  
+  /* Estilos para cuando se pase el ratón por encima de la tarjeta central */
+  .center-card:hover {
+    /* Un efecto más dinámico para la tarjeta central */
+    transform: scale(1.05); /* Más escala para destacar */
+  }
 
-.event-card p {
-    color: #5D5C61;
-    margin-bottom: 15px;
-}
-
-.event-card .price-tag {
+  /* Agregamos el pseudo-elemento ::after para crear el reflejo */
+.event-card::after {
+    content: "";
     position: absolute;
-    top: 20px;
-    right: 20px;
-    background-color: #C9ADA7;
-    color: #fff;
-    padding: 5px 10px;
-    border-radius: 25px;
-    text-transform: uppercase;
-    font-weight: bold;
+    top: 100%; /* Posiciona el reflejo debajo de la tarjeta */
+    left: 0;
+    width: 100%;
+    height: 20px; /* Altura del reflejo */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 85%); /* Usamos un gradiente lineal para el reflejo */
+    border-radius: 20px; /* Mismo radio que la tarjeta principal */
 }
+
+/* Estilos específicos para los fondos de las tarjetas */
+.event-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1; /* Para que quede detrás del contenido de la tarjeta */
+    background: url('recursos/FONDO-EVENTOS.png') no-repeat center/cover; 
+    border-radius: 20px; /* Igual que la tarjeta para mantener la forma */
+    /* No es necesario escalar porque no usamos overflow: hidden; */
+    opacity: 1; /* Visible */
+}
+  /* Si deseas diferentes formas para cada tarjeta, puedes asignar clases adicionales */
+.side-card::before {
+    background: url('recursos/FONDO-EVENTOS.png') no-repeat center/cover;
+}
+  
+  .center-card::before {
+    /* Ajusta el fondo para la tarjeta central */
+    background: url('recursos/FONDO-EVENTOS.png') no-repeat center/cover;
+  }
+  
+
+  .event-card-header {
+    margin-bottom: 20px;
+  }
+  
+  .event-icon {
+    border-radius: 50%;
+    background: #ffffff;
+    width: 76px; /* Adjust as necessary */
+    height: auto;
+    transform: translateY(-75%); /* Desplazar hacia arriba la mitad de su propia altura para centrarlo verticalmente */
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3); /* Sombra desplazada hacia la derecha */
+    
+  }
+  
+  .event-title {
+    font-size: 1.8rem;
+    margin: 0;
+  }
+  
+  .event-details {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+  }
+  
+  .event-details li {
+    margin-bottom: 10px;
+  }
+  
+  .event-price {
+    font-size: 2.4rem;
+    margin: 20px 0;
+  }
+  
+  .event-button {
+    text-decoration: none;
+    background-color: white;
+    color: #5c3d99;
+    padding: 10px 30px;
+    border-radius: 20px;
+    display: inline-block;
+    transition: background-color 0.3s;
+  }
+  
+  .event-button:hover {
+    background-color: #e7e4f3;
+  }
+  
 
 /* Media queries */
 @media (max-width: 992px) {
@@ -245,8 +424,12 @@ footer {
     .navbar .logo img {
         height: 80%; /* Asegúrate de que el logo se ajusta bien dentro del círculo más pequeño */
     }
-    
-    .intro-section, .events-section, .sponsors-section, .champions-section, .testimonials-section {
+
+    .intro-section {
+        flex-direction: column;
+    }
+
+    .events-section .sponsors-section, .champions-section, .testimonials-section {
         padding: 50px 0;
     }
 
