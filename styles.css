@@ -178,7 +178,7 @@ body, html {
     width: 115%; /* Asegura que la imagen se expanda para llenar la división */
     max-width: none; /* Puedes ajustar esto según el tamaño deseado */
     height: auto; /* Mantiene la proporción de la imagen */
-}icon
+}
 
 .intro-section::before {
     content: '';
@@ -194,7 +194,7 @@ body, html {
 }
 
 /* Botones de contacto */
-.contact-button, .event-card .sponsor-button {
+.contact-button, .sponsor-button {
     background-color: #C9ADA7;
     color: #fff;
     padding: 10px 25px;
@@ -216,174 +216,201 @@ footer {
     font-size: 0.9rem;
 }
 
+/* Estilos generales para la sección de eventos */
 .events-section {
-    padding-top: 130px; /* Aumenta esto para compensar la altura de tu barra de navegación fija */
+    padding-top: 150px; /* Aumento del espacio superior para alejar las tarjetas del título */
     padding-bottom: 30px;
     text-align: center;
-    min-height: 100vh; /* Asegura que la sección ocupe al menos toda la altura de la ventana */
+    min-height: 100vh;
+    background: linear-gradient(to right, #EEEAFE, #ffffff, #EEEAFE); /* Fondo gradiente suave */
 }
 
-/* Asegúrate de que el título tenga suficiente espacio en la parte superior */
+/* Contenedor de tarjetas de eventos */
+.event-cards-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 150px; /* Espacio entre las tarjetas */
+}
+
+/* Contenedor individual de cada tarjeta, ajustando el tamaño */
+.event-card-container {
+    width: 50%; /* Hace que las tarjetas sean mas delgadas */
+    margin: 20px;
+    position: relative;
+}
+
+
+
+/* Estilos para los títulos de sección dentro de events-section */
 .section-title {
-    font-size: 2.5rem; /* Ajusta el tamaño de la fuente según sea necesario */
-    color: #5c3d99;
+    font-size: 2.5rem; /* Tamaño de la fuente para el título de la sección */
+    color: #5c3d99; /* Color del título de la sección */
 }
 
 .events-section h1 {
-    font-size: 5rem; /* Ajusta el tamaño según el diseño */
-    color: #7694ff;
-    font-weight: 660;
+    font-size: 5rem; /* Tamaño de la fuente para h1 dentro de events-section */
+    color: #7694ff; /* Color para h1 */
+    font-weight: 660; /* Grosor de la fuente para h1 */
+    margin-bottom: 4rem; /* Margen inferior para h1 */
 }
 
 .events-section h2 {
-    font-size: 1.8rem; /* Ajusta el tamaño según el diseño */
-    color: #ccb7ff;
-    font-weight: 750;
+    font-size: 1.9rem; /* Tamaño de la fuente para h2 dentro de events-section */
+    color: #ccb7ff; /* Color para h2 */
+    font-weight: 750; /* Grosor de la fuente para h2 */
+    margin-bottom: -1.2rem; /* Margen inferior para h2 */
 }
 
 .events-section h3 {
-    font-size: 2rem; /* Ajusta el tamaño según el diseño */
-    color: #ffffff;
-    margin-bottom: 0.5rem;
-    font-weight: 750;
+    font-size: 2rem; /* Tamaño de la fuente para h3 dentro de events-section */
+    color: #ffffff; /* Color para h3 */
+    font-weight: 750; /* Grosor de la fuente para h3 */
 }
-  
-/* Para centrar la tarjeta del evento y hacerla más grande */
 
-  .events-container {
-    display: flex;
-    justify-content: center; /* Esto centrará la tarjeta horizontalmente */
-    align-items: center; /* Esto centrará la tarjeta verticalmente */
-    height: 765px; /* Ajusta la altura para centrarla verticalmente */
-    gap: 30px;
-  }
-  
-/* Estilos para todas las tarjetas de eventos */
+
+
+
+/* Fondo detrás de las tarjetas, ajustando el tamaño y posición */
+.event-background {
+    position: absolute;
+    top: -155px; /* Aumenta el espacio negativo para un fondo (imagen) más grande */
+    right: -89px;
+    bottom: -80px;
+    left: -103px;
+    background: url('recursos/FondoEventos.png') center/cover no-repeat;
+    border-radius: 35px; /* Bordes redondeados más suaves */
+    z-index: 1;
+}
+
+/* Estilos comunes para todas las tarjetas, ajustando el tamaño */
 .event-card {
-    /* Estilos comunes a todas las tarjetas */
-    background: #6060ea;
-    border-radius: 20px;
-    padding: 20px;
-    width: 320px; /* Ajusta el ancho según sea necesario */
-    height: 600px; /* Ajustar el alto */
-    color: white;
-    text-align: center;
-    margin: auto;
-    transition: transform 0.3s ease-in-out;
-    position: relative;
-
-  }
-
-/* Estilos específicos para las tarjetas laterales */
-.side-card {
-    /* Cambia el fondo o cualquier otro estilo para diferenciar */
-    background: #9a86ff; /* Un tono más claro para las tarjetas laterales, por ejemplo */
-    /* Otros estilos específicos para las tarjetas laterales si es necesario */
-  }
-  
-  /* Estilos específicos para la tarjeta central */
-  .center-card {
-    /* Resalta la tarjeta central con un sombreado o cualquier otro estilo */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Un sombreado más prominente */
-    /* Otros estilos específicos para la tarjeta central si es necesario */
-  }
-  
-  /* Estilos para cuando se pase el ratón por encima de las tarjetas laterales */
-  .side-card:hover {
-    /* Un efecto más suave para las tarjetas laterales, por ejemplo */
-    transform: scale(1.02); /* Menos escala para un efecto más sutil */
-  }
-  
-  /* Estilos para cuando se pase el ratón por encima de la tarjeta central */
-  .center-card:hover {
-    /* Un efecto más dinámico para la tarjeta central */
-    transform: scale(1.05); /* Más escala para destacar */
-  }
-
-  /* Agregamos el pseudo-elemento ::after para crear el reflejo */
-.event-card::after {
-    content: "";
-    position: absolute;
-    top: 100%; /* Posiciona el reflejo debajo de la tarjeta */
-    left: 0;
-    width: 100%;
-    height: 20px; /* Altura del reflejo */
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 85%); /* Usamos un gradiente lineal para el reflejo */
-    border-radius: 20px; /* Mismo radio que la tarjeta principal */
-}
-
-/* Estilos específicos para los fondos de las tarjetas */
-.event-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: -1; /* Para que quede detrás del contenido de la tarjeta */
-    background: url('recursos/FONDO-EVENTOS.png') no-repeat center/cover; 
-    border-radius: 20px; /* Igual que la tarjeta para mantener la forma */
-    /* No es necesario escalar porque no usamos overflow: hidden; */
-    opacity: 1; /* Visible */
-}
-  /* Si deseas diferentes formas para cada tarjeta, puedes asignar clases adicionales */
-.side-card::before {
-    background: url('recursos/FONDO-EVENTOS.png') no-repeat center/cover;
-}
-  
-  .center-card::before {
-    /* Ajusta el fondo para la tarjeta central */
-    background: url('recursos/FONDO-EVENTOS.png') no-repeat center/cover;
-  }
-  
-
-  .event-card-header {
-    margin-bottom: 20px;
-  }
-  
-  .event-icon {
-    border-radius: 50%;
     background: #ffffff;
-    width: 76px; /* Adjust as necessary */
-    height: auto;
-    transform: translateY(-75%); /* Desplazar hacia arriba la mitad de su propia altura para centrarlo verticalmente */
-    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3); /* Sombra desplazada hacia la derecha */
-    
-  }
-  
-  .event-title {
-    font-size: 1.8rem;
-    margin: 0;
-  }
-  
-  .event-details {
-    list-style: none;
-    padding: 0;
-    text-align: left;
-  }
-  
-  .event-details li {
-    margin-bottom: 10px;
-  }
-  
-  .event-price {
-    font-size: 2.4rem;
-    margin: 20px 0;
-  }
-  
-  .event-button {
-    text-decoration: none;
-    background-color: white;
-    color: #5c3d99;
-    padding: 10px 30px;
-    border-radius: 20px;
+    border-radius: 25px;
+    box-shadow: 
+        0 4px 8px rgba(0, 0, 0, 0.5), /* Sombra existente para resaltar la tarjeta */
+        0 20px 25px -5px rgba(0, 0, 0, 0.7), /* Sombra difusa debajo de la tarjeta */
+        0 10px 10px -5px rgba(0, 0, 0, 0.3); /* Sombra más pequeña para un efecto más suave */
+    overflow: visible;
+    text-align: center;
+    padding: 10rem 3rem; /* Se reduce el padding horizontal para dar más espacio a la lista */
+    position: relative;
+    z-index: 2;
+}
+
+
+
+/* Estilos para el logo dentro del encabezado de la tarjeta */
+.event-card-header .event-logo {
+    width: 88px;
+    height: 88px;
+    position: absolute;
+    top: -44px; /* Ajusta la posición para que el logo no se corte */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 9rem;
+}
+
+/* Estilos para el título dentro de la tarjeta */
+.event-title {
+    font-size: 1.5rem; /* Tamaño de la fuente para el título */
+    color: #333; /* Color del texto */
+    margin-top: -85px; /* Espacio en la parte superior para dar espacio al logo */
+}
+
+/* Estilos para la lista de características de la tarjeta */
+.event-features {
+    list-style: none; /* Elimina los estilos por defecto de la lista */
+    padding: 0; /* Elimina el relleno por defecto */
+    margin: 20px 0; /* Margen vertical para separar de otros elementos */
+    text-align: left; /* Alinea el texto a la izquierda */
+}
+
+/* Estilos para los ítems de la lista de características */
+.event-features li {
+    font-size: 1rem; /* Tamaño de la fuente para los ítems */
+    margin-bottom: 10px; /* Espacio entre ítems */
+    display: flex; /* Alinea los ítems en una fila */
+    align-items: center; /* Alinea los ítems verticalmente */
+    gap: 10px; /* Espacio entre el ícono y el texto */
+}
+
+.event-features img {
+    width: 100px; /* Ajusta esto al tamaño de tus íconos */
+    height: auto; /* Mantiene la proporción del ícono */
+}
+
+/* Estilos para el precio dentro de la tarjeta */
+.event-price {
+    font-size: 2rem; /* Tamaño de la fuente para el precio */
+    color: #333; /* Color del texto */
+    margin: 20px 0; /* Margen vertical para separar de otros elementos */
+}
+
+.event-button {
     display: inline-block;
-    transition: background-color 0.3s;
-  }
-  
-  .event-button:hover {
-    background-color: #e7e4f3;
-  }
+    padding: 10px 30px;
+    color: #fff;
+    background-color: transparent; /* Fondo transparente */
+    text-decoration: none;
+    font-size: 1rem;
+    border: 3px solid transparent; /* Establece un borde transparente */
+    border-radius: 20px; /* Redondea las esquinas */
+    background-image: linear-gradient(transparent, transparent), /* Fondo transparente */
+                      linear-gradient(to right, #e3c0ff, #dfbeff, #7d97ff, #6060ea); /* Degradado para el borde */
+    background-origin: border-box; /* El degradado del borde se aplica dentro del borde */
+    background-clip: content-box, border-box; /* Clip del fondo al área de contenido y al borde */
+}
+
+
+/* Estilos para el estado hover del botón */
+.event-button:hover {
+    background-color: #7d97ff; /* Color de fondo cuando el cursor pasa sobre el botón */
+}
+
+/* Estilos específicos para tarjetas individuales */
+/* Tarjeta izquierda */
+.event-card-container:first-child .event-card {
+    background-color: #EEEAFE; /* Color para la tarjeta izquierda */
+    h3 {
+        color: #7694FF; /* Color para el título de la tarjeta izquierda */
+        font-size: 2.6rem;
+        font-weight: 550;
+
+    }
+}
+
+/* Tarjeta central */
+.event-card-container:nth-child(2) .event-card {
+    background-color: #6060EA; /* Color para la tarjeta central */
+    h3 {
+        color: #fff; /* Color para el título de la tarjeta central */
+        font-size: 2.6rem;
+        font-weight: 550;
+    }
+        
+
+    li {
+        color: #fff; /* Color para los ítems de la lista */
+    }
+}
+
+/* Tarjeta derecha */
+.event-card-container:last-child .event-card {
+    background-color: #EEEAFE; /* Color para la tarjeta derecha */
+    h3 {
+        color: #7694FF; /* Color para el título de la tarjeta izquierda */
+        font-size: 2.6rem;
+        font-weight: 550;
+
+    }
+}
+
+
+
   
 
 /* Media queries */
@@ -396,11 +423,29 @@ footer {
     .event-card {
         width: 80%;
     }
+
+    .event-card-container {
+        width: 80%;
+    }
+
 }
 
 /* Media queries para responsividad */
 @media (max-width: 992px) {
-    /* Ajustes intermedios si es necesario */
+
+    .event-cards-container {
+        flex-direction: column;
+    }
+    .event-card-container {
+        width: 80%; /* Ajusta el ancho para pantallas más pequeñas */
+    }
+
+    .event-background {
+        top: -15px;
+        right: -15px;
+        bottom: -15px;
+        left: -15px; /* Ajusta el fondo para pantallas más pequeñas */
+    }
 }
 
 @media (max-width: 768px) {
@@ -441,7 +486,7 @@ footer {
         font-size: 1rem;
     }
     
-    .contact-button, .event-card .sponsor-button {
+    .contact-button, .sponsor-button {
         padding: 8px 20px;
         font-size: 1rem;
     }
