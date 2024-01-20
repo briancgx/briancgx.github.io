@@ -536,5 +536,61 @@ footer {
         padding: 1.5rem;
     }
 
+    @media (max-width: 480px) {
+        .navbar .logo {
+            width: 40px;
+            height: 40px;
+        }
+    
+        .navbar .logo img {
+            height: 30px;
+        }
+    
+        .nav-links li {
+            padding: 10px 5px;
+        }
+    
+        .intro-section h1, .events-section h1, .sponsors-section h1, .champions-section h1, .testimonials-section h1 {
+            font-size: 2.5rem;
+        }
+    
+        .intro-section h2, .events-section h2, .sponsors-section h2, .champions-section h2, .testimonials-section h2 {
+            font-size: 1.5rem;
+        }
+    
+        .intro-section p, .events-section p, .sponsors-section p, .champions-section p, .testimonials-section p {
+            font-size: 0.9rem;
+        }
+    
+        .event-card {
+            padding: 1rem;
+        }
+    
+        /* Otros ajustes estilísticos específicos para dispositivos muy pequeños */
+    }
+
+    @media (min-width: 1920px) {
+        .container {
+            max-width: 1800px; /* Ajustar según sea necesario */
+            margin: 0 auto;
+        }
+    
+        .intro-section h1, .events-section h1, .sponsors-section h1, .champions-section h1, .testimonials-section h1 {
+            font-size: 8rem; /* Tamaño de fuente más grande */
+        }
+    
+        .intro-section h2, .events-section h2, .sponsors-section h2, .champions-section h2, .testimonials-section h2 {
+            font-size: 4rem;
+        }
+    
+        .event-card-container {
+            width: 30%; /* Ajustar el ancho de las tarjetas */
+        }
+    
+        /* Otros ajustes estilísticos específicos para pantallas grandes */
+    }
+    
+    
+
 }
 
