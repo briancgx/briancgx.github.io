@@ -59,11 +59,16 @@ body, html {
     border-bottom-left-radius: 40px; /* Redondea la esquina inferior izquierda */
     border-bottom-right-radius: 40px; /* Redondea la esquina inferior derecha */
     justify-content: flex-start; /* Cambiado para alinear el logo a la izquierda */
+    justify-content: space-between; /* Cambiado para alinear el logo a la izquierda */
 }
 
 .navbar-toggle {
-    display: none; /* Oculto por defecto */
+    display: none; /* Se ocultará por defecto y solo se mostrará en pantallas pequeñas */
     cursor: pointer;
+    position: absolute; /* Posición absoluta para colocarlo donde quieras */
+    top: 0; /* Ajusta esto según la altura de tu navbar */
+    right: 0; /* Coloca el menú a la derecha */
+    padding: 0.5rem 1rem; /* Espaciado para el área clickeable */
 }
 
 .navbar-toggle .bar {
@@ -495,6 +500,7 @@ footer {
     }
 }
 /* Estilos para teléfonos móviles en modo retrato y dispositivos más pequeños (hasta 767px) */
+
 @media (max-width: 767px) {
     /* Ajustes para la barra de navegación */
     .navbar {
@@ -525,6 +531,9 @@ footer {
     }
 
     .navbar .logo {
+        position: absolute;
+        left: 0;
+        top: 0;
         width: 50px;
         height: 50px;
     }
