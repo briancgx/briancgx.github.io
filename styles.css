@@ -509,6 +509,7 @@ footer {
 
     .navbar-toggle {
         display: block;
+        top: 10px;
     }
 
     .nav-links {
