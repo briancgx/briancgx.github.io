@@ -61,6 +61,21 @@ body, html {
     justify-content: flex-start; /* Cambiado para alinear el logo a la izquierda */
 }
 
+.navbar-toggle {
+    display: none; /* Oculto por defecto */
+    cursor: pointer;
+}
+
+.navbar-toggle .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    background-color: #fff;
+}
+
 /* Logo y navegación */
 .logo {
     background: #FFFFFF; /* Fondo blanco para el círculo */
@@ -410,25 +425,9 @@ footer {
 }
 
 
-
   
 
-/* Media queries */
-@media (max-width: 992px) {
-    .event-cards-container, .events-container {
-        flex-direction: column;
-        align-items: center;
-    }
 
-    .event-card {
-        width: 80%;
-    }
-
-    .event-card-container {
-        width: 80%;
-    }
-
-}
 /* Media Queries para Responsividad */
 
 /* Estilos para tablets y dispositivos móviles (hasta 992px) */
@@ -502,6 +501,29 @@ footer {
         padding: 0.25rem 0.5rem;
     }
 
+    .navbar-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        background-color: #6060ea;
+        right: 0;
+        left: 0;
+        text-align: center;
+        padding-top: 20px;
+    }
+
+    .nav-links.active {
+        display: block;
+    }
+
+    /* Ajustes para tus elementos de navegación */
+    .nav-links li {
+        padding: 15px 0;
+    }
+
     .navbar .logo {
         width: 50px;
         height: 50px;
@@ -535,6 +557,7 @@ footer {
     .event-card {
         padding: 1.5rem;
     }
+}
 
     @media (max-width: 480px) {
         .navbar .logo {
@@ -592,5 +615,5 @@ footer {
     
     
 
-}
+
 

@@ -13,12 +13,11 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-    // Toggle para el menú hamburguesa
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
+document.addEventListener('DOMContentLoaded', function () {
+    var mobileMenu = document.getElementById('mobile-menu');
+    var navLinks = document.querySelector('.nav-links');
 
-    menuToggle.addEventListener('click', () => {
+    mobileMenu.addEventListener('click', function () {
         navLinks.classList.toggle('active');
     });
 });
