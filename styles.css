@@ -250,13 +250,13 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 150px; /* Espacio entre las tarjetas */
+    gap: 100px; /* Espacio entre las tarjetas */
 }
 
 /* Contenedor individual de cada tarjeta, ajustando el tamaño */
 .event-card-container {
     width: 50%; /* Hace que las tarjetas sean mas delgadas */
-    margin: 20px;
+    margin: 45px;
     position: relative;
 }
 
@@ -306,7 +306,7 @@ footer {
 /* Estilos comunes para todas las tarjetas, ajustando el tamaño */
 .event-card {
     background: #ffffff;
-    border-radius: 25px;
+    border-radius: 18px;
     box-shadow: 
         0 4px 8px rgba(0, 0, 0, 0.5), /* Sombra existente para resaltar la tarjeta */
         0 20px 25px -5px rgba(0, 0, 0, 0.7), /* Sombra difusa debajo de la tarjeta */
