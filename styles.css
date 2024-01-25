@@ -52,12 +52,12 @@ body, html {
     position: fixed;
     top: 0;
     left: 0;
+    height: 66px; /* Reduce la altura de la navbar */
     width: 100%;
     z-index: 1000;
     transition: padding 0.3s ease;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
-    height: 80px;
     border-bottom-left-radius: 40px; /* Redondea la esquina inferior izquierda */
     border-bottom-right-radius: 40px; /* Redondea la esquina inferior derecha */
     justify-content: flex-start; /* Cambiado para alinear el logo a la izquierda */
@@ -89,7 +89,7 @@ body, html {
     position: absolute;
     border-radius: 50%; /* Hace que el fondo sea circular */
     transform: translateY(50%); /* Desplazar hacia arriba la mitad de su propia altura para centrarlo verticalmente */
-    top: 10%; /* Posiciona el logo a la mitad de la altura del navbar */
+    top: 2%; /* Posiciona el logo a la mitad de la altura del navbar */
     left: 2rem; /* Aumenta la distancia desde la izquierda para mover el logo hacia la derecha */
     margin-top: 0; /* Elimina el margen superior si existe */
     /* Ajusta el siguiente valor para que el logo quede a la mitad fuera de la barra */
@@ -98,13 +98,13 @@ body, html {
     display: flex; /* Centra la imagen del logo */
     justify-content: center;
     align-items: center;
-    width: 80px; /* Tamaño del círculo */
-    height: 80px; /* Tamaño del círculo */
+    width: 70px; /* Tamaño del círculo */
+    height: 70px; /* Tamaño del círculo */
 
 }
 
 .logo img {
-    height: 60px;
+    height: 50px;
 }
 
 .nav-links {
