@@ -21,3 +21,18 @@ document.addEventListener('DOMContentLoaded', function () {
         navLinks.classList.toggle('active');
     });
 });
+
+
+  /* JavaScript para cambiar los slides suavemente */
+document.addEventListener('DOMContentLoaded', () => {
+    let slides = document.querySelectorAll('.sponsors-slide');
+    let currentSlide = 0;
+
+    setInterval(() => {
+        slides[currentSlide].classList.remove('active');
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].classList.add('active');
+    }, 3000); // Cambia cada 3 segundos
+});
+
+  

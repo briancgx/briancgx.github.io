@@ -11,6 +11,8 @@ body, html {
     font-family: 'Arial', sans-serif;
     scroll-behavior: smooth;
     background-color: #eeeafe;
+    max-width: 100vw;
+    overflow-x: hidden;
 }
 
 .container {
@@ -140,21 +142,21 @@ body, html {
 }
 
 .intro-section h1 {
-    font-size: 7rem; /* Ajusta el tamaño según el diseño */
+    font-size: 6.5rem; /* Ajusta el tamaño según el diseño */
     color: #7694ff;
     margin-bottom: 0.5rem;
     font-weight: 750;
 }
 
 .intro-section h2 {
-    font-size: 3rem;
+    font-size: 2.5rem;
     color: #ccb7ff;
     margin-bottom: 0.5rem;
     font-weight: 500;
 }
 
 .intro-section p {
-    font-size: 1.65rem; /* Ajusta el tamaño según el diseño */
+    font-size: 1.25rem; /* Ajusta el tamaño según el diseño */
     margin-bottom: 2rem;
     max-width: 700px;
     margin-left: auto;
@@ -163,17 +165,7 @@ body, html {
     text-align: center;
 }
 
-.contact-button {
-    background: linear-gradient(to right, #e3c0ff, #dfbeff, #7d97ff, #6060ea);
-    color: #FFFFFF;
-    padding: 15px 35px;
-    border-radius: 30px;
-    font-size: 1.2rem;
-    text-decoration: none;
-    display: inline-block;
-    margin-top: 1.5rem;
-    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
-}
+
 
 /* Ajustes para el contenido Home y la imagen */
 
@@ -195,7 +187,7 @@ body, html {
 }
 
 .home-image img {
-    width: 115%; /* Asegura que la imagen se expanda para llenar la división */
+    width: 100%; /* Asegura que la imagen se expanda para llenar la división */
     max-width: none; /* Puedes ajustar esto según el tamaño deseado */
     height: auto; /* Mantiene la proporción de la imagen */
 }
@@ -214,7 +206,7 @@ body, html {
 }
 
 /* Botones de contacto */
-.contact-button, .sponsor-button {
+.sponsor-button {
     background-color: #C9ADA7;
     color: #fff;
     padding: 10px 25px;
@@ -224,7 +216,7 @@ body, html {
     display: inline-block;
 }
 
-.contact-button:hover, .event-card .sponsor-button:hover {
+.event-card .sponsor-button:hover {
     background-color: #9A8C98;
 }
 
@@ -250,13 +242,13 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 100px; /* Espacio entre las tarjetas */
+    gap: 80px; /* Espacio entre las tarjetas */
 }
 
 /* Contenedor individual de cada tarjeta, ajustando el tamaño */
 .event-card-container {
-    width: 50%; /* Hace que las tarjetas sean mas delgadas */
-    margin: 45px;
+    width: 20%; /* Hace que las tarjetas sean mas delgadas */
+    margin: 12px 40px; /* Reducción del margen: arriba/abajo izquierda/derecha */
     position: relative;
 }
 
@@ -269,38 +261,38 @@ footer {
 }
 
 .events-section h1 {
-    font-size: 5rem; /* Tamaño de la fuente para h1 dentro de events-section */
+    font-size: 4rem; /* Tamaño de la fuente para h1 dentro de events-section */
     color: #7694ff; /* Color para h1 */
     font-weight: 660; /* Grosor de la fuente para h1 */
-    margin-bottom: 4rem; /* Margen inferior para h1 */
+    margin-bottom: 2rem; /* Margen inferior para h1 */
 }
 
 .events-section h2 {
-    font-size: 1.9rem; /* Tamaño de la fuente para h2 dentro de events-section */
+    font-size: 1.2rem; /* Tamaño de la fuente para h2 dentro de events-section */
     color: #ccb7ff; /* Color para h2 */
     font-weight: 750; /* Grosor de la fuente para h2 */
     margin-bottom: -1.2rem; /* Margen inferior para h2 */
+    margin-top: -3.5rem; /* Margen superior para h1 */
 }
 
 .events-section h3 {
-    font-size: 2rem; /* Tamaño de la fuente para h3 dentro de events-section */
+    font-size: 1rem; /* Tamaño de la fuente para h3 dentro de events-section */
     color: #ffffff; /* Color para h3 */
     font-weight: 750; /* Grosor de la fuente para h3 */
 }
 
 
-
-
 /* Fondo detrás de las tarjetas, ajustando el tamaño y posición */
 .event-background {
     position: absolute;
-    top: -155px; /* Aumenta el espacio negativo para un fondo (imagen) más grande */
-    right: -89px;
-    bottom: -80px;
-    left: -103px;
+    top: -5px;
+    right: 40px;
+    bottom: 90px;
+    left: 25px;
     background: url('recursos/FondoEventos.png') center/cover no-repeat;
-    border-radius: 35px; /* Bordes redondeados más suaves */
+    border-radius: 35px;
     z-index: 1;
+    margin: -120px; /* Ajusta el margen para extender el fondo hacia fuera */
 }
 
 /* Estilos comunes para todas las tarjetas, ajustando el tamaño */
@@ -313,7 +305,7 @@ footer {
         0 10px 10px -5px rgba(0, 0, 0, 0.3); /* Sombra más pequeña para un efecto más suave */
     overflow: visible;
     text-align: center;
-    padding: 10rem 3rem; /* Se reduce el padding horizontal para dar más espacio a la lista */
+    padding: 4rem 1rem; /* Se reduce el padding horizontal para dar más espacio a la lista */
     position: relative;
     z-index: 2;
 }
@@ -322,8 +314,8 @@ footer {
 
 /* Estilos para el logo dentro del encabezado de la tarjeta */
 .event-card-header .event-logo {
-    width: 88px;
-    height: 88px;
+    width: 60px;
+    height: 60px;
     position: absolute;
     top: -44px; /* Ajusta la posición para que el logo no se corte */
     left: 50%;
@@ -336,9 +328,9 @@ footer {
 
 /* Estilos para el título dentro de la tarjeta */
 .event-title {
-    font-size: 1.5rem; /* Tamaño de la fuente para el título */
+    font-size: .7rem; /* Tamaño de la fuente para el título */
     color: #333; /* Color del texto */
-    margin-top: -85px; /* Espacio en la parte superior para dar espacio al logo */
+    margin-top: -15px; /* Espacio en la parte superior para dar espacio al logo */
 }
 
 /* Estilos para la lista de características de la tarjeta */
@@ -429,8 +421,147 @@ footer {
     }
 }
 
+/*Sponsors*/
+.sponsors-carousel-container h1 {
+    font-size: 4.5rem;
+    color: #7694ff;
+    font-weight: 660;
+    margin-bottom: 2rem;
+    text-align: left;
+}
 
-  
+.sponsors-carousel-container h2 {
+    font-size: 2rem;
+    color: #ccb7ff;
+    font-weight: 750;
+    margin-bottom: -0.5rem;
+    margin-top: -3.5rem;
+    text-align: left;
+}
+
+/*Linea debajo del h1*/
+.sponsor-info h1::after {
+    content: ''; /* El pseudo-elemento requiere la propiedad content */
+    display: block; /* Se convierte en un bloque para poder darle ancho y alto */
+    width: 10%; /* El ancho que quieres para la línea */
+    height: 4px; /* El grosor de la línea */
+    background: linear-gradient(to right, #e3c0ff, #dfbeff, #7d97ff, #6060ea); /* Degradado de colores */
+    margin-top: 8px; /* Espacio entre el texto de h1 y la línea */
+    border-radius: 2px; /* Si quieres bordes redondeados en la línea */
+}
+
+
+.sponsors-carousel-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.sponsors-carousel {
+    display: flex;
+    flex-direction: row-reverse; /* Invierte el orden para poner la imagen a la izquierda */
+    width: 100%;
+    height: 100%;
+}
+
+.sponsors-slide {
+    display: flex;
+    flex-direction: row-reverse; /* Imagen a la izquierda, texto a la derecha */
+    width: 100%;
+    height: 100%;
+    position: absolute; /* Posicionamiento absoluto para la transición */
+    top: 0;
+    left: 0; /* Empieza desde el borde izquierdo */
+    opacity: 0; /* Inicia invisible */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Suaviza la transición */
+}
+
+.sponsors-slide.active {
+    opacity: 1; /* Hace visible el slide activo */
+    transform: translateX(0%); /* Posición para el slide activo */
+}
+
+.sponsor-info {
+    width: 50%; /* Ancho del área de texto */
+    padding: 20px;
+    display: flex;
+    flex-direction: column; /* Ordena los elementos internos verticalmente */
+    justify-content: center; /* Centra los elementos internos verticalmente */
+    text-align: left; /* Alinea el texto a la derecha */
+    z-index: 2;
+}
+
+
+.sponsor-image {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Alinea la imagen a la derecha */
+    position: relative; /* Posiciona relativamente los pseudo-elementos dentro */
+    z-index: 2; /* Asegura que la imagen del patrocinador esté por encima de la decorativa */
+}
+
+.sponsor-image img {
+    width: auto; /* Mantiene el aspecto original de la imagen */
+    height: 250px; /* Altura fija para mantener la consistencia */
+    z-index: 3; /* Asegura que la imagen del patrocinador esté por encima de la decorativa */
+}
+
+.sponsor-image::after {
+    content: '';
+    display: block;
+    width: 60%; /* Ancho del pseudo-elemento ajustado al 60% del contenedor */
+    height: 150px; /* Altura del pseudo-elemento */
+    background: url('recursos/FondoSponsor.png') no-repeat center center;
+    background-size: cover; /* Asegura que cubra el área designada */
+    position: absolute; /* Posicionamiento absoluto */
+    top: 180px; /* Ajusta esta propiedad para mover la imagen hacia abajo */
+    left: 130px; /* Ajusta esta propiedad si es necesario */
+    z-index: 1; /* Asegura que la imagen decorativa esté detrás de la imagen del patrocinador */
+}
+
+
+
+/*Fondo imagen sponsor*/
+
+
+.contact-button {
+    background: linear-gradient(to right, #e3c0ff, #dfbeff, #7d97ff, #6060ea); /* Degradado de colores */
+    color: #FFFFFF; /* Color del texto */
+    padding: 10px 20px; /* Espaciado interno alrededor del texto */
+    border-radius: 30px; /* Esquinas redondeadas */
+    font-weight: bold; /* Texto en negrita */
+    font-size: 1rem; /* Tamaño del texto */
+    text-decoration: none; /* Sin subrayado */
+    cursor: pointer; /* Cursor en forma de mano al pasar el mouse */
+    display: inline-block; /* Para aplicar margen y padding */
+    margin-top: 20px; /* Margen superior */
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4); /* Sombra para darle profundidad */
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; /* Transición suave para efectos */
+    outline: none; /* Para evitar el contorno al hacer clic en algunos navegadores */
+}
+
+.contact-button:hover {
+    background-color: #7d97ff; /* Color de fondo al pasar el mouse */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6); /* Sombra más oscura para efecto hover */
+    transform: translateY(-2px); /* Ligeramente elevado al pasar el mouse */
+}
+
+.contact-button:active {
+    background-color: #5d5c61; /* Color de fondo cuando está presionado */
+    transform: translateY(1px); /* Presionado hacia abajo cuando está activo */
+}
+
+.button-container {
+    text-align: left; /* Centra el botón en el contenedor */
+}
+
+
+
 
 
 /* Media Queries para Responsividad */
