@@ -486,8 +486,8 @@ footer {
 }
 
 .sponsor-info {
-    width: 50%; /* Ancho del área de texto */
-    padding: 20px;
+    width: 50%; /* Ajusta el ancho según sea necesario */
+    padding: 20px; /* Ajustar el padding según sea necesario */
     display: flex;
     flex-direction: column; /* Ordena los elementos internos verticalmente */
     justify-content: center; /* Centra los elementos internos verticalmente */
@@ -497,36 +497,35 @@ footer {
 
 
 .sponsor-image {
-    width: 50%;
+    width: calc(50% - 40px); /* Reducir el ancho para compensar el padding */
     display: flex;
     align-items: center;
     justify-content: center; /* Alinea la imagen a la derecha */
+    padding: -20px; /* Ajustar el padding según sea necesario */
     position: relative; /* Posiciona relativamente los pseudo-elementos dentro */
     z-index: 2; /* Asegura que la imagen del patrocinador esté por encima de la decorativa */
 }
 
 .sponsor-image img {
-    width: auto; /* Mantiene el aspecto original de la imagen */
-    height: 250px; /* Altura fija para mantener la consistencia */
+    width: 240px; /* Mantiene el aspecto original de la imagen */
+    height: 240px; /* Altura fija para mantener la consistencia */
     z-index: 3; /* Asegura que la imagen del patrocinador esté por encima de la decorativa */
+    border-radius: 13px; /* Añade bordes redondeados a la imagen */
 }
 
 .sponsor-image::after {
     content: '';
     display: block;
-    width: 60%; /* Ancho del pseudo-elemento ajustado al 60% del contenedor */
-    height: 150px; /* Altura del pseudo-elemento */
-    background: url('recursos/FondoSponsor.png') no-repeat center center;
-    background-size: cover; /* Asegura que cubra el área designada */
-    position: absolute; /* Posicionamiento absoluto */
-    top: 180px; /* Ajusta esta propiedad para mover la imagen hacia abajo */
-    left: 130px; /* Ajusta esta propiedad si es necesario */
-    z-index: 1; /* Asegura que la imagen decorativa esté detrás de la imagen del patrocinador */
+    width: calc(100% + 210px); /* Aumenta el ancho en 60px */
+    height: calc(100% + 210px); /* Aumenta la altura en 60px */
+    background: url('recursos/FondoSponsors.png') no-repeat center center / contain;
+    position: absolute;
+    top: 47.4%;
+    left: 87.1%;
+
+    transform: translate(-50%, -50%); /* Centrado perfecto */
+    z-index: -1;
 }
-
-
-
-/*Fondo imagen sponsor*/
 
 
 .contact-button {
@@ -560,8 +559,47 @@ footer {
     text-align: left; /* Centra el botón en el contenedor */
 }
 
+.sponsor-footer {
+    position: absolute; /* Posición absoluta dentro de su contenedor relativo */
+    bottom: 40px; /* Alineado al fondo de la sección */
+    left: 0; /* Alineado al lado izquierdo de la sección */
+    width: 100%; /* Ocupa todo el ancho de la sección */
+    display: flex;
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center;
+    padding: 10px 0; /* Espacio vertical dentro del footer */
+}
 
+.sponsor-year {
+    font-size: 1.2rem; /* Tamaño de fuente para 'sponsor 2024' */
+    color: #B1ACFF; /* Color de fuente para 'sponsor 2024' */
+    margin-right: 140px; /* Espacio a la derecha del texto para separarlo de la línea */
+}
 
+.line-decor {
+    width: 50%; /* O la longitud que prefieras para tu línea */
+    height: 2px; /* Altura de la línea */
+    background-color: #dfbeff; /* Color de la línea */
+    position: relative; /* Posición relativa para el posicionamiento del pseudo-elemento */
+}
+
+.line-decor::before, .line-decor::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 2px;
+    width: 50%; /* Cada pseudo-elemento forma la mitad de la línea */
+    background: inherit; /* Toma el color de fondo del elemento padre */
+}
+
+.line-decor::before {
+    left: 0;
+}
+
+.line-decor::after {
+    right: 0;
+}
 
 
 /* Media Queries para Responsividad */
