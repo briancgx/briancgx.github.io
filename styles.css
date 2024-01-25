@@ -220,13 +220,7 @@ body, html {
     background-color: #9A8C98;
 }
 
-/* Pie de página */
-footer {
-    text-align: center;
-    padding: 20px 0;
-    color: #5D5C61;
-    font-size: 0.9rem;
-}
+
 
 /* Estilos generales para la sección de eventos */
 .events-section {
@@ -598,6 +592,222 @@ footer {
 .line-decor::after {
     right: 0;
 }
+
+.champion-section {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 70px 0; /* Espaciado superior e inferior */
+  }
+  
+  .champion-container {
+    background: #6060EA; /* Color de fondo del cuadro */
+    border-radius: 20px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra de caja */
+    padding: 50px; /* Espaciado interno */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%; /* Ajusta esto según el ancho deseado */
+    max-width: 1200px; /* Ajusta esto según el ancho máximo deseado */
+    position: relative; /* Esto permite posicionar absolutamente elementos dentro de este contenedor */
+  }
+  
+  .champion-logo img {
+    width: 250px; /* Tamaño del logo */
+    height: auto; /* Para mantener la proporción de la imagen */
+    margin-bottom: 10px; /* Espacio debajo del logo */
+  }
+  
+  .champion-content {
+    text-align: center;
+  }
+
+  .champion-content h2 {
+    font-family: 'Montserrat', sans-serif; /* Aplica Montserrat a los enlaces de navegación */
+    margin-bottom: 5px; /* Espacio debajo de "TOP 1" */
+    font-size: 1.5rem; /* Tamaño del texto de "TOP 1" */
+    color: #FFCCFF; /* Color del texto de "TOP 1" */
+  }
+  
+  .champion-content p {
+    margin-bottom: 2px; /* Espacio debajo de la descripción */
+    font-size: 1rem; /* Tamaño del texto de la descripción */
+    color: #B1ACFF; /* Color del texto de la descripción */
+  }
+  
+  .champion-content h1 {
+    font-family: 'Montserrat', sans-serif; /* Aplica Montserrat a los enlaces de navegación */
+    font-size: 3.8rem; /* Tamaño del texto de "CHAMPION" */
+    font-weight: bold; /* Negrita para "CHAMPION" */
+    margin-bottom: 5px; /* Espacio debajo de "CHAMPION" */
+    color: #FFCCFF; /* Color del texto de "CHAMPION" */
+  }
+
+  .top-right-text {
+    font-family: 'Montserrat', sans-serif; /* Aplica Montserrat a los enlaces de navegación */
+    position: absolute; /* Posicionamiento absoluto */
+    top: 0; /* En la parte superior del contenedor */
+    right: 0; /* En el lado derecho del contenedor */
+    padding: 20px; /* Un poco de espacio alrededor del texto */
+    color: #ffffff; /* Texto en color blanco */
+    font-size: 2rem; /* Tamaño de la fuente */
+    font-weight: bold; /* Negrita */
+    z-index: 10; /* Asegúrate de que esté por encima de otros elementos si es necesario */
+}
+
+/*Testimonials*/
+.testimonials-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4em;
+    text-align: center;
+    min-height: 75vh;
+  }
+
+  .testimonials-section h2 {
+    font-family: 'Montserrat', sans-serif; /* Aplica Montserrat a los enlaces de navegación */
+    text-align: center;
+    margin-bottom: 20px;
+    color: #7d97ff;
+  }
+  
+  .testimonials-content {
+    max-width: 1200px; /* Or your desired max width */
+  }
+  
+  .testimonials-carousel {
+    position: relative;
+    overflow: hidden;
+    margin-top: 1em;
+    width: 100%;
+  }
+
+  .testimonial-item {
+    opacity: 0;
+    transition: opacity 0.5s, visibility 0.5s;
+    text-align: center;
+    display: none;
+
+  }
+  
+  .testimonial-item.active {
+    opacity: 1;
+    visibility: visible;
+    animation: fade-in 1s;
+    display: block;
+
+  }
+
+  .testimonial-item.hidden {
+    display: none;
+}
+
+  
+  .testimonial-text {
+    font-size: 1.2rem; /* Or your desired size */
+    line-height: 1.5;
+    margin-bottom: 0.5em;
+  }
+  
+  .testimonial-author {
+    font-weight: bold;
+    margin-bottom: 1em;
+  }
+  
+  .testimonial-image img {
+    width: 150px; /* Or your desired size */
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .testimonial-nav {
+    display: flex;
+    justify-content: center;
+    gap: 0.5em;
+    margin-top: 1em;
+  }
+  
+  .testimonial-nav span {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #fff;
+    cursor: pointer;
+  }
+  
+  .testimonial-nav span.active {
+    background: #6060ea;
+  }
+  
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  /* Pie de página */
+  .footer {
+    padding-top: -30px; /* Asegúrate de que el contenido del footer tiene suficiente espacio en la parte superior */
+    padding-bottom: 0; /* Reduce o elimina el padding inferior para mover el footer hacia arriba */
+    position: relative;
+  }
+  
+  .footer-content {
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
+  }
+  
+  .footer-image img {
+    max-width: 230px; /* Ajusta esto según el tamaño de tu imagen */
+    height: auto;
+    margin-bottom: 0px; /* Espacio entre la imagen y la línea */
+  }
+  
+  .footer-line {
+    border: 0;
+    height: 2px;
+    background-image: linear-gradient(to right, #6060ea, #dfbeff); /* Un degradado de ejemplo */
+    width: 90%; /* Ajusta esto según qué tan ancha quieras la línea */
+    margin: auto; /* Centra la línea */
+  }
+  
+  .footer p {
+    font-size: .9rem; /* Tamaño de la fuente */
+    color: #6060EA; /* Color del texto */
+    margin-top: 20px; /* Espacio entre la línea y el texto */
+  }
+
+  .social-icons {
+    text-align: right; /* Alinea los íconos a la derecha */
+  }
+  
+  .social-icons a {
+    margin: 0 10px; /* Espaciado entre íconos */
+    color: #6060ea; /* Color de los íconos */
+    text-decoration: none; /* Quita el subrayado de los enlaces */
+    background-color: #fff; /* Fondo blanco para los círculos */
+    border-radius: 50%; /* Hace que el fondo sea circular */
+    display: inline-flex; /* Usa flex para alinear el ícono al centro */
+    align-items: center; /* Centra el ícono verticalmente */
+    justify-content: center; /* Centra el ícono horizontalmente */
+    width: 30px; /* Tamaño del círculo */
+    height: 30px; /* Tamaño del círculo */
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2); /* Sombra suave */
+  }
+  
+  .social-icons a:hover {
+    color: black; /* Cambia el color al pasar el ratón por encima */
+      background-color: #e3c0ff; /* Cambia el fondo al pasar el ratón por encima */
+  }
+  
 
 
 /* Media Queries para Responsividad */

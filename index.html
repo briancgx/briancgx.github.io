@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+<link rel="stylesheet" href="styles.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Questrial&display=swap" rel="stylesheet">
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Cofradía Cattleya</title>
-<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <div class="container">
@@ -65,7 +66,7 @@
                             <li><ion-icon size="large" name="cloud"></ion-icon>Publicidad, visualización, ilustraciones y más</li>
                             <li><ion-icon size="large" name="calendar"></ion-icon>Fecha de pago 17 de Marzo</li>                        </ul>
                         <div class="event-price">
-                            <span>25$</span>
+                            <span>10$</span>
                         </div>
                         <a href="#" class="event-button">GET STARTED</a>
                     </div>
@@ -84,7 +85,7 @@
                             <li class="info-center"><ion-icon size="large" name="calendar"></ion-icon>Fecha de pago 17 de Marzo</li>                        </ul>
                         </ul>
                         <div class="event-price-center">
-                            <span>25$</span>
+                            <span>15$</span>
                         </div>
                         <a href="#" class="event-button">GET STARTED</a>
                     </div>
@@ -153,37 +154,76 @@
                 <span class="sponsor-year">2024 sponsor</span>
                 <div class="line-decor"></div>
             </div>
-              
+          </section>
+        
+        
+          <section id="champions" class="champion-section">
+            <div class="champion-container">
+                <!-- Texto "Copa Oro" en la esquina superior derecha -->
+                <div class="top-right-text">Steve Cup</div>
+                <div class="champion-logo">
+                <!-- Aquí va la imagen del logo del campeón -->
+                <img src="recursos/CATTLEYA OFICIAL.png" alt="Champion Logo">
+                </div>
+                <div class="champion-content">
+                <h2>TOP 1</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed iaculis luctus varius. Vestibulum aliquam ex vel massa imperdiet laoreet.</p>
+                <h1>CHAMPION</h1>
+                <a href="#contact" class="contact-button">CONTACTO</a>
+              </div>
+            </div>
+          </section>
+          
+
+          <section id="testimonials" class="testimonials-section">
+            <div class="testimonials-content">
+              <h2>CATTLEYA TESTIMONIOS</h2>
+              <div class="testimonials-carousel">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-item active">
+                  <div class="testimonial-image">
+                    <img src="recursos/FotoMichi.jpeg" alt="Testimonial 1">
+                  </div>
+                  <footer class="testimonial-author">Michi</footer>
+                  <blockquote class="testimonial-text questrial-regular">"Muy bonito torneo y la queso"</blockquote>
+                </div>
+                <!-- Additional testimonials go here -->
+                <div class="testimonial-item active">
+                    <div class="testimonial-image">
+                      <img src="recursos/FotoBrian.jpeg" alt="Testimonial 1">
+                    </div>
+                    <footer class="testimonial-author">@briancgx</footer>
+                  <blockquote class="testimonial-text questrial-regular">"100/10"</blockquote>
+                  </div>
+              </div>
+            </div>
+            <div class="testimonial-nav">
+              <!-- Navigation dots go here -->
+            </div>
           </section>
           
           
-
         
-        
-        <section id="champions" class="champions-section">
-            <div class="champions-content">
-                <h2>TOP 1</h2>
-                <h1>CHAMPION</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed iaculis luctus varius. Vestibulum aliquam ex vel massa imperdiet laoreet.</p>
-                <a href="#contact" class="contact-button">Contacto</a>
-            </div>
-        </section>
-
-        <section id="testimonials" class="testimonials-section">
-            <div class="testimonials-header">
-                <h2>CATTLEYA TESTIMONIOS</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed iaculis luctus varius. Vestibulum aliquam ex vel massa imperdiet laoreet.</p>
-            </div>
-            <!-- Aquí iría el contenedor para los testimonios individuales si los hubiera -->
-        </section>
-
-
-
     </main>
-    <footer>
-        <p>Delicadeza, versatilidad, unión y posicionamiento.</p>
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-image">
+                <img src="recursos/LetrasCattleya.png" alt="Footer Image">
+            </div>
+            <hr class="footer-line">
+            <p>Delicadeza, versatilidad, unión y posicionamiento.</p>
+            <!-- Ejemplo con Font Awesome -->
+        <div class="social-icons">
+        <a href="https://twitter.com/tuusuario" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://facebook.com/tuusuario" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://instagram.com/tuusuario" target="_blank"><i class="fab fa-instagram"></i></a>
+    <!-- Añade más íconos según necesites -->
+  </div>
+  
+        </div>
     </footer>
+
 </div>
-<script src="script.js"></script>
+<script src="script.js" defer></script>
 </body>
 </html>Champions

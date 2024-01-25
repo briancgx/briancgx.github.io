@@ -35,4 +35,28 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 3000); // Cambia cada 3 segundos
 });
 
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Oculta todos los testimonios excepto el primero
+    const items = document.querySelectorAll('.testimonial-item');
+    items.forEach(function(item, index) {
+      if (index > 0) item.classList.add('hidden'); // Añadir clase 'hidden' a todos excepto al primero
+    });
+  
+    let currentIndex = 0;
+    const totalItems = items.length;
+  
+    function cycleItems() {
+      const currentItem = document.querySelector('.testimonial-item.active');
+      currentItem.classList.remove('active');
+      currentItem.classList.add('hidden'); // Añadir clase 'hidden' para ocultar
+  
+      currentIndex = (currentIndex + 1) % totalItems;
+      const nextItem = items[currentIndex];
+      nextItem.classList.add('active');
+      nextItem.classList.remove('hidden'); // Eliminar clase 'hidden' para mostrar
+    }
+  
+    setInterval(cycleItems, 2500);
+  });
   
