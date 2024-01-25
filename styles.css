@@ -277,7 +277,6 @@ footer {
 
 .events-section h3 {
     font-size: 1rem; /* Tamaño de la fuente para h3 dentro de events-section */
-    color: #ffffff; /* Color para h3 */
     font-weight: 750; /* Grosor de la fuente para h3 */
 }
 
@@ -297,7 +296,6 @@ footer {
 
 /* Estilos comunes para todas las tarjetas, ajustando el tamaño */
 .event-card {
-    background: #ffffff;
     border-radius: 18px;
     box-shadow: 
         0 4px 8px rgba(0, 0, 0, 0.5), /* Sombra existente para resaltar la tarjeta */
@@ -329,9 +327,7 @@ footer {
 /* Estilos para el título dentro de la tarjeta */
 .event-title {
     font-size: .7rem; /* Tamaño de la fuente para el título */
-    color: #333; /* Color del texto */
-    margin-top: -15px; /* Espacio en la parte superior para dar espacio al logo */
-}
+    margin-top: -15px; /* Espacio en la parte superior para dar espacio al logo */}
 
 /* Estilos para la lista de características de la tarjeta */
 .event-features {
@@ -357,9 +353,19 @@ footer {
 
 /* Estilos para el precio dentro de la tarjeta */
 .event-price {
-    font-size: 2rem; /* Tamaño de la fuente para el precio */
-    color: #333; /* Color del texto */
+    font-size: 1.3rem; /* Tamaño de la fuente para el precio */
+    color: #7694FF; /* Color del texto */
     margin: 20px 0; /* Margen vertical para separar de otros elementos */
+    font-family: 'Montserrat', sans-serif; /* Aplica Montserrat a los enlaces de navegación */
+    font-weight: 600; /* Grosor de la fuente*/
+}
+
+.event-price-center {
+    font-size: 1.3rem; /* Tamaño de la fuente para el precio */
+    color: #ffffff; /* Color del texto */
+    margin: 20px 0; /* Margen vertical para separar de otros elementos */
+    font-family: 'Montserrat', sans-serif; /* Aplica Montserrat a los enlaces de navegación */
+    font-weight: 600; /* Grosor de la fuente*/
 }
 
 .event-button {
@@ -383,43 +389,35 @@ footer {
     background-color: #7d97ff; /* Color de fondo cuando el cursor pasa sobre el botón */
 }
 
+.event-title {
+    color: #7694FF;
+}
+
+.event-title-center {
+    color: #fff; /* Color para h3 */
+}
+
+.info-center {
+    color: #fff; /* Color para h3 */
+}
+
+
 /* Estilos específicos para tarjetas individuales */
 /* Tarjeta izquierda */
 .event-card-container:first-child .event-card {
     background-color: #EEEAFE; /* Color para la tarjeta izquierda */
-    h3 {
-        color: #7694FF; /* Color para el título de la tarjeta izquierda */
-        font-size: 2.6rem;
-        font-weight: 550;
-
-    }
 }
 
 /* Tarjeta central */
-.event-card-container:nth-child(2) .event-card {
+.event-card-container:nth-child(2) .event-card{
     background-color: #6060EA; /* Color para la tarjeta central */
-    h3 {
-        color: #fff; /* Color para el título de la tarjeta central */
-        font-size: 2.6rem;
-        font-weight: 550;
-    }
-        
-
-    li {
-        color: #fff; /* Color para los ítems de la lista */
-    }
 }
 
 /* Tarjeta derecha */
 .event-card-container:last-child .event-card {
     background-color: #EEEAFE; /* Color para la tarjeta derecha */
-    h3 {
-        color: #7694FF; /* Color para el título de la tarjeta izquierda */
-        font-size: 2.6rem;
-        font-weight: 550;
-
-    }
 }
+
 
 /*Sponsors*/
 .sponsors-carousel-container h1 {
