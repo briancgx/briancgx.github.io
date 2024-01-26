@@ -444,7 +444,6 @@ body, html {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100vw;
     height: 100vh;
     overflow: hidden;
 }
@@ -474,7 +473,7 @@ body, html {
 }
 
 .sponsor-info {
-    width: 50%; /* Ajusta el ancho según sea necesario */
+    width: 100%; /* Ajusta el ancho según sea necesario */
     padding: 1.25rem; /* 20px Ajustar el padding según sea necesario */
     display: flex;
     flex-direction: column; /* Ordena los elementos internos verticalmente */
@@ -598,6 +597,7 @@ body, html {
     justify-content: center;
     align-items: center;
     padding: 4.375rem 0; /* 70px Espaciado superior e inferior */
+    height: 100vh;
   }
   
   .champion-container {
@@ -666,7 +666,7 @@ body, html {
     justify-content: center;
     padding: 4em;
     text-align: center;
-    min-height: 75vh;
+    height: 80vh;
   }
 
   .testimonials-section h2 {
@@ -674,6 +674,7 @@ body, html {
     text-align: center;
     margin-bottom: 1.25rem; /* 20px */
     color: #7d97ff;
+    font-size: 2.5rem;
   }
   
   .testimonials-content {
@@ -709,23 +710,26 @@ body, html {
 
   
   .testimonial-text {
-    font-size: 1.2rem; /* Or your desired size */
+    font-size: 1.7rem; /* Or your desired size */
     line-height: 1.5;
     margin-bottom: 0.5em;
   }
   
   .testimonial-author {
     font-weight: bold;
-    margin-bottom: 1em;
+    margin-bottom: 2em;
+    font-size: 1.5rem;
   }
   
   .testimonial-image img {
-    width: 9.375rem; /* 150px / 16 */
-    height: 9.375rem; /* 150px / 16 */
+    width: 15rem; /* 150px / 16 */
+    height: 15rem; /* 150px / 16 */
     border-radius: 50%;
     object-fit: cover;
     box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1); /* 0 4px 8px Sombra de caja */
-  }
+    margin-bottom: 1em;
+    margin-top: 4em;
+    }
   
   .testimonial-nav {
     display: flex;
@@ -799,8 +803,8 @@ body, html {
     display: inline-flex; /* Usa flex para alinear el ícono al centro */
     align-items: center; /* Centra el ícono verticalmente */
     justify-content: center; /* Centra el ícono horizontalmente */
-    width: 1.875; /* 30px Tamaño del círculo */
-    height: 1.875; /* 30px Tamaño del círculo */
+    width: 2rem; /* 30px Tamaño del círculo */
+    height: 2rem; /* 30px Tamaño del círculo */
     box-shadow: 0 0 0.3125rem rgba(0, 0, 0, 0.2); /* 0px 0px 5px Sombra suave */
   }
   
