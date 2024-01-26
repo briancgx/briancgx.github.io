@@ -972,176 +972,86 @@ body, html {
 }
 
 /*----------------------------------------------------------------------------------*/
-
-/* Estilos para teléfonos pequeños (hasta 375px) */
-@media (max-width: 376px) {
-    /* Ajustes generales para reducir espaciado en contenedores */
-    .container, .intro-section, .events-section, .sponsors-carousel-container,
-    .champion-section, .testimonials-section, .footer {
-        padding: 15px;
+/* Media Queries para dispositivos más pequeños (hasta 435px) */
+@media (max-width: 435px) {
+    /* Ajustes generales para reducir padding y márgenes */
+    .container,
+    .intro-section,
+    .events-section,
+    .sponsors-carousel-container,
+    .champion-section,
+    .testimonials-section,
+    .footer {
+        padding: 15px; /* Espaciado ajustado para los contenedores */
     }
 
-    /* Ajustes en la barra de navegación */
+    /* Ajustes para la barra de navegación */
     .navbar {
-        padding: 0 15px; /* Espaciado lateral en la navbar */
+        height: 50px; /* Altura ajustada para la barra de navegación */
+        padding: 0 15px; /* Espaciado lateral ajustado */
     }
 
     .navbar .logo {
-        position: absolute; /* Mantiene el logo en posición absoluta */
-        top: 0; /* Alineado a la parte superior de la navbar */
-        left: 0; /* Alineado a la parte izquierda de la navbar */
-        transform: translate(0, 50%); /* Centrado verticalmente */
-        width: 45px; /* Tamaño ajustado del logo */
-        height: 45px;
-        z-index: 3; /* Asegura que el logo esté por encima de otros elementos */
+        width: 40px; /* Tamaño del logo ajustado */
+        height: 40px;
+        top: 5px; /* Posición vertical ajustada del logo */
+        left: 10px; /* Posición horizontal ajustada del logo */
     }
 
-
-    /* Menú hamburguesa siempre visible con color adecuado */
-    .navbar-toggle {
-        display: block;
+    .navbar .logo img {
+        height: 30px; /* Tamaño ajustado del logo */
     }
 
-    /* Enlaces de navegación ocultos por defecto */
-    .nav-links {
-        display: none;
-    }
+    /* Resto de los ajustes para la barra de navegación y otros elementos... */
 
-    /* Los enlaces se muestran cuando el menú de hamburguesa está activo */
-    .nav-links.active {
-        display: block;
-        background-color: #dfbeff; /* Fondo claro para los enlaces activos */
-        position: absolute;
-        width: 100%;
-        top: 60px;
-    }
-
-    /* Ajustes para el logo en la sección de inicio */
-    .intro-section .logo {
-        position: relative; /* Cambio a posición relativa */
-        margin: 0 auto 1rem; /* Centrar el logo y agregar espacio por debajo */
-        display: block;
-    }
-
-    /* Ajustes en el texto de la sección de inicio para agregar espacio por encima */
-    .intro-section .home-content {
-        padding-top: 4rem; /* Espacio para no solapar el logo */
-    }
-
-    /* Ajustes de los títulos en la sección de inicio */
-    .intro-section h1, .intro-section h2 {
-        font-size: 2rem; /* Tamaño de fuente más pequeño para h1 y h2 */
-    }
-
-    /* Ajustes para los párrafos en la sección de inicio */
-    .intro-section p {
-        font-size: 1rem; /* Tamaño de fuente más pequeño para párrafos */
-    }
-
-    /* Tarjetas de eventos apiladas verticalmente */
-    .event-cards-container {
-        flex-direction: column;
-        align-items: center; /* Centrado de tarjetas */
-    }
-
-    .event-card-container {
-        width: 100%; /* Ancho completo para las tarjetas de evento */
-        margin: 10px 0; /* Espacio vertical entre tarjetas */
-    }
-
-    /* Ajustes para la sección de patrocinadores */
+    /* Ajustes específicos para la sección de patrocinadores */
     .sponsors-carousel-container {
-        /* Resto de tus estilos para .sponsors-carousel-container */
-        flex-direction: column; /* Ordena los elementos en columna */
-    }
-
-    /* Asegura que los títulos estén por encima de la imagen del sponsor */
-    .sponsors-carousel-container .sponsor-info {
         display: flex;
         flex-direction: column;
-        align-items: center; /* Centra el contenido */
+        align-items: center;
+        justify-content: center;
+        padding: 15px; /* Espaciado interno ajustado */
     }
 
-    .sponsors-carousel-container h1 {
-        font-size: 2rem;
-        color: #7694ff;
-        font-weight: 200;
-        margin-bottom: 2rem;
-        text-align: left;
-    }
-    
-    .sponsors-carousel-container h2 {
-        font-size: 1rem;
-        color: #ccb7ff;
-        font-weight: 500;
-        margin-bottom: -0.5rem;
-        margin-top: -3.5rem;
-        text-align: left;
-    }
-
-    /* Ajusta el tamaño y márgenes del título y subtítulo */
+    /* Títulos de patrocinadores */
     .sponsors-carousel-container h1,
     .sponsors-carousel-container h2 {
-        margin-top: 1rem; /* Espacio arriba de los títulos */
-        margin-bottom: 0.5rem; /* Espacio debajo de los títulos */
+        font-size: 1.5rem; /* Tamaño de fuente ajustado para h1 */
+        font-size: 1.2rem; /* Tamaño de fuente ajustado para h2 */
+        text-align: center; /* Texto centrado */
+        margin: 10px 0; /* Espaciado vertical entre títulos */
     }
 
-    /* Asegura que la imagen del sponsor esté centrada y debajo de los títulos */
-    .sponsors-carousel-container .sponsor-image {
-        order: 1; /* Posiciona la imagen después de los títulos */
-        width: 80%; /* Ajusta el ancho de la imagen */
-        margin: 0 auto 1rem; /* Centra la imagen y agrega espacio debajo */
-    }
-
-    /* Coloca el párrafo y el botón de contacto debajo de la imagen */
-    .sponsors-carousel-container .questrial-regular,
-    .sponsors-carousel-container .contact-button {
-        order: 2; /* Posiciona el texto y botón después de la imagen */
-        margin-bottom: 1rem; /* Espacio debajo del texto y botón */
-    }
-
-    .sponsor-info {
-        text-align: center;
-        margin-bottom: 1rem;
-        order: 1; /* Asegura que el texto venga después de los títulos */
-    }
-
-     .sponsor-image img {
-        width: 100%; /* Ajustar el tamaño de la imagen */
-        height: auto;
-        margin-bottom: 1rem;
-    }
-
+    /* Imagen del patrocinador */
     .sponsor-image {
-        /* Resto de tus estilos para .sponsor-image */
-        order: 2; /* Asegura que la imagen venga después del texto */
-        width: 100%; /* La imagen debe ocupar el ancho total */
-        margin: 1rem 0; /* Agrega espacio antes y después de la imagen */
+        width: 120px; /* Ancho de la imagen ajustado */
+        height: 120px; /* Altura de la imagen ajustada */
+        margin: 10px 0; /* Espaciado vertical ajustado */
+    }
+
+    .sponsor-image img {
+        width: 100%; /* Asegura que la imagen llene el contenedor */
+        height: auto; /* Mantiene la proporción de la imagen */
+    }
+
+    /* Información del patrocinador */
+    .sponsor-info {
+        text-align: center; /* Texto centrado */
+        margin: 10px 0; /* Espaciado vertical ajustado */
     }
 
     .sponsor-info .questrial-regular {
-        font-size: 0.9rem; /* Tamaño de fuente más pequeño para la descripción */
-        margin-bottom: 10px; /* Espacio después de la descripción */
+        font-size: 0.9rem; /* Tamaño de fuente ajustado para la descripción */
+        margin: 10px 0; /* Espaciado vertical ajustado para la descripción */
     }
 
+    /* Botón de contacto */
     .contact-button {
-        font-size: 1rem; /* Tamaño de fuente del botón de contacto */
-        padding: 10px 20px; /* Espaciado interno del botón */
-        margin-top: 1;
-        order:3; /* Asegura que el botón venga después de la imagen */
+        font-size: 0.9rem; /* Tamaño de fuente ajustado */
+        padding: 10px 20px; /* Espaciado interno ajustado */
+        margin-top: 10px; /* Espacio encima del botón ajustado */
+        /* Resto de estilos para el botón de contacto */
     }
 
-    /* Ajustes para el footer de sponsors */
-    .sponsor-footer {
-        flex-direction: column; /* Elementos del footer en columna */
-        position: relative; /* Posicionamiento relativo */
-        text-align: center; /* Texto centrado */
-        margin-top: 20px; /* Espacio por encima del footer */
-    }
-
-    /* Ajustes para íconos sociales */
-    .social-icons {
-        justify-content: center; /* Centrado de íconos */
-        margin-top: 20px; /* Espacio por encima de íconos */
-    }
+    /* Resto de los ajustes... */
 }
