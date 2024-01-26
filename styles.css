@@ -1101,7 +1101,7 @@ body, html {
         width: 300px; /* Anula cualquier ancho definido previamente y usa el ancho natural de la imagen */
         max-width: 100%; /* Asegura que la imagen no sea más ancha que su contenedor */
         height: 300px; /* Mantiene la proporción de la imagen */
-        margin-top: 100px;
+        margin-top: 80px;
     }
     
     .contact-intro {
