@@ -1109,6 +1109,111 @@ body, html {
         font-size: 17px;
     }
 
+    /*-------------------SPONSORS--------------------------*/
+
+    .sponsors-carousel-container h1 {
+        font-size: 2.3rem;
+        color: #7694ff;
+        font-weight: 660;
+        margin-bottom: 2rem;
+        text-align: left;
+    }
+    
+    .sponsors-carousel-container h2 {
+        font-size: 1.5rem;
+        color: #ccb7ff;
+        font-weight: 750;
+        margin-bottom: -0.5rem;
+        margin-top: 3.5rem;
+        text-align: left;
+    }
+    
+
+.sponsors-carousel-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.sponsors-carousel {
+    display: flex;
+    flex-direction: none; /* Invierte el orden para poner la imagen a la izquierda */
+    width: 100%;
+    height: 100%;
+}
+
+.sponsors-slide {
+    display:block;
+    flex-direction: none; /* Imagen a la izquierda, texto a la derecha */
+    width: 100%;
+    height: 100%;
+    position: absolute; /* Posicionamiento absoluto para la transición */
+    top: 0;
+    left: 0; /* Empieza desde el borde izquierdo */
+    opacity: 0; /* Inicia invisible */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Suaviza la transición */
+}
+
+.sponsor-image {
+    width: calc(50% - 40px); /* Reducir el ancho para compensar el padding */
+    display: flex;
+    align-items: center;
+    justify-content: left; /* Alinea la imagen a la derecha */
+    padding: -1.25rem; /* -20px Ajustar el padding según sea necesario */
+    position: relative; /* Posiciona relativamente los pseudo-elementos dentro */
+    left: 16%;
+    margin-top: 50px;
+}
+
+.sponsor-image img {
+    width: 15rem; /* 240px Mantiene el aspecto original de la imagen */
+    height: 15rem; /* 240px Altura fija para mantener la consistencia */
+    z-index: 3; /* Asegura que la imagen del patrocinador esté por encima de la decorativa */
+    border-radius: 0.8125rem; /* 13px Añade bordes redondeados a la imagen */
+}
+
+/*-------------------------------------------------*/
+
+
+
+    .champion-content h2 {
+        font-family: 'Montserrat', sans-serif; /* Aplica Montserrat a los enlaces de navegación */
+        margin-bottom: 0.3125rem; /* 5px Espacio debajo de "TOP 1" */
+        font-size: 1.3rem; /* Tamaño del texto de "TOP 1" */
+        color: #FFCCFF; /* Color del texto de "TOP 1" */
+      }
+      
+      .champion-content p {
+        margin-bottom: 0.125rem; /* 2px Espacio debajo de la descripción */
+        font-size: .7rem; /* Tamaño del texto de la descripción */
+        color: #B1ACFF; /* Color del texto de la descripción */
+      }
+      
+      .champion-content h1 {
+        font-family: 'Montserrat', sans-serif; /* Aplica Montserrat a los enlaces de navegación */
+        font-size: 1.7rem; /* Tamaño del texto de "CHAMPION" */
+        font-weight: bold; /* Negrita para "CHAMPION" */
+        margin-bottom: 0.3125rem; /* 5px Espacio debajo de "CHAMPION" */
+        color: #FFCCFF; /* Color del texto de "CHAMPION" */
+        align-self: center;
+      }
+
+      .top-right-text {
+        font-family: 'Montserrat', sans-serif; /* Aplica Montserrat a los enlaces de navegación */
+        position: absolute; /* Posicionamiento absoluto */
+        top: 0; /* En la parte superior del contenedor */
+        right: 0; /* En el lado derecho del contenedor */
+        padding: 1.25rem; /* 20px Un poco de espacio alrededor del texto */
+        color: #ffffff; /* Texto en color blanco */
+        font-size: 1.3rem; /* Tamaño de la fuente */
+        font-weight: bold; /* Negrita */
+        z-index: 10; /* Asegúrate de que esté por encima de otros elementos si es necesario */
+    }
+    
+
     .contact-button {
         padding: 10px 20px; /* Ajusta el relleno según sea necesario */
         margin-top: 20px; /* Espacio por encima del botón de contacto */
