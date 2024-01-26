@@ -1,128 +1,83 @@
+/* Media Queries para dispositivos más pequeños (hasta 435px) */
+@media (max-width: 435px) {
+    /* Ajustes generales para reducir padding y márgenes */
+    .container,
+    .intro-section,
+    .events-section,
+    .sponsors-carousel-container,
+    .champion-section,
+    .testimonials-section,
+    .footer {
+        padding: 15px; /* Espaciado ajustado para los contenedores */
+    }
 
-@media (max-width: 767px) {
     /* Ajustes para la barra de navegación */
     .navbar {
-        padding: 0.25rem 0.5rem;
-    }
-
-    .navbar-toggle {
-        display: block;
-        top: 10px;
-    }
-
-    .nav-links {
-        display: none;
-        position: absolute;
-        background-color: #6060ea;
-        right: 0;
-        left: 0;
-        text-align: center;
-        padding-top: 20px;
-    }
-
-    .nav-links.active {
-        display: block;
-    }
-
-    /* Ajustes para tus elementos de navegación */
-    .nav-links li {
-        padding: 15px 0;
+        height: 50px; /* Altura ajustada para la barra de navegación */
+        padding: 0 15px; /* Espaciado lateral ajustado */
     }
 
     .navbar .logo {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 50px;
-        height: 50px;
+        width: 40px; /* Tamaño del logo ajustado */
+        height: 40px;
+        top: 5px; /* Posición vertical ajustada del logo */
+        left: 10px; /* Posición horizontal ajustada del logo */
     }
 
-    /* Ajustes para el contenido principal y la imagen */
-    .home-content, .home-image, .event-card-container {
-        max-width: 100%;
-        text-align: center;
+    .navbar .logo img {
+        height: 30px; /* Tamaño ajustado del logo */
     }
 
-    .home-image img {
-        width: 100%;
+    /* Resto de los ajustes para la barra de navegación y otros elementos... */
+
+    /* Ajustes específicos para la sección de patrocinadores */
+    .sponsors-carousel-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 15px; /* Espaciado interno ajustado */
     }
 
-    /* Ajustes para las secciones */
-    .intro-section, .events-section, .sponsors-section, .champions-section, .testimonials-section {
-        padding: 30px 15px;
+    /* Títulos de patrocinadores */
+    .sponsors-carousel-container h1,
+    .sponsors-carousel-container h2 {
+        font-size: 1.5rem; /* Tamaño de fuente ajustado para h1 */
+        font-size: 1.2rem; /* Tamaño de fuente ajustado para h2 */
+        text-align: center; /* Texto centrado */
+        margin: 10px 0; /* Espaciado vertical entre títulos */
     }
 
-    /* Ajustes de tamaño de fuente para h1 y h2 en las secciones */
-    .intro-section h1, .events-section h1, .sponsors-section h1, .champions-section h1, .testimonials-section h1 {
-        font-size: 3rem;
+    /* Imagen del patrocinador */
+    .sponsor-image {
+        width: 120px; /* Ancho de la imagen ajustado */
+        height: 120px; /* Altura de la imagen ajustada */
+        margin: 10px 0; /* Espaciado vertical ajustado */
     }
 
-    .intro-section h2, .events-section h2, .sponsors-section h2, .champions-section h2, .testimonials-section h2 {
-        font-size: 2rem;
+    .sponsor-image img {
+        width: 100%; /* Asegura que la imagen llene el contenedor */
+        height: auto; /* Mantiene la proporción de la imagen */
     }
 
-    /* Ajustes para las tarjetas de eventos */
-    .event-card {
-        padding: 1.5rem;
+    /* Información del patrocinador */
+    .sponsor-info {
+        text-align: center; /* Texto centrado */
+        margin: 10px 0; /* Espaciado vertical ajustado */
     }
+
+    .sponsor-info .questrial-regular {
+        font-size: 0.9rem; /* Tamaño de fuente ajustado para la descripción */
+        margin: 10px 0; /* Espaciado vertical ajustado para la descripción */
+    }
+
+    /* Botón de contacto */
+    .contact-button {
+        font-size: 0.9rem; /* Tamaño de fuente ajustado */
+        padding: 10px 20px; /* Espaciado interno ajustado */
+        margin-top: 10px; /* Espacio encima del botón ajustado */
+        /* Resto de estilos para el botón de contacto */
+    }
+
+    /* Resto de los ajustes... */
 }
-
-
-    @media (max-width: 480px) {
-        .navbar .logo {
-            width: 40px;
-            height: 40px;
-        }
-    
-        .navbar .logo img {
-            height: 30px;
-        }
-    
-        .nav-links li {
-            padding: 10px 5px;
-        }
-    
-        .intro-section h1, .events-section h1, .sponsors-section h1, .champions-section h1, .testimonials-section h1 {
-            font-size: 2.5rem;
-        }
-    
-        .intro-section h2, .events-section h2, .sponsors-section h2, .champions-section h2, .testimonials-section h2 {
-            font-size: 1.5rem;
-        }
-    
-        .intro-section p, .events-section p, .sponsors-section p, .champions-section p, .testimonials-section p {
-            font-size: 0.9rem;
-        }
-    
-        .event-card {
-            padding: 1rem;
-        }
-    
-        /* Otros ajustes estilísticos específicos para dispositivos muy pequeños */
-    }
-
-    @media (min-width: 1920px) {
-        .container {
-            max-width: 1800px; /* Ajustar según sea necesario */
-            margin: 0 auto;
-        }
-    
-        .intro-section h1, .events-section h1, .sponsors-section h1, .champions-section h1, .testimonials-section h1 {
-            font-size: 8rem; /* Tamaño de fuente más grande */
-        }
-    
-        .intro-section h2, .events-section h2, .sponsors-section h2, .champions-section h2, .testimonials-section h2 {
-            font-size: 4rem;
-        }
-    
-        .event-card-container {
-            width: 30%; /* Ajustar el ancho de las tarjetas */
-        }
-    
-        /* Otros ajustes estilísticos específicos para pantallas grandes */
-    }
-    
-    
-
-
-

@@ -134,7 +134,6 @@ body, html {
 .intro-section {
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Esto separará el contenido y la imagen */
     min-height: 100vh; /* Asegura que la sección ocupe al menos toda la altura de la ventana */
     position: relative;
     border: none;
@@ -142,21 +141,21 @@ body, html {
 }
 
 .intro-section h1 {
-    font-size: 6.5rem; /* Ajusta el tamaño según el diseño */
+    font-size: 8rem; /* Ajusta el tamaño según el diseño */
     color: #7694ff;
     margin-bottom: 0.5rem;
     font-weight: 750;
 }
 
 .intro-section h2 {
-    font-size: 2.5rem;
+    font-size: 4rem;
     color: #ccb7ff;
-    margin-bottom: 0.5rem;
-    font-weight: 500;
+    margin-bottom: -1rem;
+    font-weight: 570;
 }
 
 .intro-section p {
-    font-size: 1.25rem; /* Ajusta el tamaño según el diseño */
+    font-size: 1.6rem; /* Ajusta el tamaño según el diseño */
     margin-bottom: 2rem;
     max-width: 43.75rem; /* 700px */
     margin-left: auto;
@@ -165,7 +164,24 @@ body, html {
     text-align: center;
 }
 
+.contact-intro {
+    background: linear-gradient(to right, #e3c0ff, #dfbeff, #7d97ff, #6060ea); /* Degradado de colores */
+    color: #FFFFFF; /* Color del texto */
+    padding: 0.625rem 1.25rem; /* 10px 20px Espaciado interno alrededor del texto */
+    border-radius: 1.875rem; /* 30px Esquinas redondeadas */
+    font-weight: bold; /* Texto en negrita */
+    font-size: 1.3rem; /* Tamaño del texto */
+    text-decoration: none; /* Sin subrayado */
+    cursor: pointer; /* Cursor en forma de mano al pasar el mouse */
+    display: inline-block; /* Para aplicar margen y padding */
+    margin-top: 1.25rem; /* 20px Margen superior */
+    box-shadow: 0.25rem 0.25rem 0.5rem rgba(0, 0, 0, 0.4); /* 4px 4px 8px Sombra para darle profundidad */
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; /* Transición suave para efectos */
+    align-self: center; /* Centra el botón en el contenedor */
+    text-align: center; /* Centra el texto horizontalmente */
+    margin: 0 auto; /* Esto automáticamente centra el botón si es un bloque en línea */
 
+}
 
 /* Ajustes para el contenido Home y la imagen */
 
@@ -177,13 +193,15 @@ body, html {
 }
 
 .home-content {
-    flex: 1; /* Esto permite que el contenido tome la mitad del espacio disponible */
-    padding: 1.25rem; /* 20px Ajusta el relleno según sea necesario */
-    margin-right: auto; /* Empuja el contenido hacia la izquierda */
-    /* Si necesitas un ajuste más fino, puedes especificar un padding a la derecha */
-    text-align: left; /* Alinea el texto a la izquierda */
-    /* Asegúrate de que el ancho máximo del contenido no sea tan grande como para empujar la imagen fuera de la pantalla */
-    max-width: 55%; /* Disminuye si el texto está demasiado cerca de la imagen */
+    flex: 1;
+    padding: 1.25rem; /* 20px */
+    max-width: 55%; /* 880px */
+    display: flex;
+    flex-direction: column; /* Ordena los hijos verticalmente */
+    align-items: center; /* Centra los hijos horizontalmente */
+    justify-content: center; /* Centra los hijos verticalmente si es necesario */
+    text-align: center; /* Asegura que el texto también esté centrado */
+    /* Otros estilos que ya tengas */
 }
 
 .home-image img {
@@ -218,6 +236,8 @@ body, html {
 .event-card .sponsor-button:hover {
     background-color: #9A8C98;
 }
+
+/*---------------------------------------------------------*/
 
 /* Eventos */
 .events-section {
@@ -976,8 +996,9 @@ body, html {
 }
 
 /*----------------------------------------------------------------------------------*/
-/* Media Queries para dispositivos más pequeños (hasta 435px) */
-@media (max-width: 435px) {
+
+/* Estilos para teléfonos móviles (hasta 415px) */
+@media (max-width: 415px) {
     /* Ajustes generales para reducir padding y márgenes */
     .container,
     .intro-section,
@@ -986,76 +1007,111 @@ body, html {
     .champion-section,
     .testimonials-section,
     .footer {
-        padding: 15px; /* Espaciado ajustado para los contenedores */
+        padding: 20px; /* Reducción adicional del espaciado para contenedores */
     }
 
     /* Ajustes para la barra de navegación */
     .navbar {
-        height: 50px; /* Altura ajustada para la barra de navegación */
-        padding: 0 15px; /* Espaciado lateral ajustado */
+        height: 50px; /* Altura más reducida para la barra de navegación */
+        padding: 0 10px; /* Espaciado lateral más pequeño */
     }
 
     .navbar .logo {
-        width: 40px; /* Tamaño del logo ajustado */
+        width: 40px; /* Tamaño del logo aún más reducido */
         height: 40px;
-        top: 5px; /* Posición vertical ajustada del logo */
-        left: 10px; /* Posición horizontal ajustada del logo */
+        top: 5px;
+        left: 5px; /* Ajuste de posición más cerca del borde */
     }
 
     .navbar .logo img {
-        height: 30px; /* Tamaño ajustado del logo */
+        height: 30px; /* Ajuste del tamaño del logo */
     }
 
-    /* Resto de los ajustes para la barra de navegación y otros elementos... */
+    .navbar .nav-links.active {
+        padding-top: 20px; /* Espaciado superior para el menú expandido */
+    }
 
-    /* Ajustes específicos para la sección de patrocinadores */
-    .sponsors-carousel-container {
+    .navbar .navbar-toggle {
+        top: 5px; /* Ajuste de la posición vertical */
+        right: 5px; /* Ajuste de la posición horizontal */
+    }
+
+    /* Ajustes para la sección de introducción */
+    .intro-section {
         display: flex;
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: 15px; /* Espaciado interno ajustado */
+        align-items: center; /* Alinea los elementos en el centro */
+        justify-content: center; /* Centra los elementos verticalmente */
     }
 
-    /* Títulos de patrocinadores */
-    .sponsors-carousel-container h1,
-    .sponsors-carousel-container h2 {
-        font-size: 1.5rem; /* Tamaño de fuente ajustado para h1 */
-        font-size: 1.2rem; /* Tamaño de fuente ajustado para h2 */
-        text-align: center; /* Texto centrado */
-        margin: 10px 0; /* Espaciado vertical entre títulos */
+    /* Estilos para los títulos 'COFRADÍA' y 'CATTLEYA' */
+    .intro-section h1 {
+        text-align: center; /* Centra los títulos */
+        width: 100%; /* Fuerza a los títulos a ocupar todo el ancho disponible */
+        margin-top: -40px; /* Espacio adicional en la parte superior */
+        margin-bottom: 30px; /* Espacio debajo de los títulos */
     }
 
-    /* Imagen del patrocinador */
-    .sponsor-image {
-        width: 120px; /* Ancho de la imagen ajustado */
-        height: 120px; /* Altura de la imagen ajustada */
-        margin: 10px 0; /* Espaciado vertical ajustado */
+    .intro-section h2 {
+        text-align: center; /* Centra los títulos */
+        width: 100%; /* Fuerza a los títulos a ocupar todo el ancho disponible */
+        margin-top: 80px; /* Espacio adicional en la parte superior */
+        margin-bottom: 30px; /* Espacio debajo de los títulos */
     }
 
-    .sponsor-image img {
-        width: 100%; /* Asegura que la imagen llene el contenedor */
-        height: auto; /* Mantiene la proporción de la imagen */
+    .intro-section p {
+        font-size: 1.1rem; /* Ajusta el tamaño según el diseño */
+        margin-bottom: 2rem;
+        max-width: 43.75rem; /* 700px */
+        margin-left: auto;
+        margin-right: auto;
+        color: #a6a6a6;
+        text-align: center;
+    }    
+
+    /* Estilos para el logo */
+    .intro-section .home-image {
+        width: 100%; /* Fuerza a la imagen a ocupar todo el ancho disponible */
+        display: flex;
+        justify-content: center; /* Centra la imagen */
+        margin-bottom: 40px; /* Espacio debajo del logo */
     }
 
-    /* Información del patrocinador */
-    .sponsor-info {
-        text-align: center; /* Texto centrado */
-        margin: 10px 0; /* Espaciado vertical ajustado */
+    /* Estilos para el texto y el botón 'Contact us' */
+    .intro-section {
+        width: 100%; /* Fuerza al contenido a ocupar todo el ancho disponible */
+        margin-bottom: 20px; /* Espacio debajo del texto antes del botón */
     }
 
-    .sponsor-info .questrial-regular {
-        font-size: 0.9rem; /* Tamaño de fuente ajustado para la descripción */
-        margin: 10px 0; /* Espaciado vertical ajustado para la descripción */
+    .home-content {
+        flex: none; /* Anula la propiedad flex si se aplicó anteriormente */
+        padding: 0; /* Remueve el padding para evitar desplazamientos no deseados */
+        margin: 0 auto; /* Centra el contenido horizontalmente */
+        text-align: center; /* Alinea el texto al centro */
+        max-width: 100%; /* Permite que el contenido ocupe todo el ancho disponible */
+        order: 2;
+        margin-bottom: 500px;
+        margin-top: -145px;
+
     }
 
-    /* Botón de contacto */
+
+    /* Ajustes para la imagen dentro de la sección home */
+    .home-image img {
+        width: 300px; /* Anula cualquier ancho definido previamente y usa el ancho natural de la imagen */
+        max-width: 100%; /* Asegura que la imagen no sea más ancha que su contenedor */
+        height: 300px; /* Mantiene la proporción de la imagen */
+        margin-top: 100px;
+    }
+    
+    .contact-intro {
+        margin-top: -5px;
+        font-size: 17px;
+    }
+
     .contact-button {
-        font-size: 0.9rem; /* Tamaño de fuente ajustado */
-        padding: 10px 20px; /* Espaciado interno ajustado */
-        margin-top: 10px; /* Espacio encima del botón ajustado */
-        /* Resto de estilos para el botón de contacto */
+        padding: 10px 20px; /* Ajusta el relleno según sea necesario */
+        margin-top: 20px; /* Espacio por encima del botón de contacto */
+        align-self: center; /* Centra el botón en el contenedor */
     }
-
-    /* Resto de los ajustes... */
 }
