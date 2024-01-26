@@ -1,7 +1,4 @@
 // JavaScript para manejar la navegación o cualquier otra interactividad
-document.addEventListener("DOMContentLoaded", () => {
-    // Tu código aquí
-});
 
 document.addEventListener("DOMContentLoaded", function() {
     window.addEventListener('scroll', function() {
@@ -13,15 +10,26 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-document.addEventListener('DOMContentLoaded', function () {
-    var mobileMenu = document.getElementById('mobile-menu');
-    var navLinks = document.querySelector('.nav-links');
 
-    mobileMenu.addEventListener('click', function () {
+/* JavaScript para el botón de menú de hamburguesa */
+document.addEventListener('DOMContentLoaded', () => {
+    const navbarToggle = document.querySelector('.navbar-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    // Función para alternar la visibilidad del menú de navegación
+    navbarToggle.addEventListener('click', () => {
         navLinks.classList.toggle('active');
     });
-});
 
+    // Añadir un evento a cada enlace para cerrar el menú cuando se hace clic
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            if(navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+            }
+        });
+    });
+});
 
   /* JavaScript para cambiar los slides suavemente */
 document.addEventListener('DOMContentLoaded', () => {
