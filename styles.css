@@ -1,0 +1,1222 @@
+/* Estilos base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+    scroll-behavior: smooth;
+    background-color: #eeeafe;
+    max-width: 100vw;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 93.75rem; /* 1500px / 16 */
+    margin: 0 auto;
+}
+
+.questrial-regular {
+    font-family: 'Questrial', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.montserrat-regular {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400; /* Ajusta el peso según necesites */
+    font-style: normal;
+}
+
+/* Ajuste de anclaje para navegación interna */
+:target::before {
+    content: '';
+    display: block;
+    height: 5rem; /* 80px Altura de tu navbar */
+    margin: -5rem 0 0; /* 80px Negativo de la altura de tu navbar */
+}
+
+/* Barra de navegación */
+.navbar {
+    font-family: 'Montserrat', sans-serif; /* Aplica Montserrat a los enlaces de navegación */
+    background: linear-gradient(to right, #e3c0ff, #dfbeff, #7d97ff, #6060ea);
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4.125rem; /* 66px Reduce la altura de la navbar */
+    width: 100%;
+    z-index: 1000;
+    transition: padding 0.3s ease;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom-left-radius: 2.5rem; /* 40px Redondea la esquina inferior izquierda */
+    border-bottom-right-radius: 2.5rem; /* 40px Redondea la esquina inferior derecha */
+    justify-content: flex-start; /* Cambiado para alinear el logo a la izquierda */
+    justify-content: space-between; /* Cambiado para alinear el logo a la izquierda */
+}
+
+.navbar-toggle {
+    display: none; /* Se ocultará por defecto y solo se mostrará en pantallas pequeñas */
+    cursor: pointer;
+    position: absolute; /* Posición absoluta para colocarlo donde quieras */
+    top: 0; /* Ajusta esto según la altura de tu navbar */
+    right: 0; /* Coloca el menú a la derecha */
+    padding: 0.5rem 1rem; /* Espaciado para el área clickeable */
+}
+
+.navbar-toggle .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    background-color: #fff;
+}
+
+/* Logo y navegación */
+.logo {
+    background: #FFFFFF; /* Fondo blanco para el círculo */
+    position: absolute;
+    border-radius: 50%; /* Hace que el fondo sea circular */
+    transform: translateY(50%); /* Desplazar hacia arriba la mitad de su propia altura para centrarlo verticalmente */
+    top: 2%; /* Posiciona el logo a la mitad de la altura del navbar */
+    left: 2rem; /* Aumenta la distancia desde la izquierda para mover el logo hacia la derecha */
+    margin-top: 0; /* Elimina el margen superior si existe */
+    /* Ajusta el siguiente valor para que el logo quede a la mitad fuera de la barra */
+    z-index: 10; /* Asegúrate de que el logo esté sobre otros elementos */
+    box-shadow: 0.25rem 0.25rem 0.5rem rgba(0, 0, 0, 0.3); /* 4px 4px 8px Sombra desplazada hacia la derecha */
+    display: flex; /* Centra la imagen del logo */
+    justify-content: center;
+    align-items: center;
+    width: 4.375rem; /* 70px Tamaño del círculo */
+    height: 4.375rem; /* 70px Tamaño del círculo */
+
+}
+
+.logo img {
+    height: 3.125rem; /* 50px */
+}
+
+.nav-links {
+    margin-left: auto; /* Empuja los enlaces de navegación a la derecha */
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    padding: 0 1.25rem; /* 20px */
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    font-family: 'Montserrat', sans-serif; /* Aplica Montserrat a los enlaces de navegación */
+}
+
+.nav-links a:hover {
+    color: #9A8C98;
+}
+
+
+/* Sección de introducción */
+.intro-section {
+    display: flex;
+    align-items: center;
+    min-height: 100vh; /* Asegura que la sección ocupe al menos toda la altura de la ventana */
+    position: relative;
+    border: none;
+    box-shadow: none;
+}
+
+.intro-section h1 {
+    font-size: 8rem; /* Ajusta el tamaño según el diseño */
+    color: #7694ff;
+    margin-bottom: 0.5rem;
+    font-weight: 750;
+}
+
+.intro-section h2 {
+    font-size: 4rem;
+    color: #ccb7ff;
+    margin-bottom: -1rem;
+    font-weight: 570;
+}
+
+.intro-section p {
+    font-size: 1.6rem; /* Ajusta el tamaño según el diseño */
+    margin-bottom: 2rem;
+    max-width: 43.75rem; /* 700px */
+    margin-left: auto;
+    margin-right: auto;
+    color: #a6a6a6;
+    text-align: center;
+}
+
+.contact-intro {
+    background: linear-gradient(to right, #e3c0ff, #dfbeff, #7d97ff, #6060ea); /* Degradado de colores */
+    color: #FFFFFF; /* Color del texto */
+    padding: 0.625rem 1.25rem; /* 10px 20px Espaciado interno alrededor del texto */
+    border-radius: 1.875rem; /* 30px Esquinas redondeadas */
+    font-weight: bold; /* Texto en negrita */
+    font-size: 1.3rem; /* Tamaño del texto */
+    text-decoration: none; /* Sin subrayado */
+    cursor: pointer; /* Cursor en forma de mano al pasar el mouse */
+    display: inline-block; /* Para aplicar margen y padding */
+    margin-top: 1.25rem; /* 20px Margen superior */
+    box-shadow: 0.25rem 0.25rem 0.5rem rgba(0, 0, 0, 0.4); /* 4px 4px 8px Sombra para darle profundidad */
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; /* Transición suave para efectos */
+    align-self: center; /* Centra el botón en el contenedor */
+    text-align: center; /* Centra el texto horizontalmente */
+    margin: 0 auto; /* Esto automáticamente centra el botón si es un bloque en línea */
+
+}
+
+/* Ajustes para el contenido Home y la imagen */
+
+.home-image {
+    flex: 1;
+    padding: 1.25rem; /* 20px */
+    border: none;
+    box-shadow: none;
+}
+
+.home-content {
+    flex: 1;
+    padding: 1.25rem; /* 20px */
+    max-width: 55%; /* 880px */
+    display: flex;
+    flex-direction: column; /* Ordena los hijos verticalmente */
+    align-items: center; /* Centra los hijos horizontalmente */
+    justify-content: center; /* Centra los hijos verticalmente si es necesario */
+    text-align: center; /* Asegura que el texto también esté centrado */
+    /* Otros estilos que ya tengas */
+}
+
+.home-image img {
+    width: 100%; /* Asegura que la imagen se expanda para llenar la división */
+    max-width: none; /* Puedes ajustar esto según el tamaño deseado */
+    height: auto; /* Mantiene la proporción de la imagen */
+}
+
+.intro-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-size: contain;
+    opacity: 0.5;
+    z-index: -1;
+}
+
+/* Botones de contacto */
+.sponsor-button {
+    background-color: #C9ADA7;
+    color: #fff;
+    padding: 0.625rem 1.5625rem; /* 10px 25px */
+    border-radius: 1.5625rem; /* 25px */
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.event-card .sponsor-button:hover {
+    background-color: #9A8C98;
+}
+
+/*---------------------------------------------------------*/
+
+/* Eventos */
+.events-section {
+    padding-top: 9.375rem; /* 150px Aumento del espacio superior para alejar las tarjetas del título */
+    padding-bottom: 1.875rem; /* 30px */
+    text-align: center;
+    min-height: 100vh;
+    background: linear-gradient(to right, #EEEAFE, #ffffff, #EEEAFE); /* Fondo gradiente suave */
+}
+
+/* Contenedor de tarjetas de eventos */
+.event-cards-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem; /* 80px Espacio entre las tarjetas */
+}
+
+/* Contenedor individual de cada tarjeta, ajustando el tamaño */
+.event-card-container {
+    width: 20%; /* Hace que las tarjetas sean mas delgadas */
+    margin: 0.75rem 2.5rem; /* 12px 40px Reducción del margen: arriba/abajo izquierda/derecha */
+    position: relative;
+}
+
+/* Estilos para los títulos de sección dentro de events-section */
+.section-title {
+    font-size: 2.5rem; /* Tamaño de la fuente para el título de la sección */
+    color: #5c3d99; /* Color del título de la sección */
+}
+
+.events-section h1 {
+    font-size: 4rem; /* Tamaño de la fuente para h1 dentro de events-section */
+    color: #7694ff; /* Color para h1 */
+    font-weight: 660; /* Grosor de la fuente para h1 */
+    margin-bottom: 2rem; /* Margen inferior para h1 */
+}
+
+.events-section h2 {
+    font-size: 1.2rem; /* Tamaño de la fuente para h2 dentro de events-section */
+    color: #ccb7ff; /* Color para h2 */
+    font-weight: 750; /* Grosor de la fuente para h2 */
+    margin-bottom: -1.2rem; /* Margen inferior para h2 */
+    margin-top: -3.5rem; /* Margen superior para h1 */
+}
+
+.events-section h3 {
+    font-size: 1rem; /* Tamaño de la fuente para h3 dentro de events-section */
+    font-weight: 750; /* Grosor de la fuente para h3 */
+}
+
+
+/* Fondo detrás de las tarjetas, ajustando el tamaño y posición */
+.event-background {
+    position: absolute;
+    top: -0.3125rem; /* -5px */
+    right: 2.5rem; /* 40px */
+    bottom: 5.625rem; /* 90px */
+    left: 1.5625rem; /* 25px */
+    background: url('recursos/FondoEventos.png') center/cover no-repeat;
+    border-radius: 2.1875rem; /*35px*/
+    z-index: 1;
+    margin: -7.5rem ; /* -120px Ajusta el margen para extender el fondo hacia fuera */
+}
+
+/* Estilos comunes para todas las tarjetas, ajustando el tamaño */
+.event-card {
+    border-radius: 1.125rem; /*18px*/
+    box-shadow: 
+        0 0.25rem 0.5rem rgba(0, 0, 0, 0.5), /* 0 4px 8px Sombra existente para resaltar la tarjeta */
+        0 1.25rem 1.5625rem -0.3125rem rgba(0, 0, 0, 0.7), /* 0 20px 25px  -5px Sombra difusa debajo de la tarjeta */
+        0 0.625rem 0.625rem -0.3125rem rgba(0, 0, 0, 0.3); /* 0 10px 10px -5px Sombra más pequeña para un efecto más suave */
+    overflow: visible;
+    text-align: center;
+    padding: 4rem 1rem; /* Se reduce el padding horizontal para dar más espacio a la lista */
+    position: relative;
+    z-index: 2;
+}
+
+
+
+/* Estilos para el logo dentro del encabezado de la tarjeta */
+.event-card-header .event-logo {
+    width: 3.75rem; /* 60px */
+    height: 3.75rem; /* 60px */
+    position: absolute;
+    top: -2.75rem; /* -44px Ajusta la posición para que el logo no se corte */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1); /* 0 2px 4px*/
+    margin-bottom: 9rem;
+}
+
+/* Estilos para el título dentro de la tarjeta */
+.event-title {
+    font-size: .7rem; /* Tamaño de la fuente para el título */
+    margin-top: -0.9375rem; /* -15px Espacio en la parte superior para dar espacio al logo */}
+
+/* Estilos para la lista de características de la tarjeta */
+.event-features {
+    list-style: none; /* Elimina los estilos por defecto de la lista */
+    padding: 0; /* Elimina el relleno por defecto */
+    margin: 1.25rem 0; /* 20px 0 Margen vertical para separar de otros elementos */
+    text-align: left; /* Alinea el texto a la izquierda */
+}
+
+/* Estilos para los ítems de la lista de características */
+.event-features li {
+    font-size: 1rem; /* Tamaño de la fuente para los ítems */
+    margin-bottom: 0.625rem; /* 10px Espacio entre ítems */
+    display: flex; /* Alinea los ítems en una fila */
+    align-items: center; /* Alinea los ítems verticalmente */
+    gap: 0.625rem; /* 10px Espacio entre el ícono y el texto */
+}
+
+.event-features img {
+    width: 6.25rem; /* 100px Ajusta esto al tamaño de tus íconos */
+    height: auto; /* Mantiene la proporción del ícono */
+}
+
+/* Estilos para el precio dentro de la tarjeta */
+.event-price {
+    font-size: 1.3rem; /* Tamaño de la fuente para el precio */
+    color: #7694FF; /* Color del texto */
+    margin: 1.25rem 0; /* 20px 0 Margen vertical para separar de otros elementos */
+    font-family: 'Montserrat', sans-serif; /* Aplica Montserrat a los enlaces de navegación */
+    font-weight: 600; /* Grosor de la fuente*/
+}
+
+.event-price-center {
+    font-size: 1.3rem; /* Tamaño de la fuente para el precio */
+    color: #ffffff; /* Color del texto */
+    margin: 1.25rem 0; /* 20px Margen vertical para separar de otros elementos */
+    font-family: 'Montserrat', sans-serif; /* Aplica Montserrat a los enlaces de navegación */
+    font-weight: 600; /* Grosor de la fuente*/
+}
+
+.event-button {
+    display: inline-block;
+    padding: 0.625rem 1.875rem; /* 10px 30px */
+    color: #fff;
+    background-color: transparent; /* Fondo transparente */
+    text-decoration: none;
+    font-size: 1rem;
+    border: 0.1875rem solid transparent; /* 3px Establece un borde transparente */
+    border-radius: 1.25rem; /* 20px Redondea las esquinas */
+    background-image: linear-gradient(transparent, transparent), /* Fondo transparente */
+                      linear-gradient(to right, #e3c0ff, #dfbeff, #7d97ff, #6060ea); /* Degradado para el borde */
+    background-origin: border-box; /* El degradado del borde se aplica dentro del borde */
+    background-clip: content-box, border-box; /* Clip del fondo al área de contenido y al borde */
+}
+
+
+/* Estilos para el estado hover del botón */
+.event-button:hover {
+    background-color: #7d97ff; /* Color de fondo cuando el cursor pasa sobre el botón */
+}
+
+.event-title {
+    color: #7694FF;
+}
+
+.event-title-center {
+    color: #fff; /* Color para h3 */
+}
+
+.info-center {
+    color: #fff; /* Color para h3 */
+}
+
+
+/* Estilos específicos para tarjetas individuales */
+/* Tarjeta izquierda */
+.event-card-container:first-child .event-card {
+    background-color: #EEEAFE; /* Color para la tarjeta izquierda */
+}
+
+/* Tarjeta central */
+.event-card-container:nth-child(2) .event-card{
+    background-color: #6060EA; /* Color para la tarjeta central */
+}
+
+/* Tarjeta derecha */
+.event-card-container:last-child .event-card {
+    background-color: #EEEAFE; /* Color para la tarjeta derecha */
+}
+
+/* ---------------------------------------------------------------------------------- */
+
+/*Sponsors*/
+.sponsors-carousel-container h1 {
+    font-size: 4.5rem;
+    color: #7694ff;
+    font-weight: 660;
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+.sponsors-carousel-container h2 {
+    font-size: 2rem;
+    color: #ccb7ff;
+    font-weight: 750;
+    margin-bottom: -0.5rem;
+    margin-top: -3.5rem;
+    text-align: left;
+}
+
+/*Linea debajo del h1*/
+.sponsor-info h1::after {
+    content: ''; /* El pseudo-elemento requiere la propiedad content */
+    display: block; /* Se convierte en un bloque para poder darle ancho y alto */
+    width: 10%; /* El ancho que quieres para la línea */
+    height: 0.25rem; /* 4px El grosor de la línea */
+    background: linear-gradient(to right, #e3c0ff, #dfbeff, #7d97ff, #6060ea); /* Degradado de colores */
+    margin-top: 0.5rem; /* 8px Espacio entre el texto de h1 y la línea */
+    border-radius: 0.125rem; /* 2px Si quieres bordes redondeados en la línea */
+}
+
+
+.sponsors-carousel-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.sponsors-carousel {
+    display: flex;
+    flex-direction: row-reverse; /* Invierte el orden para poner la imagen a la izquierda */
+    width: 100%;
+    height: 100%;
+}
+
+.sponsors-slide {
+    display: flex;
+    flex-direction: row-reverse; /* Imagen a la izquierda, texto a la derecha */
+    width: 100%;
+    height: 100%;
+    position: absolute; /* Posicionamiento absoluto para la transición */
+    top: 0;
+    left: 0; /* Empieza desde el borde izquierdo */
+    opacity: 0; /* Inicia invisible */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Suaviza la transición */
+}
+
+.sponsors-slide.active {
+    opacity: 1; /* Hace visible el slide activo */
+    transform: translateX(0%); /* Posición para el slide activo */
+}
+
+.sponsor-info {
+    width: 100%; /* Ajusta el ancho según sea necesario */
+    padding: 1.25rem; /* 20px Ajustar el padding según sea necesario */
+    display: flex;
+    flex-direction: column; /* Ordena los elementos internos verticalmente */
+    justify-content: center; /* Centra los elementos internos verticalmente */
+    text-align: left; /* Alinea el texto a la derecha */
+    z-index: 2;
+}
+
+
+.sponsor-image {
+    width: calc(50% - 40px); /* Reducir el ancho para compensar el padding */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Alinea la imagen a la derecha */
+    padding: -1.25rem; /* -20px Ajustar el padding según sea necesario */
+    position: relative; /* Posiciona relativamente los pseudo-elementos dentro */
+    z-index: 2; /* Asegura que la imagen del patrocinador esté por encima de la decorativa */
+}
+
+.sponsor-image img {
+    width: 15rem; /* 240px Mantiene el aspecto original de la imagen */
+    height: 15rem; /* 240px Altura fija para mantener la consistencia */
+    z-index: 3; /* Asegura que la imagen del patrocinador esté por encima de la decorativa */
+    border-radius: 0.8125rem; /* 13px Añade bordes redondeados a la imagen */
+}
+
+.sponsor-image::after {
+    content: '';
+    display: block;
+    width: calc(100% + 13.125rem); /* 210px Aumenta el ancho en 60px */
+    height: calc(100% + 13.125rem); /* 210px Aumenta la altura en 60px */
+    background: url('recursos/FondoSponsors.png') no-repeat center center / contain;
+    position: absolute;
+    top: 47.4%;
+    left: 87.1%;
+
+    transform: translate(-50%, -50%); /* Centrado perfecto */
+    z-index: -1;
+}
+
+
+.contact-button {
+    background: linear-gradient(to right, #e3c0ff, #dfbeff, #7d97ff, #6060ea); /* Degradado de colores */
+    color: #FFFFFF; /* Color del texto */
+    padding: 0.625rem 1.25rem; /* 10px 20px Espaciado interno alrededor del texto */
+    border-radius: 1.875rem; /* 30px Esquinas redondeadas */
+    font-weight: bold; /* Texto en negrita */
+    font-size: 1rem; /* Tamaño del texto */
+    text-decoration: none; /* Sin subrayado */
+    cursor: pointer; /* Cursor en forma de mano al pasar el mouse */
+    display: inline-block; /* Para aplicar margen y padding */
+    margin-top: 1.25rem; /* 20px Margen superior */
+    box-shadow: 0.25rem 0.25rem 0.5rem rgba(0, 0, 0, 0.4); /* 4px 4px 8px Sombra para darle profundidad */
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; /* Transición suave para efectos */
+    outline: none; /* Para evitar el contorno al hacer clic en algunos navegadores */
+}
+
+.contact-button:hover {
+    background-color: #7d97ff; /* Color de fondo al pasar el mouse */
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.6); /* 0 4px 8px Sombra más oscura para efecto hover */
+    transform: translateY(-2px); /* Ligeramente elevado al pasar el mouse */
+}
+
+.contact-button:active {
+    background-color: #5d5c61; /* Color de fondo cuando está presionado */
+    transform: translateY(0.0625rem); /* 1px Presionado hacia abajo cuando está activo */
+}
+
+.button-container {
+    text-align: left; /* Centra el botón en el contenedor */
+}
+
+.sponsor-footer {
+    position: absolute; /* Posición absoluta dentro de su contenedor relativo */
+    bottom: 2.5rem; /* 40px Alineado al fondo de la sección */
+    left: 0; /* Alineado al lado izquierdo de la sección */
+    width: 100%; /* Ocupa todo el ancho de la sección */
+    display: flex;
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center;
+    padding: 0.625rem 0; /* 10px 0 Espacio vertical dentro del footer */
+}
+
+.sponsor-year {
+    font-size: 1.2rem; /* Tamaño de fuente para 'sponsor 2024' */
+    color: #B1ACFF; /* Color de fuente para 'sponsor 2024' */
+    margin-right: 8.75rem; /* 140px Espacio a la derecha del texto para separarlo de la línea */
+}
+
+.line-decor {
+    width: 50%; /* O la longitud que prefieras para tu línea */
+    height: 0.125rem; /* 2px Altura de la línea */
+    background-color: #dfbeff; /* Color de la línea */
+    position: relative; /* Posición relativa para el posicionamiento del pseudo-elemento */
+}
+
+.line-decor::before, .line-decor::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 0.125rem; /*2px*/
+    width: 50%; /* Cada pseudo-elemento forma la mitad de la línea */
+    background: inherit; /* Toma el color de fondo del elemento padre */
+}
+
+.line-decor::before {
+    left: 0;
+}
+
+.line-decor::after {
+    right: 0;
+}
+
+/*-------------------------------------------------------------------------------------------*/
+
+.champion-section {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4.375rem 0; /* 70px Espaciado superior e inferior */
+    height: 100vh;
+  }
+  
+  .champion-container {
+    background: #6060EA; /* Color de fondo del cuadro */
+    border-radius: 1.25rem; /* 20px Bordes redondeados */
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2); /* 0 4px 8px Sombra de caja */
+    padding: 3.125rem; /* 50px Espaciado interno */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%; /* Ajusta esto según el ancho deseado */
+    max-width: 75rem; /* 1200px Ajusta esto según el ancho máximo deseado */
+    position: relative; /* Esto permite posicionar absolutamente elementos dentro de este contenedor */
+  }
+  
+  .champion-logo img {
+    width: 15.625rem; /* 250px Tamaño del logo */
+    height: auto; /* Para mantener la proporción de la imagen */
+    margin-bottom: 0.625rem; /* 10px Espacio debajo del logo */
+  }
+  
+  .champion-content {
+    text-align: center;
+  }
+
+  .champion-content h2 {
+    font-family: 'Montserrat', sans-serif; /* Aplica Montserrat a los enlaces de navegación */
+    margin-bottom: 0.3125rem; /* 5px Espacio debajo de "TOP 1" */
+    font-size: 1.5rem; /* Tamaño del texto de "TOP 1" */
+    color: #FFCCFF; /* Color del texto de "TOP 1" */
+  }
+  
+  .champion-content p {
+    margin-bottom: 0.125rem; /* 2px Espacio debajo de la descripción */
+    font-size: 1rem; /* Tamaño del texto de la descripción */
+    color: #B1ACFF; /* Color del texto de la descripción */
+  }
+  
+  .champion-content h1 {
+    font-family: 'Montserrat', sans-serif; /* Aplica Montserrat a los enlaces de navegación */
+    font-size: 3.8rem; /* Tamaño del texto de "CHAMPION" */
+    font-weight: bold; /* Negrita para "CHAMPION" */
+    margin-bottom: 0.3125rem; /* 5px Espacio debajo de "CHAMPION" */
+    color: #FFCCFF; /* Color del texto de "CHAMPION" */
+  }
+
+  .top-right-text {
+    font-family: 'Montserrat', sans-serif; /* Aplica Montserrat a los enlaces de navegación */
+    position: absolute; /* Posicionamiento absoluto */
+    top: 0; /* En la parte superior del contenedor */
+    right: 0; /* En el lado derecho del contenedor */
+    padding: 1.25rem; /* 20px Un poco de espacio alrededor del texto */
+    color: #ffffff; /* Texto en color blanco */
+    font-size: 2rem; /* Tamaño de la fuente */
+    font-weight: bold; /* Negrita */
+    z-index: 10; /* Asegúrate de que esté por encima de otros elementos si es necesario */
+}
+
+/*--------------------------------------------------------------------------------------*/
+
+/*Testimonials*/
+.testimonials-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4em;
+    text-align: center;
+    height: 80vh;
+  }
+
+  .testimonials-section h2 {
+    font-family: 'Montserrat', sans-serif; /* Aplica Montserrat a los enlaces de navegación */
+    text-align: center;
+    margin-bottom: 1.25rem; /* 20px */
+    color: #7d97ff;
+    font-size: 2.5rem;
+  }
+  
+  .testimonials-content {
+    max-width: 75rem; /* 1200px */
+  }
+  
+  .testimonials-carousel {
+    position: relative;
+    overflow: hidden;
+    margin-top: 1em;
+    width: 100%;
+  }
+
+  .testimonial-item {
+    opacity: 0;
+    transition: opacity 0.5s, visibility 0.5s;
+    text-align: center;
+    display: none;
+
+  }
+  
+  .testimonial-item.active {
+    opacity: 1;
+    visibility: visible;
+    animation: fade-in 1s;
+    display: block;
+
+  }
+
+  .testimonial-item.hidden {
+    display: none;
+}
+
+  
+  .testimonial-text {
+    font-size: 1.7rem; /* Or your desired size */
+    line-height: 1.5;
+    margin-bottom: 0.5em;
+  }
+  
+  .testimonial-author {
+    font-weight: bold;
+    margin-bottom: 2em;
+    font-size: 1.5rem;
+  }
+  
+  .testimonial-image img {
+    width: 15rem; /* 150px / 16 */
+    height: 15rem; /* 150px / 16 */
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1); /* 0 4px 8px Sombra de caja */
+    margin-bottom: 1em;
+    margin-top: 4em;
+    }
+  
+  .testimonial-nav {
+    display: flex;
+    justify-content: center;
+    gap: 0.5em;
+    margin-top: 1em;
+  }
+  
+  .testimonial-nav span {
+    display: inline-block;
+    width: 0.625rem; /* 10px */
+    height: 0.625rem; /* 10px */
+    border-radius: 50%;
+    background: #fff;
+    cursor: pointer;
+  }
+  
+  .testimonial-nav span.active {
+    background: #6060ea;
+  }
+  
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  /*----------------------------------------------------------------------------------------------*/
+
+  /* Pie de página */
+  .footer {
+    padding-top: -1.875rem; /* -30px Asegúrate de que el contenido del footer tiene suficiente espacio en la parte superior */
+    padding-bottom: 0; /* Reduce o elimina el padding inferior para mover el footer hacia arriba */
+    position: relative;
+  }
+  
+  .footer-content {
+    max-width: 75rem; /* 1200px */
+    margin: auto;
+    text-align: center;
+  }
+  
+  .footer-image img {
+    max-width: 14.375rem; /* 230px Ajusta esto según el tamaño de tu imagen */
+    height: auto;
+    margin-bottom: 0px; /* Espacio entre la imagen y la línea */
+  }
+  
+  .footer-line {
+    border: 0;
+    height: 0.125rem; /* 2px */
+    background-image: linear-gradient(to right, #6060ea, #dfbeff); /* Un degradado de ejemplo */
+    width: 90%; /* Ajusta esto según qué tan ancha quieras la línea */
+    margin: auto; /* Centra la línea */
+  }
+  
+  .footer p {
+    font-size: .9rem; /* Tamaño de la fuente */
+    color: #6060EA; /* Color del texto */
+    margin-top: 1.25rem; /* 20px Espacio entre la línea y el texto */
+  }
+
+  .social-icons {
+    text-align: right; /* Alinea los íconos a la derecha */
+  }
+  
+  .social-icons a {
+    margin: 0 0.625rem; /* 10px Espaciado entre íconos */
+    color: #6060ea; /* Color de los íconos */
+    text-decoration: none; /* Quita el subrayado de los enlaces */
+    background-color: #fff; /* Fondo blanco para los círculos */
+    border-radius: 50%; /* Hace que el fondo sea circular */
+    display: inline-flex; /* Usa flex para alinear el ícono al centro */
+    align-items: center; /* Centra el ícono verticalmente */
+    justify-content: center; /* Centra el ícono horizontalmente */
+    width: 2rem; /* 30px Tamaño del círculo */
+    height: 2rem; /* 30px Tamaño del círculo */
+    box-shadow: 0 0 0.3125rem rgba(0, 0, 0, 0.2); /* 0px 0px 5px Sombra suave */
+  }
+  
+  .social-icons a:hover {
+    color: black; /* Cambia el color al pasar el ratón por encima */
+      background-color: #e3c0ff; /* Cambia el fondo al pasar el ratón por encima */
+  }
+  
+
+/*------------------------------------------*/
+
+/* Media Queries para Responsividad */
+
+/* Estilos para teléfonos móviles (hasta 600px) */
+@media (max-width: 600px) {
+    /* Ajustes generales para reducir padding y márgenes */
+    .container,
+    .intro-section,
+    .events-section,
+    .sponsors-carousel-container,
+    .champion-section,
+    .testimonials-section,
+    .footer {
+        padding: 20px; /* Espaciado reducido para los contenedores */
+    }
+
+    /* Ajustes para la barra de navegación */
+    .navbar {
+        height: 60px; /* Altura reducida para la barra de navegación */
+        padding: 0 1rem; /* Espaciado lateral consistente */
+    }
+
+    .navbar .logo {
+        width: 50px; /* Tamaño del logo reducido */
+        height: 50px;
+        top: 5px; /* Ajuste de posición vertical del logo */
+        left: 10px; /* Ajuste de posición horizontal del logo */
+    }
+
+    .navbar .logo img {
+        height: 40px; /* Ajuste del tamaño del logo */
+    }
+
+    .nav-links {
+        display: none; /* Asegura que los enlaces no se muestren */
+        position: absolute;
+        background-color: #dfbeff; /* Fondo blanco para la navegación expandible */
+        top: 60px;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+    }
+
+    /* Mostrar los enlaces cuando se hace clic en el menú de hamburguesa */
+    .navbar .nav-links.active {
+        display: flex; /* Muestra los enlaces */
+        position: fixed; /* Fijo para que ocupe toda la pantalla */
+        top: 60px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        flex-direction: column;
+        align-items: center; /* Centrar enlaces horizontalmente */
+        justify-content: center; /* Centrar enlaces verticalmente */
+        z-index: 1000; /* Asegurarse de que esté por encima de otros elementos */
+    }
+
+    .navbar .nav-links li {
+        padding: 10px; /* Espaciado para cada enlace */
+    }
+
+    .navbar .navbar-toggle {
+        display: block; /* Mostrar el botón de menú */
+        position: absolute; /* Posicionamiento absoluto */
+        top: 10px; /* Ajuste de la posición vertical */
+        right: 10px; /* Ajuste de la posición horizontal */
+    }
+
+    /* Ajustes para la sección de introducción */
+    .intro-section h1,
+    .intro-section h2,
+    .intro-section p {
+        text-align: center; /* Centrar texto para títulos y párrafos */
+    }
+
+    .intro-section h1 {
+        font-size: 2.5rem; /* Tamaño de fuente más pequeño para h1 */
+    }
+
+    .intro-section h2 {
+        font-size: 2rem; /* Tamaño de fuente más pequeño para h2 */
+    }
+
+    .intro-section p {
+        font-size: 1rem; /* Tamaño de fuente más pequeño para párrafos */
+    }
+
+    .home-image img {
+        width: 100%; /* Ajuste de la imagen para que ocupe el ancho completo */
+        margin: 20px 0; /* Espaciado adicional arriba y abajo de la imagen */
+    }
+
+    /* Ajustes para las secciones de eventos y patrocinadores */
+    .event-card-container,
+    .sponsor-info,
+    .champion-content,
+    .testimonial-item {
+        max-width: 100%; /* Ajuste del ancho al 100% para ocupar el espacio disponible */
+        margin: 20px 0; /* Espaciado adicional arriba y abajo */
+    }
+
+    /* Asegúrate de que las tarjetas de eventos se apilen verticalmente */
+    .event-cards-container {
+        flex-direction: column; /* Acomoda las tarjetas de eventos en columna */
+        gap: 25px; /* Espaciado entre tarjetas */
+    }
+
+    .event-card-container {
+        flex-direction: column; /* Las tarjetas se apilan verticalmente */
+        width: 77%; /* Ajusta el ancho al 100% para que ocupen todo el espacio */
+    }
+
+    .event-card {
+        box-shadow: none; /* Eliminar sombras para un aspecto más limpio */
+    }
+
+    /* Ajustes para el pie de página */
+    .footer .footer-content,
+    .social-icons {
+        text-align: center; /* Centrar el contenido y los iconos sociales */
+    }
+
+    .social-icons a {
+        margin: 0 10px; /* Espaciado entre los íconos sociales */
+        background-color: #fff; /* Fondo blanco para los círculos */
+        width: 25px; /* Tamaño del círculo */
+        height: 25px; /* Tamaño del círculo */
+
+    }
+
+    .social-icons {
+        margin-top: 20px; /* Espaciado adicional arriba de los íconos sociales */
+        justify-content: center; /* Centrar los íconos horizontalmente */
+    }
+
+    /* Ajustes para las imágenes de testimonios y campeones */
+    .testimonial-image img,
+    .champion-logo img {
+        width: 100px; /* Tamaño reducido para las imágenes */
+        height: 100px;
+        margin: 0 auto; /* Centrar las imágenes */
+    }
+
+    /* Ajustes para los botones de contacto */
+    .contact-button,
+    .event-button,
+    .sponsor-button {
+        font-size: 0.9rem; /* Tamaño de fuente más pequeño para los botones */
+        padding: 10px 20px; /* Padding reducido para los botones */
+    }
+
+    /* Ajustes para ocultar detalles decorativos que no son esenciales en móviles */
+    .intro-section::before,
+    .event-background,
+    .sponsor-image::after {
+        display: none; /* Ocultar elementos decorativos de fondo */
+    }
+      
+}
+
+/*----------------------------------------------------------------------------------*/
+
+/* Estilos para teléfonos móviles (hasta 415px) */
+@media (max-width: 415px) {
+    /* Ajustes generales para reducir padding y márgenes */
+    .container,
+    .intro-section,
+    .events-section,
+    .sponsors-carousel-container,
+    .champion-section,
+    .testimonials-section,
+    .footer {
+        padding: 20px; /* Reducción adicional del espaciado para contenedores */
+    }
+
+    /* Ajustes para la barra de navegación */
+    .navbar {
+        height: 50px; /* Altura más reducida para la barra de navegación */
+        padding: 0 10px; /* Espaciado lateral más pequeño */
+    }
+
+    .navbar .logo {
+        width: 40px; /* Tamaño del logo aún más reducido */
+        height: 40px;
+        top: 5px;
+        left: 5px; /* Ajuste de posición más cerca del borde */
+    }
+
+    .navbar .logo img {
+        height: 30px; /* Ajuste del tamaño del logo */
+    }
+
+    .navbar .nav-links.active {
+        padding-top: 20px; /* Espaciado superior para el menú expandido */
+    }
+
+    .navbar .navbar-toggle {
+        top: 5px; /* Ajuste de la posición vertical */
+        right: 5px; /* Ajuste de la posición horizontal */
+    }
+
+    /* Ajustes para la sección de introducción */
+    .intro-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Alinea los elementos en el centro */
+        justify-content: center; /* Centra los elementos verticalmente */
+    }
+
+    /* Estilos para los títulos 'COFRADÍA' y 'CATTLEYA' */
+    .intro-section h1 {
+        text-align: center; /* Centra los títulos */
+        width: 100%; /* Fuerza a los títulos a ocupar todo el ancho disponible */
+        margin-top: -40px; /* Espacio adicional en la parte superior */
+        margin-bottom: 30px; /* Espacio debajo de los títulos */
+    }
+
+    .intro-section h2 {
+        text-align: center; /* Centra los títulos */
+        width: 100%; /* Fuerza a los títulos a ocupar todo el ancho disponible */
+        margin-top: 80px; /* Espacio adicional en la parte superior */
+        margin-bottom: 30px; /* Espacio debajo de los títulos */
+    }
+
+    .intro-section p {
+        font-size: 1.1rem; /* Ajusta el tamaño según el diseño */
+        margin-bottom: 2rem;
+        max-width: 43.75rem; /* 700px */
+        margin-left: auto;
+        margin-right: auto;
+        color: #a6a6a6;
+        text-align: center;
+    }    
+
+    /* Estilos para el logo */
+    .intro-section .home-image {
+        width: 100%; /* Fuerza a la imagen a ocupar todo el ancho disponible */
+        display: flex;
+        justify-content: center; /* Centra la imagen */
+        margin-bottom: 40px; /* Espacio debajo del logo */
+    }
+
+    /* Estilos para el texto y el botón 'Contact us' */
+    .intro-section {
+        width: 100%; /* Fuerza al contenido a ocupar todo el ancho disponible */
+        margin-bottom: 20px; /* Espacio debajo del texto antes del botón */
+    }
+
+    .home-content {
+        flex: none; /* Anula la propiedad flex si se aplicó anteriormente */
+        padding: 0; /* Remueve el padding para evitar desplazamientos no deseados */
+        margin: 0 auto; /* Centra el contenido horizontalmente */
+        text-align: center; /* Alinea el texto al centro */
+        max-width: 100%; /* Permite que el contenido ocupe todo el ancho disponible */
+        order: 2;
+        margin-bottom: 500px;
+        margin-top: -145px;
+
+    }
+
+
+    /* Ajustes para la imagen dentro de la sección home */
+    .home-image img {
+        width: 300px; /* Anula cualquier ancho definido previamente y usa el ancho natural de la imagen */
+        max-width: 100%; /* Asegura que la imagen no sea más ancha que su contenedor */
+        height: 300px; /* Mantiene la proporción de la imagen */
+        margin-top: 80px;
+    }
+    
+    .contact-intro {
+        margin-top: -5px;
+        font-size: 17px;
+    }
+
+    /*-------------------SPONSORS--------------------------*/
+
+    .sponsors-carousel-container h1 {
+        font-size: 2.3rem;
+        color: #7694ff;
+        font-weight: 660;
+        margin-bottom: 2rem;
+        text-align: left;
+    }
+    
+    .sponsors-carousel-container h2 {
+        font-size: 1.5rem;
+        color: #ccb7ff;
+        font-weight: 750;
+        margin-bottom: -0.5rem;
+        margin-top: 3.5rem;
+        text-align: left;
+    }
+    
+
+.sponsors-carousel-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.sponsors-carousel {
+    display: flex;
+    flex-direction: none; /* Invierte el orden para poner la imagen a la izquierda */
+    width: 100%;
+    height: 100%;
+}
+
+.sponsors-slide {
+    display:block;
+    flex-direction: none; /* Imagen a la izquierda, texto a la derecha */
+    width: 100%;
+    height: 100%;
+    position: absolute; /* Posicionamiento absoluto para la transición */
+    top: 0;
+    left: 0; /* Empieza desde el borde izquierdo */
+    opacity: 0; /* Inicia invisible */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Suaviza la transición */
+}
+
+.sponsor-image {
+    width: calc(50% - 40px); /* Reducir el ancho para compensar el padding */
+    display: flex;
+    align-items: center;
+    justify-content: left; /* Alinea la imagen a la derecha */
+    padding: -1.25rem; /* -20px Ajustar el padding según sea necesario */
+    position: relative; /* Posiciona relativamente los pseudo-elementos dentro */
+    left: 16%;
+    margin-top: 50px;
+}
+
+.sponsor-image img {
+    width: 15rem; /* 240px Mantiene el aspecto original de la imagen */
+    height: 15rem; /* 240px Altura fija para mantener la consistencia */
+    z-index: 3; /* Asegura que la imagen del patrocinador esté por encima de la decorativa */
+    border-radius: 0.8125rem; /* 13px Añade bordes redondeados a la imagen */
+}
+
+/*-------------------------------------------------*/
+
+
+
+    .champion-content h2 {
+        font-family: 'Montserrat', sans-serif; /* Aplica Montserrat a los enlaces de navegación */
+        margin-bottom: 0.3125rem; /* 5px Espacio debajo de "TOP 1" */
+        font-size: 1.3rem; /* Tamaño del texto de "TOP 1" */
+        color: #FFCCFF; /* Color del texto de "TOP 1" */
+      }
+      
+      .champion-content p {
+        margin-bottom: 0.125rem; /* 2px Espacio debajo de la descripción */
+        font-size: .7rem; /* Tamaño del texto de la descripción */
+        color: #B1ACFF; /* Color del texto de la descripción */
+      }
+      
+      .champion-content h1 {
+        font-family: 'Montserrat', sans-serif; /* Aplica Montserrat a los enlaces de navegación */
+        font-size: 1.7rem; /* Tamaño del texto de "CHAMPION" */
+        font-weight: bold; /* Negrita para "CHAMPION" */
+        margin-bottom: 0.3125rem; /* 5px Espacio debajo de "CHAMPION" */
+        color: #FFCCFF; /* Color del texto de "CHAMPION" */
+        align-self: center;
+      }
+
+      .top-right-text {
+        font-family: 'Montserrat', sans-serif; /* Aplica Montserrat a los enlaces de navegación */
+        position: absolute; /* Posicionamiento absoluto */
+        top: 0; /* En la parte superior del contenedor */
+        right: 0; /* En el lado derecho del contenedor */
+        padding: 1.25rem; /* 20px Un poco de espacio alrededor del texto */
+        color: #ffffff; /* Texto en color blanco */
+        font-size: 1.3rem; /* Tamaño de la fuente */
+        font-weight: bold; /* Negrita */
+        z-index: 10; /* Asegúrate de que esté por encima de otros elementos si es necesario */
+    }
+    
+
+    .contact-button {
+        padding: 10px 20px; /* Ajusta el relleno según sea necesario */
+        margin-top: 20px; /* Espacio por encima del botón de contacto */
+        align-self: center; /* Centra el botón en el contenedor */
+    }
+}

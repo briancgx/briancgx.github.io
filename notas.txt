@@ -1,0 +1,83 @@
+/* Media Queries para dispositivos más pequeños (hasta 435px) */
+@media (max-width: 435px) {
+    /* Ajustes generales para reducir padding y márgenes */
+    .container,
+    .intro-section,
+    .events-section,
+    .sponsors-carousel-container,
+    .champion-section,
+    .testimonials-section,
+    .footer {
+        padding: 15px; /* Espaciado ajustado para los contenedores */
+    }
+
+    /* Ajustes para la barra de navegación */
+    .navbar {
+        height: 50px; /* Altura ajustada para la barra de navegación */
+        padding: 0 15px; /* Espaciado lateral ajustado */
+    }
+
+    .navbar .logo {
+        width: 40px; /* Tamaño del logo ajustado */
+        height: 40px;
+        top: 5px; /* Posición vertical ajustada del logo */
+        left: 10px; /* Posición horizontal ajustada del logo */
+    }
+
+    .navbar .logo img {
+        height: 30px; /* Tamaño ajustado del logo */
+    }
+
+    /* Resto de los ajustes para la barra de navegación y otros elementos... */
+
+    /* Ajustes específicos para la sección de patrocinadores */
+    .sponsors-carousel-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 15px; /* Espaciado interno ajustado */
+    }
+
+    /* Títulos de patrocinadores */
+    .sponsors-carousel-container h1,
+    .sponsors-carousel-container h2 {
+        font-size: 1.5rem; /* Tamaño de fuente ajustado para h1 */
+        font-size: 1.2rem; /* Tamaño de fuente ajustado para h2 */
+        text-align: center; /* Texto centrado */
+        margin: 10px 0; /* Espaciado vertical entre títulos */
+    }
+
+    /* Imagen del patrocinador */
+    .sponsor-image {
+        width: 120px; /* Ancho de la imagen ajustado */
+        height: 120px; /* Altura de la imagen ajustada */
+        margin: 10px 0; /* Espaciado vertical ajustado */
+    }
+
+    .sponsor-image img {
+        width: 100%; /* Asegura que la imagen llene el contenedor */
+        height: auto; /* Mantiene la proporción de la imagen */
+    }
+
+    /* Información del patrocinador */
+    .sponsor-info {
+        text-align: center; /* Texto centrado */
+        margin: 10px 0; /* Espaciado vertical ajustado */
+    }
+
+    .sponsor-info .questrial-regular {
+        font-size: 0.9rem; /* Tamaño de fuente ajustado para la descripción */
+        margin: 10px 0; /* Espaciado vertical ajustado para la descripción */
+    }
+
+    /* Botón de contacto */
+    .contact-button {
+        font-size: 0.9rem; /* Tamaño de fuente ajustado */
+        padding: 10px 20px; /* Espaciado interno ajustado */
+        margin-top: 10px; /* Espacio encima del botón ajustado */
+        /* Resto de estilos para el botón de contacto */
+    }
+
+    /* Resto de los ajustes... */
+}
