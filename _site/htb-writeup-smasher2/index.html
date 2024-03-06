@@ -9,14 +9,14 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Smasher2 - Hack The Box - snowscan.io</title>
+<!-- begin _includes/seo.html --><title>Smasher2 - Hack The Box - briancgx.io</title>
 <meta name="description" content="Just its predecessor, Smasher2 is a very difficult box with reverse engineering and binary exploitation. Unfortunately, the initial step required some insane brute-forcing which took part of the fun out of this one for me. I solved the authentication bypass part using an unintended method: The code compares the password against the username instead of the password in the configuration file so by guessing the username I also had the password and could log in. I had to do some WAF evasion to get my payload uploaded and land a shell. Then the final part of the box is exploiting a kernel driver mmap handler to change the credential structure in memory of my current user to get root access.">
 
 
 
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
-<meta property="og:site_name" content="snowscan.io">
+<meta property="og:site_name" content="briancgx.io">
 <meta property="og:title" content="Smasher2 - Hack The Box">
 <meta property="og:url" content="http://localhost:4000/htb-writeup-smasher2/">
 
@@ -54,7 +54,7 @@
     {
       "@context": "https://schema.org",
       "@type": "Person",
-      "name": "Snowscan",
+      "name": "briancgx",
       "url": "http://localhost:4000",
       "sameAs": null
     }
@@ -69,7 +69,7 @@
 <!-- end _includes/seo.html -->
 
 
-<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="snowscan.io Feed">
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="briancgx.io Feed">
 
 <!-- https://t.co/dKP3o1e -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -1147,7 +1147,7 @@ uid=0(root) gid=0(root) groups=0(root),4(adm),24(cdrom),30(dip),46(plugdev),111(
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2024 Snowscan</div>
+<div class="page__footer-copyright">&copy; 2024 briancgx</div>
 
       </footer>
     </div>

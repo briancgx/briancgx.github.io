@@ -9,14 +9,14 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Dyplesher - Hack The Box - snowscan.io</title>
+<!-- begin _includes/seo.html --><title>Dyplesher - Hack The Box - briancgx.io</title>
 <meta name="description" content="Dyplesher was a pretty tough box that took me more than 10 hours to get to the user flag. There’s quite a bit of enumeration required to get to the git repo and then find memcached credentials from the source code. I couldn’t use the memcache module from Metasploit here since it doesn’t support credentials so I wrote my own memcache enumeration script. We then make our way to more creds in Gogs, then craft a malicious Minecraft plugin to get RCE. To get to the first flag we’ll sniff AMQP creds from the loopback interface. To priv esc, we send messages on the RabbitMQ bug and get the server to download and execute a lua script (Cubberite plugin).">
 
 
 
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
-<meta property="og:site_name" content="snowscan.io">
+<meta property="og:site_name" content="briancgx.io">
 <meta property="og:title" content="Dyplesher - Hack The Box">
 <meta property="og:url" content="http://localhost:4000/htb-writeup-dyplesher/">
 
@@ -54,7 +54,7 @@
     {
       "@context": "https://schema.org",
       "@type": "Person",
-      "name": "Snowscan",
+      "name": "briancgx",
       "url": "http://localhost:4000",
       "sameAs": null
     }
@@ -69,7 +69,7 @@
 <!-- end _includes/seo.html -->
 
 
-<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="snowscan.io Feed">
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="briancgx.io Feed">
 
 <!-- https://t.co/dKP3o1e -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -875,7 +875,7 @@ Serving HTTP on 0.0.0.0 port 8080 (http://0.0.0.0:8080/) ...
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2024 Snowscan</div>
+<div class="page__footer-copyright">&copy; 2024 briancgx</div>
 
       </footer>
     </div>
