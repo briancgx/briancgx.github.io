@@ -10,9 +10,8 @@ header:
   icon: /assets/images/dockerlabs.png
 categories:
   - dockerlabs
-  - infosec
-tags:
   - very easy
+tags:
   - linux
   - bruteforce
   - privileged vim
