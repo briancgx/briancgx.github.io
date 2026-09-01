@@ -21,11 +21,34 @@ function toggle<T>(set: Set<T>, value: T): Set<T> {
   return next;
 }
 
+function Chevron({ className = '' }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 12 12"
+      width="12"
+      height="12"
+      aria-hidden="true"
+      className={className}
+    >
+      <path
+        d="M2.5 4.5 6 8l3.5-3.5"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 export default function WriteupCatalog({ items }: { items: CatalogItem[] }) {
   const [platforms, setPlatforms] = useState<Set<string>>(new Set());
   const [difficulties, setDifficulties] = useState<Set<string>>(new Set());
   const [langs, setLangs] = useState<Set<string>>(new Set());
   const [tags, setTags] = useState<Set<string>>(new Set());
+  // Mobile: the whole filter panel is collapsed by default so results show first.
+  const [open, setOpen] = useState(false);
 
   // Facet option lists derived from the data (with counts).
   const facets = useMemo(() => {
@@ -74,52 +97,72 @@ export default function WriteupCatalog({ items }: { items: CatalogItem[] }) {
   );
 
   return (
-    <div className="grid gap-8 md:grid-cols-[15rem_1fr]">
-      <aside className="space-y-6" aria-label="Filtros">
-        <div className="flex items-center justify-between">
-          <p className="font-mono text-xs uppercase tracking-widest text-muted">
-            <span className="text-ai">$</span> filter
-          </p>
-          {activeCount > 0 && (
-            <button
-              type="button"
-              onClick={clearAll}
-              className="font-mono text-xs text-ops hover:underline"
-            >
-              reset ({activeCount})
-            </button>
-          )}
-        </div>
+    <div className="grid gap-6 md:grid-cols-[15rem_1fr] md:gap-8">
+      <div className="md:sticky md:top-4 md:self-start">
+        {/* Mobile toggle — hidden on desktop where the panel is always shown. */}
+        <button
+          type="button"
+          onClick={() => setOpen((o) => !o)}
+          aria-expanded={open}
+          className="flex w-full items-center justify-between rounded-lg border border-border bg-surface px-4 py-2.5 font-mono text-xs uppercase tracking-widest text-text md:hidden"
+        >
+          <span>
+            <span className="text-ai">$</span> filtros
+            {activeCount > 0 && <span className="text-ops"> ({activeCount})</span>}
+          </span>
+          <Chevron className={`transition-transform ${open ? 'rotate-180' : ''}`} />
+        </button>
 
-        <FacetGroup
-          legend="Plataforma"
-          options={[...facets.platforms.entries()]}
-          selected={platforms}
-          label={(k) => PLATFORM_LABELS[k] ?? k}
-          onToggle={(k) => setPlatforms((s) => toggle(s, k))}
-        />
-        <FacetGroup
-          legend="Dificultad"
-          options={sortedDiff}
-          selected={difficulties}
-          label={(k) => DIFFICULTY_LABELS[k] ?? k}
-          onToggle={(k) => setDifficulties((s) => toggle(s, k))}
-        />
-        <FacetGroup
-          legend="Idioma"
-          options={[...facets.langs.entries()]}
-          selected={langs}
-          label={(k) => LANG_LABELS[k] ?? k}
-          onToggle={(k) => setLangs((s) => toggle(s, k))}
-        />
-        <FacetGroup
-          legend="Tags"
-          options={sortedTags}
-          selected={tags}
-          label={(k) => `#${k}`}
-          onToggle={(k) => setTags((s) => toggle(s, k))}
-        />
-      </aside>
+        <div
+          className={`${open ? 'mt-3 block' : 'hidden'} space-y-2 md:mt-0 md:block`}
+          aria-label="Filtros"
+        >
+          <div className="flex items-center justify-between px-1">
+            <p className="hidden font-mono text-xs uppercase tracking-widest text-muted md:block">
+              <span className="text-ai">$</span> filter
+            </p>
+            {activeCount > 0 && (
+              <button
+                type="button"
+                onClick={clearAll}
+                className="ml-auto font-mono text-xs text-ops hover:underline"
+              >
+                reset ({activeCount})
+              </button>
+            )}
+          </div>
+
+          <FacetGroup
+            legend="Plataforma"
+            options={[...facets.platforms.entries()]}
+            selected={platforms}
+            label={(k) => PLATFORM_LABELS[k] ?? k}
+            onToggle={(k) => setPlatforms((s) => toggle(s, k))}
+          />
+          <FacetGroup
+            legend="Dificultad"
+            options={sortedDiff}
+            selected={difficulties}
+            label={(k) => DIFFICULTY_LABELS[k] ?? k}
+            onToggle={(k) => setDifficulties((s) => toggle(s, k))}
+          />
+          <FacetGroup
+            legend="Idioma"
+            options={[...facets.langs.entries()]}
+            selected={langs}
+            label={(k) => LANG_LABELS[k] ?? k}
+            onToggle={(k) => setLangs((s) => toggle(s, k))}
+          />
+          <FacetGroup
+            legend="Tags"
+            options={sortedTags}
+            selected={tags}
+            label={(k) => `#${k}`}
+            onToggle={(k) => setTags((s) => toggle(s, k))}
+            startOpen={false}
+          />
+        </div>
+      </div>
 
       <section aria-live="polite">
         <p className="mb-4 font-mono text-xs text-muted">
@@ -188,41 +231,55 @@ function FacetGroup({
   selected,
   label,
   onToggle,
+  startOpen = true,
 }: {
   legend: string;
   options: [string, number][];
   selected: Set<string>;
   label: (key: string) => string;
   onToggle: (key: string) => void;
+  startOpen?: boolean;
 }) {
   if (options.length === 0) return null;
+  const activeInGroup = options.filter(([k]) => selected.has(k)).length;
   return (
-    <fieldset className="space-y-1.5">
-      <legend className="mb-1 font-mono text-xs font-semibold text-text">
-        {legend}
-      </legend>
-      {options.map(([key, n]) => {
-        const on = selected.has(key);
-        return (
-          <label
-            key={key}
-            className={`flex cursor-pointer items-center justify-between gap-2 rounded px-2 py-1 font-mono text-xs transition-colors ${
-              on ? 'bg-ai/10 text-ai' : 'text-muted hover:text-text'
-            }`}
-          >
-            <span className="flex items-center gap-2">
-              <input
-                type="checkbox"
-                checked={on}
-                onChange={() => onToggle(key)}
-                className="accent-ai"
-              />
-              {label(key)}
-            </span>
-            <span className="tabular-nums opacity-70">{n}</span>
-          </label>
-        );
-      })}
-    </fieldset>
+    <details
+      open={startOpen}
+      className="group rounded-lg border border-border bg-surface"
+    >
+      <summary className="flex cursor-pointer list-none items-center justify-between px-3 py-2 font-mono text-xs font-semibold text-text [&::-webkit-details-marker]:hidden">
+        <span>
+          {legend}
+          {activeInGroup > 0 && (
+            <span className="ml-1.5 text-ai">({activeInGroup})</span>
+          )}
+        </span>
+        <Chevron className="text-muted transition-transform group-open:rotate-180" />
+      </summary>
+      <div className="space-y-0.5 border-t border-border p-1.5">
+        {options.map(([key, n]) => {
+          const on = selected.has(key);
+          return (
+            <label
+              key={key}
+              className={`flex cursor-pointer items-center justify-between gap-2 rounded px-2 py-1 font-mono text-xs transition-colors ${
+                on ? 'bg-ai/10 text-ai' : 'text-muted hover:text-text'
+              }`}
+            >
+              <span className="flex items-center gap-2">
+                <input
+                  type="checkbox"
+                  checked={on}
+                  onChange={() => onToggle(key)}
+                  className="accent-ai"
+                />
+                {label(key)}
+              </span>
+              <span className="tabular-nums opacity-70">{n}</span>
+            </label>
+          );
+        })}
+      </div>
+    </details>
   );
 }
