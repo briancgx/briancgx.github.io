@@ -1,5 +1,5 @@
 ---
-title: "HackTheBox — EscapeTwo"
+title: "EscapeTwo - HackTheBox"
 slug: "htb-escapetwo"
 date: 2025-10-25
 platform: htb
@@ -18,14 +18,16 @@ excerpt: "Máquina Windows AD «Sequel» (EscapeTwo) de HackTheBox: de un xlsx c
 draft: false
 ---
 
-# PortScan
+EscapeTwo (dominio `sequel.htb`) es una máquina Windows clasificada como «Media» en HackTheBox, centrada en Active Directory. El recorrido pasa por unas credenciales escondidas en un `xlsx` corrupto, acceso a MSSQL y un C2 con Sliver, hasta escalar al dominio abusando de AD CS (ESC) con Certipy.
+
+## Portscan
 Se realiza el escaneo de puertos con nmap.
 ```bash
 nmap -p- --min-rate 1500 -n -Pn -vvv --open 10.129.5.93 -oN 1stScan
 ```
 
 ![](/assets/images/htb-escapetwo/htb-escapetwo-1.png)
-# User Flag
+## User Flag
 HTB nos proporciona unas primeras credenciales para enumerar
 ```plaintext
 rose / KxEPkKe6R8su
@@ -145,7 +147,7 @@ evil-winrm -i sequel.htb -u ryan -p 'WqSZAF6CysDQbGb3'
 ```
 
 ![](/assets/images/htb-escapetwo/htb-escapetwo-17.png)
-# Privesc
+## Privesc
 
 De nuevo subiré el `beacon` para fines de práctica.
 ```bash
@@ -245,3 +247,6 @@ Finalmente realizamos la conexión con  `evil-winrm` haciendo un `PtH`.
 evil-winrm -i sequel.htb -u administrator -H '7a8d4e04986afa8ed4060f75e5a0b3ff'
 ```
 ![](/assets/images/htb-escapetwo/htb-escapetwo-28.png)
+
+## Conclusiones
+Así completamos EscapeTwo, consiguiendo las flags de user y root. Una máquina muy completa para practicar el abuso de MSSQL, el movimiento con un C2 como Sliver, la enumeración con BloodHound y la explotación de plantillas vulnerables en AD CS con Certipy. ¡Nos vemos en la siguiente!

@@ -1,5 +1,5 @@
 ---
-title: "HackTheBox — Cicada"
+title: "Cicada - HackTheBox"
 slug: "htb-cicada"
 date: 2025-10-23
 platform: htb
@@ -17,14 +17,16 @@ excerpt: "Máquina Windows AD «Cicada» de HackTheBox: de null session y SMB a 
 draft: false
 ---
 
-# PortScan
+Cicada es una máquina Windows clasificada como «Fácil» en HackTheBox, centrada en Active Directory. El recorrido va desde una enumeración de SMB con sesión de invitado y un poco de password spraying, hasta comprometer el dominio abusando de `SeBackupPrivilege` para volcar los hashes del sistema.
+
+## Portscan
 Se realiza el escaneo de puertos con nmap.
 ```bash
 nmap -p- --min-rate 1500 -n -Pn -vvv --open 10.129.66.37 -oN 1stScan
 ```
 
 ![](/assets/images/htb-cicada/htb-cicada-1.png)
-# User Flag
+## User Flag
 Tiene abierto el 445, que es SMB, así que probamos enumerar los recursos compartidos
 ```bash
 nxc smb 10.129.66.37 
@@ -96,7 +98,7 @@ evil-winrm -i cicada.htb -u emily.oscars -p 'Q!3@Lp#M6b*7t*Vt'
 
 Una vez dentro de la máquina con este usuario, ya podemos ubicar su directorio `Desktop` y encontrar la flag de user.
 ![](/assets/images/htb-cicada/htb-cicada-14.png)
-# Privesc
+## Privesc
 Revisando los privilegios que tiene el usuario actual, notamos que cuenta con `SeBackupPrivilege`, lo cual nos permite leer cualquier archivo del sistema, sin importar permisos o propietario, ya que su propósito principal es que los servicios de backup puedan copiar todo el sistema.
 ```powershell
 whoami /priv
@@ -133,3 +135,6 @@ evil-winrm -i cicada.htb -u administrator -H '2b87e7c93a3e8a0ea4a581937016f341'
 
 Logramos obtener acceso a la victima siendo administradores y podemos leer la flag de root.
 ![](/assets/images/htb-cicada/htb-cicada-18.png)
+
+## Conclusiones
+Con esto completamos Cicada, obteniendo las flags de user y root. Una máquina ideal para practicar la enumeración de SMB con sesiones nulas, el password spraying y el abuso de `SeBackupPrivilege` para extraer los hashes del `SAM` y el `SYSTEM`. ¡Vamos por más!
