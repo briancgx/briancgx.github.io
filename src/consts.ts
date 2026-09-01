@@ -19,7 +19,7 @@ export const IDENTITY = {
   role2: 'Red Team Operator',
   team: 'Straiker',
   location: 'México',
-  focus: 'Le gusta resolver máquinas y el hacking práctico.',
+  focus: 'Me gusta romper la IA y también las operaciones de red team.',
   email: 'contact@briancgx.me',
   // Offensive + AI stack shown in the whoami card.
   stack: {
