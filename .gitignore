@@ -1,0 +1,28 @@
+# build output
+dist/
+.output/
+
+# dependencies
+node_modules/
+
+# astro
+.astro/
+
+# generated search index
+public/pagefind/
+
+# environment
+.env
+.env.*
+!.env.example
+
+# logs & os
+*.log
+.DS_Store
+
+# migration scratch (content already ported into src/ and public/)
+_migration_temp/
+contexto.md
+
+# backend agent
+backend-agent/node_modules/

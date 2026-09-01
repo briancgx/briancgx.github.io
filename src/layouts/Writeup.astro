@@ -1,0 +1,43 @@
+---
+// src/layouts/Writeup.astro
+// TODO: Agent 2 (Claude) - Implement writeup post layout (TOC, metadata badge HUD, breadcrumbs, copy button)
+import Base from './Base.astro';
+
+interface Props {
+  title: string;
+  date: Date;
+  platform?: string;
+  difficulty?: string;
+  tags?: string[];
+  excerpt?: string;
+  machine_image?: string;
+  lang?: string;
+}
+
+const { title, date, platform, difficulty, tags, excerpt, machine_image, lang } = Astro.props;
+---
+<Base title={`${title} | briancgx`} description={excerpt} image={machine_image}>
+  <article class="writeup-container">
+    <header class="writeup-header">
+      <h1>{title}</h1>
+      <div class="writeup-metadata">
+        {platform && <span class="badge platform">{platform}</span>}
+        {difficulty && <span class="badge difficulty">{difficulty}</span>}
+        {lang && <span class="badge lang">{lang}</span>}
+        <time datetime={date ? new Date(date).toISOString() : ''}>
+          {date ? new Date(date).toLocaleDateString() : ''}
+        </time>
+      </div>
+      {tags && tags.length > 0 && (
+        <div class="writeup-tags">
+          {tags.map((tag) => (
+            <a href={`/tags/${tag}/`} class="tag-link">#{tag}</a>
+          ))}
+        </div>
+      )}
+    </header>
+    <div class="writeup-content">
+      <slot />
+    </div>
+  </article>
+</Base>

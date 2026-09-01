@@ -1,0 +1,36 @@
+---
+// src/pages/tags/[tag].astro
+// TODO: Agent 2 (Claude) - Implement Tag filtering view for writeups
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const writeups = await getCollection('writeups', ({ data }) => !data.draft);
+  const tags = [...new Set(writeups.flatMap((w) => w.data.tags || []))];
+
+  return tags.map((tag) => ({
+    params: { tag },
+    props: {
+      tag,
+      writeups: writeups.filter((w) => w.data.tags?.includes(tag)),
+    },
+  }));
+}
+
+const { tag, writeups } = Astro.props;
+---
+<Base title={`Tag: #${tag} - briancgx`}>
+  <div class="max-w-4xl mx-auto px-4 py-8">
+    <h1 class="text-3xl font-bold mb-6">Writeups tagged with <span class="text-emerald-400">#{tag}</span></h1>
+    <ul class="space-y-4">
+      {writeups.map((w) => (
+        <li class="border border-neutral-800 p-4 rounded-lg">
+          <a href={`/writeups/${w.slug || w.id.replace(/\.md$/, '')}/`} class="text-xl text-emerald-400 hover:underline font-semibold">
+            {w.data.title}
+          </a>
+          <p class="text-neutral-400 text-sm mt-1">{w.data.excerpt}</p>
+        </li>
+      ))}
+    </ul>
+  </div>
+</Base>

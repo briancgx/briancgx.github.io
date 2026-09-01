@@ -1,0 +1,21 @@
+---
+// src/components/writeup/WriteupCard.astro
+// TODO: Agent 2 (Claude) - Implement writeup card component (tags, difficulty badge, teaser image, excerpt)
+interface Props {
+  title?: string;
+  slug?: string;
+  excerpt?: string;
+  platform?: string;
+  difficulty?: string;
+  tags?: string[];
+  date?: Date;
+  machine_image?: string;
+}
+
+const { title, slug, excerpt, platform, difficulty, tags, date, machine_image } = Astro.props;
+---
+<article class="writeup-card">
+  <!-- TODO: Writeup card markup -->
+  <h3><a href={`/writeups/${slug}/`}>{title}</a></h3>
+  {excerpt && <p>{excerpt}</p>}
+</article>

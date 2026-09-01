@@ -1,0 +1,34 @@
+---
+// src/pages/writeups/index.astro
+// TODO: Agent 2 (Claude) - Implement full Writeups Catalog with faceted filters (Platform, Difficulty, Tags), sort, and search
+import Base from '../../layouts/Base.astro';
+import SearchBar from '../../components/search/SearchBar.astro';
+import CatalogFilter from '../../components/catalog/CatalogFilter.astro';
+import { getCollection } from 'astro:content';
+
+const writeups = await getCollection('writeups', ({ data }) => !data.draft);
+---
+<Base title="Writeups Catalog - briancgx">
+  <div class="max-w-6xl mx-auto px-4 py-8">
+    <h1 class="text-3xl font-bold mb-6">Writeups Catalog</h1>
+    <SearchBar />
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mt-6">
+      <CatalogFilter />
+      <section class="md:col-span-3 space-y-4">
+        {writeups.map((w) => (
+          <article class="border border-neutral-800 p-4 rounded-lg">
+            <a href={`/writeups/${w.slug || w.id.replace(/\.md$/, '')}/`} class="text-xl text-emerald-400 hover:underline font-semibold">
+              {w.data.title}
+            </a>
+            <div class="flex gap-2 my-2 text-xs">
+              <span class="bg-neutral-800 px-2 py-1 rounded">{w.data.platform}</span>
+              <span class="bg-neutral-800 px-2 py-1 rounded">{w.data.difficulty}</span>
+              <span class="bg-neutral-800 px-2 py-1 rounded">{w.data.lang}</span>
+            </div>
+            <p class="text-neutral-400 text-sm">{w.data.excerpt}</p>
+          </article>
+        ))}
+      </section>
+    </div>
+  </div>
+</Base>

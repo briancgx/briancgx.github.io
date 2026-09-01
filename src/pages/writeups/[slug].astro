@@ -1,0 +1,20 @@
+---
+// src/pages/writeups/[slug].astro
+// TODO: Agent 2 (Claude) - Implement Single Writeup View (Expressive Code styling, TOC, breadcrumbs, copy snippet)
+import { getCollection, render } from 'astro:content';
+import Writeup from '../../layouts/Writeup.astro';
+
+export async function getStaticPaths() {
+  const writeups = await getCollection('writeups');
+  return writeups.map((entry) => ({
+    params: { slug: entry.slug || entry.id.replace(/\.md$/, '') },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+<Writeup {...entry.data}>
+  <Content />
+</Writeup>

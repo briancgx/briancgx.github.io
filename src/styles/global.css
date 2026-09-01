@@ -1,0 +1,132 @@
+/* Self-hosted variable fonts (no external Google Fetch). */
+@import '@fontsource-variable/jetbrains-mono';
+@import '@fontsource-variable/inter';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+    --bg: #0a0e14;
+    --surface: #10151f;
+    --surface2: #141b28;
+    --border: #1e2836;
+    --text: #cdd7e5;
+    --muted: #7688a0;
+    --ops: #ff3b3b;
+    --ai: #22d3ee;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem; /* clears the sticky nav for anchor jumps */
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+
+  body {
+    @apply bg-bg text-text font-sans antialiased;
+    min-height: 100dvh;
+  }
+
+  ::selection {
+    background: var(--ai);
+    color: #04121a;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--ai);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+@layer components {
+  /* Operator-vocabulary UI primitives (used in section headers / badges). */
+  .prompt::before {
+    content: '$ ';
+    color: var(--ai);
+  }
+
+  .terminal-caret {
+    display: inline-block;
+    width: 0.6ch;
+    height: 1.05em;
+    background: var(--ai);
+    vertical-align: text-bottom;
+    @apply animate-blink;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1 rounded border border-border
+      bg-surface px-2 py-0.5 font-mono text-xs uppercase tracking-wider;
+  }
+
+  .card {
+    @apply rounded-lg border border-border bg-surface transition-colors;
+  }
+  .card:hover {
+    @apply border-ai/40;
+  }
+
+  .link-ai {
+    @apply text-ai underline-offset-4 hover:underline;
+  }
+}
+
+/* Long-form reading styles for writeup bodies. */
+.prose-writeup {
+  @apply max-w-prose text-text/90 leading-7;
+}
+.prose-writeup h2 {
+  @apply mt-10 mb-3 scroll-mt-24 font-mono text-xl font-semibold text-text;
+}
+.prose-writeup h2::before {
+  content: '# ';
+  color: var(--ai);
+}
+.prose-writeup h3 {
+  @apply mt-8 mb-2 scroll-mt-24 font-mono text-lg font-semibold text-text;
+}
+.prose-writeup p {
+  @apply my-4;
+}
+.prose-writeup a {
+  @apply text-ai underline underline-offset-4;
+}
+.prose-writeup ul {
+  @apply my-4 list-disc space-y-1 pl-6;
+}
+.prose-writeup ol {
+  @apply my-4 list-decimal space-y-1 pl-6;
+}
+.prose-writeup img {
+  @apply my-6 rounded-lg border border-border;
+}
+.prose-writeup :not(pre) > code {
+  @apply rounded border border-border bg-surface2 px-1.5 py-0.5 font-mono text-[0.85em] text-ai;
+}
+.prose-writeup blockquote {
+  @apply my-4 border-l-2 border-ops/60 pl-4 italic text-muted;
+}
+.prose-writeup hr {
+  @apply my-8 border-border;
+}

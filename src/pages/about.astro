@@ -1,0 +1,18 @@
+---
+// src/pages/about.astro
+// TODO: Agent 2 (Claude) - Implement About page (Profile summary, Certifications badges, Skills matrix, CV download link)
+import Base from '../layouts/Base.astro';
+---
+<Base title="About - briancgx">
+  <div class="max-w-4xl mx-auto px-4 py-8">
+    <h1 class="text-3xl font-bold mb-4">About briancgx</h1>
+    <p class="text-neutral-300 mb-6">
+      Pentester, CTF Player, and member of HackTheBox CyberGh0st Team based in Mexico.
+    </p>
+    <div class="mt-4">
+      <a href="/cv/briancgx-cv.pdf" download class="inline-block bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2 rounded">
+        Download CV
+      </a>
+    </div>
+  </div>
+</Base>
