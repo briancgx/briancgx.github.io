@@ -8,15 +8,26 @@ import { IDENTITY } from '@/consts';
     <p class="font-mono text-xs uppercase tracking-widest text-ai">
       // agentic red team ops
     </p>
-    <h1 class="text-3xl font-bold leading-tight text-text sm:text-4xl">
-      {IDENTITY.handle}
-      <span class="block text-lg font-normal text-muted sm:text-xl">
-        {IDENTITY.role}
-      </span>
-      <span class="block text-lg font-normal text-muted sm:text-xl">
-        {IDENTITY.role2}
-      </span>
-    </h1>
+    <div class="flex items-center gap-4">
+      <img
+        src="/assets/images/ig.jpg"
+        alt="briancgx"
+        width="72"
+        height="72"
+        loading="eager"
+        decoding="async"
+        class="h-16 w-16 shrink-0 rounded-full border border-border object-cover ring-2 ring-ai/20 sm:h-[72px] sm:w-[72px]"
+      />
+      <h1 class="text-3xl font-bold leading-tight text-text sm:text-4xl">
+        {IDENTITY.handle}
+        <span class="block text-lg font-normal text-muted sm:text-xl">
+          {IDENTITY.role}
+        </span>
+        <span class="block text-lg font-normal text-muted sm:text-xl">
+          {IDENTITY.role2}
+        </span>
+      </h1>
+    </div>
     <p class="max-w-prose text-text/80">
       Algunos de mis writeups, blogs y cosas que he hecho. {IDENTITY.focus}
     </p>
