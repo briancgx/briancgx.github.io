@@ -44,6 +44,56 @@ const LEVELS: LevelDef[] = [
 // el validador, pero la comprobación real la hace el backend (/api/verify).
 const FLAG_RE = /briancgx\{[^}]*\}/i;
 
+// Render ligero y SEGURO de Markdown inline (negritas, cursiva, código):
+// todo va como children de React (escapado), nunca innerHTML.
+function inlineNodes(text: string, base: number): React.ReactNode[] {
+  const out: React.ReactNode[] = [];
+  const re = /(\*\*[^*\n]+\*\*|`[^`\n]+`|\*[^*\n]+\*)/g;
+  let last = 0;
+  let k = 0;
+  let m: RegExpExecArray | null;
+  while ((m = re.exec(text))) {
+    if (m.index > last) out.push(text.slice(last, m.index));
+    const t = m[0];
+    if (t.startsWith('**')) {
+      out.push(
+        <strong key={`${base}-${k++}`} className="font-semibold text-text">
+          {t.slice(2, -2)}
+        </strong>,
+      );
+    } else if (t.startsWith('`')) {
+      out.push(
+        <code
+          key={`${base}-${k++}`}
+          className="rounded bg-surface2 px-1 py-0.5 text-ai"
+        >
+          {t.slice(1, -1)}
+        </code>,
+      );
+    } else {
+      out.push(<em key={`${base}-${k++}`}>{t.slice(1, -1)}</em>);
+    }
+    last = m.index + t.length;
+  }
+  if (last < text.length) out.push(text.slice(last));
+  return out;
+}
+
+function renderRich(content: string): React.ReactNode[] {
+  const lines = content.split('\n');
+  return lines.map((line, i) => {
+    const l = line
+      .replace(/^#{1,6}\s+/, '') // encabezados markdown -> texto
+      .replace(/^\s*[-*]\s+/, '• '); // viñetas
+    return (
+      <span key={i}>
+        {inlineNodes(l, i)}
+        {i < lines.length - 1 && <br />}
+      </span>
+    );
+  });
+}
+
 export default function ChallengeBox() {
   const [level, setLevel] = useState<1 | 2>(1);
   const [threads, setThreads] = useState<Record<number, Msg[]>>({
@@ -222,7 +272,9 @@ export default function ChallengeBox() {
               >
                 {m.role === 'user' ? 'you@ops $ ' : `${def.codename.toLowerCase()} > `}
               </span>
-              <span className="whitespace-pre-wrap text-text/90">{m.content}</span>
+              <span className="whitespace-pre-wrap text-text/90">
+                {renderRich(m.content)}
+              </span>
             </div>
           ))}
           {busy && (
