@@ -3,6 +3,7 @@ import { AGENT_API } from '@/consts';
 
 type Role = 'user' | 'assistant';
 type Msg = { role: Role; content: string };
+type Verdict = 'correct' | 'incorrect' | null;
 
 type LevelDef = {
   id: 1 | 2;
@@ -39,7 +40,9 @@ const LEVELS: LevelDef[] = [
   },
 ];
 
-const FLAG_RE = /FLAG\{[^}]*\}/i;
+// Las flags tienen el formato briancgx{...}; se autodetecta para pre-rellenar
+// el validador, pero la comprobación real la hace el backend (/api/verify).
+const FLAG_RE = /briancgx\{[^}]*\}/i;
 
 export default function ChallengeBox() {
   const [level, setLevel] = useState<1 | 2>(1);
@@ -50,10 +53,13 @@ export default function ChallengeBox() {
   const [input, setInput] = useState('');
   const [busy, setBusy] = useState(false);
   const [offline, setOffline] = useState(false);
-  const [captured, setCaptured] = useState<Record<number, string | null>>({
-    1: null,
-    2: null,
-  });
+
+  // Validación de flag (por nivel).
+  const [flagInput, setFlagInput] = useState<Record<number, string>>({ 1: '', 2: '' });
+  const [verdict, setVerdict] = useState<Record<number, Verdict>>({ 1: null, 2: null });
+  const [solved, setSolved] = useState<Record<number, boolean>>({ 1: false, 2: false });
+  const [verifying, setVerifying] = useState(false);
+
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const def = LEVELS[level - 1];
@@ -75,7 +81,6 @@ export default function ChallengeBox() {
       ...t,
       [level]: [{ role: 'assistant', content: def.greeting }],
     }));
-    setCaptured((c) => ({ ...c, [level]: null }));
     setOffline(false);
   };
 
@@ -115,13 +120,39 @@ export default function ChallengeBox() {
       const reply = data.reply ?? data.error ?? '(sin respuesta)';
       pushMsg(lvl, { role: 'assistant', content: reply });
 
+      // Si el agente soltó algo con pinta de flag, pre-rellena el validador.
       const flag = reply.match(FLAG_RE);
-      if (flag) setCaptured((c) => ({ ...c, [lvl]: flag[0] }));
+      if (flag) setFlagInput((f) => ({ ...f, [lvl]: flag[0] }));
     } catch {
       // Degraded, never-broken fallback when the backend is unreachable.
       setOffline(true);
     } finally {
       setBusy(false);
+    }
+  };
+
+  const verifyFlag = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const lvl = level;
+    const flag = flagInput[lvl].trim();
+    if (!flag || verifying) return;
+    setVerifying(true);
+    setVerdict((v) => ({ ...v, [lvl]: null }));
+    try {
+      const res = await fetch(`${AGENT_API}/api/verify`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ level: lvl, flag }),
+      });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = (await res.json()) as { correct?: boolean };
+      const ok = data.correct === true;
+      setVerdict((v) => ({ ...v, [lvl]: ok ? 'correct' : 'incorrect' }));
+      if (ok) setSolved((s) => ({ ...s, [lvl]: true }));
+    } catch {
+      setOffline(true);
+    } finally {
+      setVerifying(false);
     }
   };
 
@@ -131,7 +162,6 @@ export default function ChallengeBox() {
       <div className="flex flex-wrap gap-2" role="tablist" aria-label="Niveles del reto">
         {LEVELS.map((l) => {
           const active = l.id === level;
-          const done = captured[l.id];
           return (
             <button
               key={l.id}
@@ -152,7 +182,7 @@ export default function ChallengeBox() {
                 {l.difficulty}
               </span>
               {l.codename}
-              {done && <span aria-label="capturada" className="text-ai">✓</span>}
+              {solved[l.id] && <span aria-label="superado" className="text-ai">✓</span>}
             </button>
           );
         })}
@@ -166,13 +196,6 @@ export default function ChallengeBox() {
         </div>
         <p className="text-sm text-text/80">{def.brief}</p>
       </div>
-
-      {captured[level] && (
-        <div className="rounded-lg border border-ai/40 bg-ai/10 p-4 font-mono text-sm text-ai">
-          <p className="font-semibold">flag capturada</p>
-          <p className="mt-1 break-all text-text">{captured[level]}</p>
-        </div>
-      )}
 
       {/* Terminal chat */}
       <div className="card overflow-hidden font-mono text-sm">
@@ -232,6 +255,46 @@ export default function ChallengeBox() {
             send
           </button>
         </form>
+      </div>
+
+      {/* Flag validator */}
+      <div className="card p-4">
+        <p className="mb-2 font-mono text-xs uppercase tracking-widest text-muted">
+          <span className="text-ai">$</span> validar flag
+        </p>
+        <form onSubmit={verifyFlag} className="flex flex-wrap items-center gap-2">
+          <input
+            value={flagInput[level]}
+            onChange={(e) => {
+              const val = e.target.value.slice(0, 200);
+              setFlagInput((f) => ({ ...f, [level]: val }));
+              setVerdict((v) => ({ ...v, [level]: null }));
+            }}
+            placeholder="briancgx{...}"
+            className="min-w-0 flex-1 rounded border border-border bg-[#0d121b] px-3 py-2 font-mono text-sm text-text outline-none placeholder:text-muted focus:border-ai/40"
+            aria-label={`Flag del nivel ${level}`}
+            autoComplete="off"
+            spellCheck={false}
+          />
+          <button
+            type="submit"
+            disabled={verifying || !flagInput[level].trim()}
+            className="rounded border border-ai/40 bg-ai/10 px-4 py-2 font-mono text-xs text-ai transition-colors hover:bg-ai/20 disabled:opacity-40"
+          >
+            {verifying ? 'validando…' : 'Validar'}
+          </button>
+        </form>
+
+        {verdict[level] === 'correct' && (
+          <p className="mt-3 rounded border border-ai/40 bg-ai/10 px-3 py-2 font-mono text-sm text-ai">
+            ✓ Flag correcta — nivel {level} superado.
+          </p>
+        )}
+        {verdict[level] === 'incorrect' && (
+          <p className="mt-3 rounded border border-ops/40 bg-ops/10 px-3 py-2 font-mono text-sm text-ops">
+            ✗ Flag incorrecta. Sigue intentándolo.
+          </p>
+        )}
       </div>
 
       {offline && (

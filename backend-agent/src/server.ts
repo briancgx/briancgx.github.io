@@ -1,6 +1,6 @@
 import express, { type Request, type Response } from 'express';
 import cors from 'cors';
-import { systemFor, level2Flag, L2_TOOL_SENTINEL } from './prompts.ts';
+import { systemFor, level2Flag, L2_TOOL_SENTINEL, checkFlag } from './prompts.ts';
 
 const PORT = Number(process.env.PORT ?? 8080);
 const MODEL = process.env.MODEL ?? 'deepseek-chat';
@@ -78,6 +78,21 @@ setInterval(() => {
 
 app.get('/health', (_req: Request, res: Response) => {
   res.json({ ok: true });
+});
+
+// Valida una flag enviada por el usuario. No filtra la flag real: solo dice
+// si la enviada es correcta. Rate-limited como el resto.
+app.post('/api/verify', (req: Request, res: Response) => {
+  const ip = clientIp(req);
+  if (rateLimited(ip)) {
+    return res.status(429).json({ error: 'Rate limit exceeded. Slow down.' });
+  }
+  const level = req.body?.level === 2 ? 2 : 1;
+  const flag = typeof req.body?.flag === 'string' ? req.body.flag : '';
+  if (!flag.trim()) {
+    return res.status(400).json({ error: 'Falta la flag.' });
+  }
+  return res.json({ correct: checkFlag(level as 1 | 2, flag) });
 });
 
 type ChatMessage = { role: 'user' | 'assistant' | 'system'; content: string };
