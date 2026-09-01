@@ -1,7 +1,7 @@
 ---
 import Base from '@/layouts/Base.astro';
 import WriteupCard from '@/components/writeup/WriteupCard.astro';
-import { getWriteups, writeupHref } from '@/lib/writeups';
+import { getWriteups, writeupHref, writeupImage } from '@/lib/writeups';
 
 export async function getStaticPaths() {
   const writeups = await getWriteups();
@@ -45,7 +45,7 @@ const { tag, writeups } = Astro.props;
           lang={w.data.lang}
           tags={w.data.tags}
           date={w.data.date}
-          machine_image={w.data.machine_image}
+          machine_image={writeupImage(w)}
         />
       ))
     }

@@ -3,7 +3,7 @@ import Base from '@/layouts/Base.astro';
 import SearchBar from '@/components/search/SearchBar.astro';
 import WriteupCatalog from '@/components/catalog/WriteupCatalog.tsx';
 import type { CatalogItem } from '@/components/catalog/WriteupCatalog.tsx';
-import { getWriteups, writeupHref } from '@/lib/writeups';
+import { getWriteups, writeupHref, writeupImage } from '@/lib/writeups';
 
 const writeups = await getWriteups();
 const items: CatalogItem[] = writeups.map((w) => ({
@@ -15,7 +15,7 @@ const items: CatalogItem[] = writeups.map((w) => ({
   lang: w.data.lang,
   tags: w.data.tags,
   date: w.data.date.toISOString().slice(0, 10),
-  machine_image: w.data.machine_image,
+  machine_image: writeupImage(w),
 }));
 ---
 

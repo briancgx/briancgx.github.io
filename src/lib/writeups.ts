@@ -1,6 +1,12 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
+import { PLATFORM_LOGOS } from '@/consts';
 
 export type Writeup = CollectionEntry<'writeups'>;
+
+/** Card image: the writeup's own machine_image, else its platform logo. */
+export function writeupImage(entry: Writeup): string | undefined {
+  return entry.data.machine_image ?? PLATFORM_LOGOS[entry.data.platform];
+}
 
 /** URL slug for a writeup: frontmatter `slug` wins, else filename w/o ext. */
 export function writeupSlug(entry: Writeup): string {

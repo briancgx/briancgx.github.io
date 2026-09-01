@@ -2,7 +2,7 @@
 import Base from '@/layouts/Base.astro';
 import Hero from '@/components/hero/Hero.astro';
 import WriteupCard from '@/components/writeup/WriteupCard.astro';
-import { getWriteups, writeupHref } from '@/lib/writeups';
+import { getWriteups, writeupHref, writeupImage } from '@/lib/writeups';
 
 const writeups = await getWriteups();
 const recent = writeups.slice(0, 6);
@@ -36,7 +36,7 @@ const recent = writeups.slice(0, 6);
               lang={w.data.lang}
               tags={w.data.tags}
               date={w.data.date}
-              machine_image={w.data.machine_image}
+              machine_image={writeupImage(w)}
             />
           ))}
         </div>

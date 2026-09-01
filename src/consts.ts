@@ -119,6 +119,13 @@ export const PLATFORM_LABELS: Record<string, string> = {
   tryhackme: 'TryHackMe',
 };
 
+// Platform logo used on writeup cards when a writeup has no own machine_image.
+export const PLATFORM_LOGOS: Record<string, string> = {
+  htb: '/assets/logos/htb.png',
+  dockerlabs: '/assets/logos/dockerlabs.png',
+  tryhackme: '/assets/logos/tryhackme.png',
+};
+
 export const DIFFICULTY_LABELS: Record<string, string> = {
   easy: 'Easy',
   medium: 'Medium',
