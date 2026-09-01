@@ -6,7 +6,7 @@ const writeups = defineCollection({
     title: z.string(),
     slug: z.string().optional(),
     date: z.coerce.date(),
-    platform: z.string().default('dockerlabs'),
+    platform: z.enum(['htb', 'dockerlabs', 'tryhackme']),
     difficulty: z.enum(['easy', 'medium', 'hard', 'insane']),
     lang: z.enum(['es', 'en']),
     tags: z.array(z.string()).default([]),

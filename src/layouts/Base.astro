@@ -1,56 +1,100 @@
 ---
-// src/layouts/Base.astro
-// TODO: Agent 2 (Claude) - Implement full base layout with Navbar, Footer, SEO meta tags, dark mode tokens
-import '../styles/global.css';
+import '@/styles/global.css';
+import Nav from '@/components/Nav.astro';
+import Footer from '@/components/Footer.astro';
+import CommandPalette from '@/components/search/CommandPalette.tsx';
+import { SITE } from '@/consts';
+import { getWriteups, writeupHref } from '@/lib/writeups';
 
 interface Props {
   title?: string;
   description?: string;
+  /** Root-relative or absolute OG image path. `image` kept as an alias. */
+  ogImage?: string;
   image?: string;
+  ogType?: 'website' | 'article';
+  noindex?: boolean;
 }
 
 const {
-  title = 'briancgx | Cybersecurity & CTF Writeups',
-  description = 'Personal cybersecurity portfolio and writeups by briancgx (Pentester, HTB CyberGh0st Team).',
-  image = '/assets/images/ig.jpg',
+  title,
+  description = SITE.description,
+  ogImage,
+  image,
+  ogType = 'website',
+  noindex = false,
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://briancgx.me');
----
-<!doctype html>
-<html lang="es" class="dark">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="canonical" href={canonicalURL} />
-    <title>{title}</title>
-    <meta name="description" content={description} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content={new URL(image, canonicalURL)} />
-  </head>
-  <body class="bg-neutral-950 text-neutral-100 min-h-screen flex flex-col">
-    <!-- TODO: Agent 2 (Claude) - Header / Navbar -->
-    <header class="border-b border-neutral-800 px-6 py-4 flex justify-between items-center">
-      <div class="font-mono text-emerald-400 font-bold text-lg">
-        <a href="/">briancgx.me</a>
-      </div>
-      <nav class="flex gap-4 text-sm font-medium">
-        <a href="/" class="hover:text-emerald-400">Home</a>
-        <a href="/writeups/" class="hover:text-emerald-400">Writeups</a>
-        <a href="/about/" class="hover:text-emerald-400">About</a>
-        <a href="/challenge/" class="hover:text-emerald-400">Challenge</a>
-      </nav>
-    </header>
+const resolvedOg = ogImage ?? image ?? '/og/default.png';
+const pageTitle = title
+  ? `${title} · ${SITE.title}`
+  : `${SITE.title} — Writeups & AI Security`;
+const canonical = new URL(Astro.url.pathname, SITE.url).href;
+const ogImageUrl = new URL(resolvedOg, SITE.url).href;
 
-    <main class="flex-1">
+// Data for the global command palette (nav + writeup index).
+const writeups = await getWriteups();
+const paletteItems = writeups.map((w) => ({
+  title: w.data.title,
+  href: writeupHref(w),
+  platform: w.data.platform,
+  difficulty: w.data.difficulty,
+}));
+---
+
+<!doctype html>
+<html lang={SITE.lang} class="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="canonical" href={canonical} />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content={ogType} />
+    <meta property="og:site_name" content={SITE.title} />
+    <meta property="og:title" content={title ?? SITE.title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:locale" content={SITE.locale} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title ?? SITE.title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title={SITE.title}
+      href="/rss.xml"
+    />
+    <meta name="theme-color" content="#0a0e14" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <!-- GitHub Pages fallback. Prefer HTTP headers (Caddy/Cloudflare). -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://agent.briancgx.me; base-uri 'self'; form-action 'self'; object-src 'none'"
+    />
+  </head>
+  <body>
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded focus:bg-surface focus:px-3 focus:py-2 focus:text-ai"
+    >
+      Saltar al contenido
+    </a>
+    <Nav />
+    <main id="main" class="mx-auto w-full max-w-content px-4 py-10">
       <slot />
     </main>
-
-    <!-- TODO: Agent 2 (Claude) - Footer -->
-    <footer class="border-t border-neutral-800 px-6 py-4 text-center text-xs text-neutral-500">
-      <p>&copy; {new Date().getFullYear()} briancgx. All rights reserved.</p>
-    </footer>
+    <Footer />
+    <CommandPalette client:idle items={paletteItems} />
   </body>
 </html>

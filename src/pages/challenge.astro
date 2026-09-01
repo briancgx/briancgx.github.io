@@ -1,15 +1,30 @@
 ---
-// src/pages/challenge.astro
-// TODO: Agent 2 (Claude) - Implement AI Prompt Injection / Jailbreak Challenge interactive island
-import Base from '../layouts/Base.astro';
-import ChallengeBox from '../components/challenge/ChallengeBox.astro';
+import Base from '@/layouts/Base.astro';
+import ChallengeBox from '@/components/challenge/ChallengeBox.tsx';
 ---
-<Base title="AI Challenge - briancgx">
-  <div class="max-w-4xl mx-auto px-4 py-8">
-    <h1 class="text-3xl font-bold mb-4">AI Security Challenge</h1>
-    <p class="text-neutral-400 mb-6">
-      Test your prompt injection & jailbreaking skills against our AI guardian.
+
+<Base
+  title="Challenge"
+  description="Reto de seguridad de IA agéntica: jailbreak de un guardián (prompt injection) y abuso de una tool oculta (tool-use). Dos niveles."
+  noindex={true}
+>
+  <header class="mb-8 max-w-prose">
+    <p class="mb-2 font-mono text-xs uppercase tracking-widest text-ops">
+      <span class="prompt"></span>./challenge --start
     </p>
-    <ChallengeBox />
-  </div>
+    <h1 class="text-3xl font-bold text-text">AI Security Challenge</h1>
+    <p class="mt-3 text-text/80">
+      Dos agentes, dos objetivos. Pon a prueba tus técnicas de
+      <span class="text-ai">prompt injection</span> y
+      <span class="text-ai">abuso de tool-use</span> contra defensas reales.
+      El backend corre en una VPS aislada; nada de esto toca datos reales.
+    </p>
+  </header>
+
+  <ChallengeBox client:load />
+
+  <p class="mt-8 max-w-prose font-mono text-xs text-muted">
+    <span class="text-ai">#</span> nota: este reto es educativo. Las flags las
+    define el operador; el agente solo las revela si logras vulnerar sus defensas.
+  </p>
 </Base>

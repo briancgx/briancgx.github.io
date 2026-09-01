@@ -1,0 +1,36 @@
+---
+// Fixed top progress bar tracking scroll through the article.
+---
+
+<div
+  id="reading-progress"
+  class="fixed inset-x-0 top-0 z-50 h-0.5 origin-left scale-x-0 bg-ai"
+  style="transform: scaleX(0)"
+  aria-hidden="true"
+>
+</div>
+
+<script>
+  const bar = document.getElementById('reading-progress');
+  const article = document.querySelector('article');
+  if (bar && article && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    let ticking = false;
+    const update = () => {
+      const rect = article.getBoundingClientRect();
+      const total = rect.height - window.innerHeight;
+      const scrolled = Math.min(Math.max(-rect.top, 0), Math.max(total, 0));
+      const ratio = total > 0 ? scrolled / total : 0;
+      bar.style.transform = `scaleX(${ratio})`;
+      ticking = false;
+    };
+    const onScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(update);
+      }
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+    update();
+  }
+</script>

@@ -1,0 +1,48 @@
+---
+import { NAV, SITE } from '@/consts';
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+const isActive = (href: string) => path === href || path.startsWith(href + '/');
+---
+
+<header
+  class="sticky top-0 z-40 border-b border-border bg-bg/80 backdrop-blur supports-[backdrop-filter]:bg-bg/60"
+>
+  <nav
+    class="mx-auto flex h-14 max-w-content items-center justify-between gap-4 px-4"
+    aria-label="Principal"
+  >
+    <a href="/" class="group flex items-center gap-2 font-mono text-sm">
+      <span
+        class="inline-block h-2 w-2 rounded-full bg-ai shadow-[0_0_8px] shadow-ai"
+        aria-hidden="true"></span>
+      <span class="font-semibold text-text">{SITE.title}</span>
+      <span class="hidden text-muted sm:inline">~/</span>
+    </a>
+
+    <div class="flex items-center gap-1 font-mono text-sm">
+      {
+        NAV.map((item) => (
+          <a
+            href={item.href}
+            aria-current={isActive(item.href) ? 'page' : undefined}
+            class:list={[
+              'rounded px-3 py-1.5 transition-colors hover:text-text',
+              isActive(item.href) ? 'text-ai' : 'text-muted',
+            ]}
+          >
+            {item.label}
+          </a>
+        ))
+      }
+      <button
+        type="button"
+        data-command-palette-open
+        class="ml-1 hidden items-center gap-1.5 rounded border border-border bg-surface px-2 py-1.5 text-xs text-muted transition-colors hover:border-ai/40 hover:text-text sm:flex"
+        aria-label="Buscar (Ctrl+K)"
+      >
+        <span>Buscar</span>
+        <kbd class="rounded bg-surface2 px-1 font-mono text-[10px]">Ctrl+K</kbd>
+      </button>
+    </div>
+  </nav>
+</header>

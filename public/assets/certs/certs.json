@@ -1,0 +1,58 @@
+{
+  "_note": "Certificaciones reales de Brian, extraídas del CV (2026-09-01). Badges oficiales de los emisores en esta misma carpeta. Ordenar por date desc en la UI. HTB Pro Labs no tienen arte de badge público (mostrar como texto/chip).",
+  "certifications": [
+    {
+      "code": "C-AgAIPen",
+      "name": "Certified Agentic AI Pentester",
+      "issuer": "The SecOps Group",
+      "date": "2026-04",
+      "badge": "/assets/certs/cagaipen.png",
+      "category": "ai-security"
+    },
+    {
+      "code": "CPTS",
+      "name": "Certified Penetration Testing Specialist",
+      "issuer": "Hack The Box",
+      "date": "2026-01",
+      "badge": "/assets/certs/cpts.png",
+      "category": "offensive"
+    },
+    {
+      "code": "BSCP",
+      "name": "Burp Suite Certified Practitioner",
+      "issuer": "PortSwigger",
+      "date": "2025-12",
+      "badge": "/assets/certs/bscp.png",
+      "category": "web"
+    },
+    {
+      "code": "C-AI/MLPen",
+      "name": "Certified AI/ML Pentester",
+      "issuer": "The SecOps Group",
+      "date": "2025-11",
+      "badge": "/assets/certs/caimlpen.png",
+      "category": "ai-security"
+    },
+    {
+      "code": "CRTeamer",
+      "name": "Certified Red Teamer",
+      "issuer": "The SecOps Group",
+      "date": "2025-11",
+      "badge": "/assets/certs/crteamer.png",
+      "category": "red-team"
+    },
+    {
+      "code": "eWPTX",
+      "name": "Web Application Penetration Tester eXtreme",
+      "issuer": "INE Security",
+      "date": "2025-04",
+      "badge": "/assets/certs/ewptx.png",
+      "category": "web"
+    }
+  ],
+  "htb_pro_labs": [
+    { "name": "Dante", "role": "Red Team Operator L1", "issuer": "Hack The Box" },
+    { "name": "FullHouse", "role": "Red Team Operator L1", "issuer": "Hack The Box" },
+    { "name": "POO", "role": "Red Team Operator L1", "issuer": "Hack The Box" }
+  ]
+}

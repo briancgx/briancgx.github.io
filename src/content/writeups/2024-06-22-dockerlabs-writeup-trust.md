@@ -8,7 +8,8 @@ lang: "en"
 tags:
   - "linux"
   - "bruteforce"
-  - "privileged vim"
+  - "privesc"
+  - "web"
 machine_image: "/assets/images/dockerlabs-trust/trust-logo.png"
 excerpt: "This very easy machine required performing fuzzing to find hidden directories and obtain a user. Then, we used Hydra to brute force and get the SSH credentials. Finally, to escalate to root, we used the vim binary which had sudo permissions."
 draft: false

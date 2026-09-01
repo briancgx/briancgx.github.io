@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Disallow: /assets/certs/
+Disallow: /cv/
+
+Sitemap: https://briancgx.me/sitemap-index.xml

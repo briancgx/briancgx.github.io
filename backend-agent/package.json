@@ -1,0 +1,26 @@
+{
+  "name": "briancgx-agent-backend",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Proxy backend for the briancgx.me agentic CTF challenge (DeepSeek).",
+  "main": "src/server.ts",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "start": "tsx src/server.ts"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "tsx": "^4.19.2"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.10.0",
+    "typescript": "^5.7.2"
+  },
+  "allowScripts": {
+    "esbuild@0.28.2": true
+  }
+}

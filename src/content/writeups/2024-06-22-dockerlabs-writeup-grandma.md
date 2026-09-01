@@ -6,11 +6,11 @@ platform: "dockerlabs"
 difficulty: "hard"
 lang: "es"
 tags:
-  - "hard"
   - "linux"
   - "pivoting"
   - "tunneling"
-  - "LFI"
+  - "lfi"
+  - "rce"
 machine_image: "/assets/images/dockerlabs-grandma/grandma-logo.png"
 excerpt: "Grandma es una máquina clasificada como 'Difícil' en la plataforma Dockerlabs, donde se practica intensamente el pivoting y el uso de herramientas como socat y chisel."
 draft: false

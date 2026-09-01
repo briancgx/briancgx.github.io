@@ -1,20 +1,22 @@
-// src/pages/rss.xml.ts
-// TODO: Agent 2 (Claude) - Customize RSS feed items, categories, and full description metadata
 import rss from '@astrojs/rss';
-import { getCollection } from 'astro:content';
 import type { APIContext } from 'astro';
+import { getWriteups, writeupHref } from '@/lib/writeups';
+import { SITE } from '@/consts';
 
 export async function GET(context: APIContext) {
-  const writeups = await getCollection('writeups', ({ data }) => !data.draft);
+  const writeups = await getWriteups();
   return rss({
-    title: 'briancgx - Cybersecurity Writeups',
-    description: 'Personal cybersecurity portfolio & CTF writeups by briancgx',
-    site: context.site ?? 'https://briancgx.me',
-    items: writeups.map((post) => ({
-      title: post.data.title,
-      pubDate: post.data.date,
-      description: post.data.excerpt,
-      link: `/writeups/${post.slug || post.id.replace(/\.md$/, '')}/`,
+    title: `${SITE.title} — Writeups`,
+    description: SITE.description,
+    site: context.site ?? SITE.url,
+    trailingSlash: false,
+    items: writeups.map((w) => ({
+      title: w.data.title,
+      pubDate: w.data.date,
+      description: w.data.excerpt,
+      link: writeupHref(w),
+      categories: [w.data.platform, w.data.difficulty, ...w.data.tags],
     })),
+    customData: `<language>${SITE.lang}</language>`,
   });
 }

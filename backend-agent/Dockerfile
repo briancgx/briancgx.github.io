@@ -1,13 +1,24 @@
-# backend-agent/Dockerfile
-# TODO: Agent 2 (Claude) / Agent 3 (Grok) - Configure production container runtime for AI Challenge Proxy
+# Minimal runtime image for the agent proxy. Runs TypeScript directly via tsx.
 FROM node:22-alpine
 
 WORKDIR /app
 
-COPY package*.json ./
-# RUN npm ci --omit=dev
+# Install only runtime deps (express, cors, tsx). Dev types are not needed.
+COPY package.json package-lock.json* ./
+RUN npm install --omit=dev --no-audit --no-fund
 
-COPY . .
+COPY tsconfig.json ./
+COPY src ./src
 
-EXPOSE 3000
-CMD ["node", "server.js"]
+ENV NODE_ENV=production
+ENV PORT=8080
+EXPOSE 8080
+
+# Basic container healthcheck against the /health endpoint.
+HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 \
+  CMD wget -qO- http://127.0.0.1:8080/health >/dev/null 2>&1 || exit 1
+
+# Drop root.
+USER node
+
+CMD ["npm", "start"]

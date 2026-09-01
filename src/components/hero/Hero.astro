@@ -1,7 +1,47 @@
 ---
-// src/components/hero/Hero.astro
-// TODO: Agent 2 (Claude) - Implement Hero component (hacker terminal aesthetic, typing effect, CTA buttons)
+import AgenticConsole from './AgenticConsole.astro';
+import { IDENTITY } from '@/consts';
 ---
-<section id="hero" class="hero-section">
-  <!-- TODO: Hero section implementation -->
+
+<section id="hero" class="grid items-center gap-8 py-6 md:grid-cols-2 md:py-10">
+  <div class="space-y-5">
+    <p class="font-mono text-xs uppercase tracking-widest text-ai">
+      // agentic red team ops
+    </p>
+    <h1 class="text-3xl font-bold leading-tight text-text sm:text-4xl">
+      {IDENTITY.handle}
+      <span class="block text-lg font-normal text-muted sm:text-xl">
+        {IDENTITY.role}
+      </span>
+      <span class="block text-lg font-normal text-muted sm:text-xl">
+        {IDENTITY.role2}
+      </span>
+    </h1>
+    <p class="max-w-prose text-text/80">
+      Writeups de máquinas, notas de hacking práctico y research de seguridad en
+      sistemas de IA agéntica. {IDENTITY.focus}
+    </p>
+    <div class="flex flex-wrap gap-3 font-mono text-sm">
+      <a
+        href="/writeups"
+        class="rounded border border-ai/40 bg-ai/10 px-4 py-2 text-ai transition-colors hover:bg-ai/20"
+      >
+        ls writeups/
+      </a>
+      <a
+        href="/challenge"
+        class="rounded border border-ops/50 bg-ops/10 px-4 py-2 text-ops transition-colors hover:bg-ops/20"
+      >
+        ./challenge --start
+      </a>
+      <a
+        href="/about"
+        class="rounded border border-border px-4 py-2 text-muted transition-colors hover:border-ai/40 hover:text-text"
+      >
+        whoami
+      </a>
+    </div>
+  </div>
+
+  <AgenticConsole />
 </section>

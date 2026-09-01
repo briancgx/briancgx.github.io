@@ -1,7 +1,14 @@
 ---
-// src/components/search/SearchBar.astro
-// TODO: Agent 2 (Claude) - Implement search bar and Pagefind / Command Palette integration
+// Trigger for the global command palette (Pagefind-backed full-text search).
 ---
-<div id="search-bar" class="search-bar">
-  <!-- TODO: Search bar implementation -->
-</div>
+
+<button
+  type="button"
+  data-command-palette-open
+  class="flex w-full items-center gap-3 rounded-lg border border-border bg-surface px-4 py-3 text-left font-mono text-sm text-muted transition-colors hover:border-ai/40 hover:text-text"
+  aria-label="Buscar en los writeups (Ctrl+K)"
+>
+  <span class="text-ai" aria-hidden="true">⌕</span>
+  <span class="flex-1">Buscar dentro de los writeups…</span>
+  <kbd class="rounded bg-surface2 px-1.5 py-0.5 text-[10px]">Ctrl+K</kbd>
+</button>

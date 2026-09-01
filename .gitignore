@@ -26,3 +26,7 @@ contexto.md
 
 # backend agent
 backend-agent/node_modules/
+backend-agent/.env
+
+# parked until Brian confirms (certs list, real CV)
+# _pending/ is tracked on purpose so the files are not lost.

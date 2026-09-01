@@ -1,18 +1,28 @@
 ---
-// src/pages/about.astro
-// TODO: Agent 2 (Claude) - Implement About page (Profile summary, Certifications badges, Skills matrix, CV download link)
-import Base from '../layouts/Base.astro';
+import Base from '@/layouts/Base.astro';
+import Whoami from '@/components/about/Whoami.astro';
+import Publications from '@/components/about/Publications.astro';
+import { IDENTITY } from '@/consts';
 ---
-<Base title="About - briancgx">
-  <div class="max-w-4xl mx-auto px-4 py-8">
-    <h1 class="text-3xl font-bold mb-4">About briancgx</h1>
-    <p class="text-neutral-300 mb-6">
-      Pentester, CTF Player, and member of HackTheBox CyberGh0st Team based in Mexico.
+
+<Base
+  title="About"
+  description={`${IDENTITY.handle} — ${IDENTITY.role} y ${IDENTITY.role2} desde ${IDENTITY.location}.`}
+>
+  <header class="mb-8">
+    <p class="mb-2 font-mono text-xs uppercase tracking-widest text-ai">
+      <span class="prompt"></span>cat about.md
     </p>
-    <div class="mt-4">
-      <a href="/cv/briancgx-cv.pdf" download class="inline-block bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2 rounded">
-        Download CV
-      </a>
-    </div>
+    <h1 class="text-3xl font-bold text-text">About</h1>
+    <p class="mt-3 max-w-prose text-text/80">
+      {IDENTITY.role} y {IDENTITY.role2} desde {IDENTITY.location}. {IDENTITY.focus}
+      Este espacio recoge writeups de máquinas y notas de research en seguridad
+      de sistemas de IA agéntica.
+    </p>
+  </header>
+
+  <div class="max-w-2xl">
+    <Whoami />
+    <Publications />
   </div>
 </Base>

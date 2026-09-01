@@ -1,21 +1,70 @@
 ---
-// src/components/writeup/WriteupCard.astro
-// TODO: Agent 2 (Claude) - Implement writeup card component (tags, difficulty badge, teaser image, excerpt)
+import { PLATFORM_LABELS, DIFFICULTY_LABELS, DIFFICULTY_CLASS, LANG_LABELS } from '@/consts';
+
 interface Props {
-  title?: string;
-  slug?: string;
-  excerpt?: string;
-  platform?: string;
-  difficulty?: string;
-  tags?: string[];
-  date?: Date;
+  title: string;
+  href: string;
+  excerpt: string;
+  platform: string;
+  difficulty: string;
+  lang: string;
+  tags: string[];
+  date: Date;
   machine_image?: string;
 }
+const {
+  title,
+  href,
+  excerpt,
+  platform,
+  difficulty,
+  lang,
+  tags,
+  date,
+  machine_image,
+} = Astro.props;
 
-const { title, slug, excerpt, platform, difficulty, tags, date, machine_image } = Astro.props;
+const iso = date.toISOString().slice(0, 10);
 ---
-<article class="writeup-card">
-  <!-- TODO: Writeup card markup -->
-  <h3><a href={`/writeups/${slug}/`}>{title}</a></h3>
-  {excerpt && <p>{excerpt}</p>}
+
+<article class="card group flex h-full flex-col overflow-hidden">
+  <a href={href} class="flex h-full flex-col">
+    <div class="flex items-center gap-3 border-b border-border bg-surface2/50 p-4">
+      {
+        machine_image && (
+          <img
+            src={machine_image}
+            alt=""
+            width={40}
+            height={40}
+            loading="lazy"
+            decoding="async"
+            class="h-10 w-10 shrink-0 rounded object-contain"
+          />
+        )
+      }
+      <div class="min-w-0">
+        <h3 class="truncate font-semibold text-text group-hover:text-ai">
+          {title}
+        </h3>
+        <time datetime={iso} class="font-mono text-xs text-muted">[{iso}]</time>
+      </div>
+    </div>
+
+    <div class="flex flex-1 flex-col gap-3 p-4">
+      <div class="flex flex-wrap items-center gap-2 font-mono text-xs">
+        <span class="badge border-ai/30 text-ai">
+          {PLATFORM_LABELS[platform] ?? platform}
+        </span>
+        <span class:list={['badge', DIFFICULTY_CLASS[difficulty] ?? 'text-text']}>
+          {DIFFICULTY_LABELS[difficulty] ?? difficulty}
+        </span>
+        <span class="badge">{LANG_LABELS[lang] ?? lang}</span>
+      </div>
+      <p class="line-clamp-3 text-sm text-text/75">{excerpt}</p>
+      <div class="mt-auto flex flex-wrap gap-1.5 pt-1 font-mono text-xs text-muted">
+        {tags.slice(0, 4).map((t) => <span>#{t}</span>)}
+      </div>
+    </div>
+  </a>
 </article>

@@ -82,7 +82,7 @@ Build complete! All routes, static assets, RSS feed and sitemaps generated witho
    - Enriquecer `src/layouts/Writeup.astro` con Tabla de Contenidos (TOC) interactiva, tiempo estimado de lectura y breadcrumbs.
    - Implementar el componente del reto de IA en `src/components/challenge/ChallengeBox.astro` (interfaz de chat/terminal para probar Prompt Injection).
 3. **Página About & Perfil:**
-   - Maquetar la página `src/pages/about.astro` con biografía, badges de certificaciones (HTB CyberGh0st, eCPPT, etc.) y enlace al CV.
+   - Maquetar la página `src/pages/about.astro` con biografía, sección de certificaciones OCULTA hasta lista confirmada, y enlace al CV. Identidad: AI Security Researcher @ Straiker + Red Team Operator. No inventar certs.
 4. **Backend del Reto (Opcional):**
    - Completar la lógica de llamada al modelo LLM con protección de system prompt en `backend-agent/server.js`.
 
@@ -91,3 +91,5 @@ Build complete! All routes, static assets, RSS feed and sitemaps generated witho
 ## 🔒 Nota para el Agente 3 (Grok)
 - Realizar la auditoría de seguridad final (cabeceras de seguridad, Content Security Policy, sanitización de inputs en el reto de IA, revisión de enlaces e imágenes).
 - Optimizar rendimiento y pulir micro-interacciones.
+
+**Hecho.** Informe en `AUDIT.md` (hallazgos priorizados, correcciones aplicadas, decisiones para Brian). Sin merge a `main`.

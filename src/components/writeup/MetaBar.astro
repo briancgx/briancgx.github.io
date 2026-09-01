@@ -1,0 +1,25 @@
+---
+import { PLATFORM_LABELS, DIFFICULTY_LABELS, DIFFICULTY_CLASS, LANG_LABELS } from '@/consts';
+
+interface Props {
+  date: Date;
+  platform: string;
+  difficulty: string;
+  lang: string;
+  readingTime: number;
+}
+const { date, platform, difficulty, lang, readingTime } = Astro.props;
+const iso = date.toISOString().slice(0, 10);
+---
+
+<div class="flex flex-wrap items-center gap-2 font-mono text-xs text-muted">
+  <time datetime={iso}>[{iso}]</time>
+  <span aria-hidden="true">·</span>
+  <span class="badge border-ai/30 text-ai">{PLATFORM_LABELS[platform] ?? platform}</span>
+  <span class:list={['badge', DIFFICULTY_CLASS[difficulty] ?? 'text-text']}>
+    {DIFFICULTY_LABELS[difficulty] ?? difficulty}
+  </span>
+  <span class="badge">{LANG_LABELS[lang] ?? lang}</span>
+  <span aria-hidden="true">·</span>
+  <span>{readingTime} min read</span>
+</div>

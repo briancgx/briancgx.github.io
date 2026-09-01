@@ -1,0 +1,123 @@
+---
+import { IDENTITY } from '@/consts';
+
+// The agent "types" this sequence in a loop. Kept as data so the script stays
+// tiny. `accent` picks the token color per line: cyan = agentic, red = ops.
+const lines = [
+  { prompt: 'agent@c2', text: 'beacon check-in ✓', accent: 'ai' },
+  { prompt: 'agent@c2', text: `whoami: ${IDENTITY.handle}`, accent: 'text' },
+  {
+    prompt: 'agent@c2',
+    text: `role: ${IDENTITY.role} | ${IDENTITY.role2}`,
+    accent: 'text',
+  },
+  { prompt: 'agent@c2', text: 'tasking: ls writeups/', accent: 'ai' },
+];
+---
+
+<section
+  class="card overflow-hidden font-mono text-sm shadow-lg shadow-black/30"
+  aria-label="Consola del agente C2"
+>
+  <div class="flex items-center gap-2 border-b border-border bg-surface2 px-4 py-2">
+    <span class="font-mono text-xs text-muted">c2://session</span>
+    <span class="ml-auto flex items-center gap-1.5 text-xs">
+      <span class="h-1.5 w-1.5 rounded-full bg-ai" aria-hidden="true"></span>
+      <span class="text-ai">ACTIVE</span>
+    </span>
+  </div>
+
+  <div
+    id="agentic-console"
+    class="min-h-[9.5rem] space-y-1.5 bg-[#0d121b] p-4 leading-6"
+    data-lines={JSON.stringify(lines)}
+  >
+    <noscript>
+      {
+        lines.map((l) => (
+          <div>
+            <span class="text-muted">{l.prompt}</span>{' '}
+            <span class="text-ai">$</span>{' '}
+            <span class={l.accent === 'ai' ? 'text-ai' : 'text-text'}>{l.text}</span>
+          </div>
+        ))
+      }
+    </noscript>
+  </div>
+</section>
+
+<script>
+  type Line = { prompt: string; text: string; accent: 'ai' | 'text' | 'ops' };
+
+  const el = document.getElementById('agentic-console');
+  if (el) {
+    const lines: Line[] = JSON.parse(el.dataset.lines ?? '[]');
+    const accentClass = (a: Line['accent']) =>
+      a === 'ai' ? 'text-ai' : a === 'ops' ? 'text-ops' : 'text-text';
+
+    const renderLine = (l: Line, typed = l.text) => {
+      const row = document.createElement('div');
+      const prompt = document.createElement('span');
+      prompt.className = 'text-muted';
+      prompt.textContent = l.prompt;
+      const dollar = document.createElement('span');
+      dollar.className = 'text-ai';
+      dollar.textContent = '$';
+      const body = document.createElement('span');
+      body.className = accentClass(l.accent);
+      body.textContent = typed;
+      row.append(prompt, document.createTextNode(' '), dollar, document.createTextNode(' '), body);
+      return { row, body };
+    };
+
+    const renderStatic = () => {
+      el.replaceChildren();
+      for (const l of lines) el.appendChild(renderLine(l).row);
+    };
+
+    const prefersReduced = window.matchMedia(
+      '(prefers-reduced-motion: reduce)',
+    ).matches;
+
+    if (prefersReduced) {
+      renderStatic();
+    } else {
+      let cancelled = false;
+      const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
+
+      const run = async () => {
+        while (!cancelled) {
+          el.replaceChildren();
+          for (const l of lines) {
+            if (cancelled) return;
+            const { row, body } = renderLine(l, '');
+            const caret = document.createElement('span');
+            caret.className = 'terminal-caret ml-0.5';
+            row.appendChild(caret);
+            el.appendChild(row);
+
+            for (const ch of l.text) {
+              if (cancelled) return;
+              body.textContent += ch;
+              await sleep(28 + Math.random() * 40);
+            }
+            caret.remove();
+            await sleep(500);
+          }
+          await sleep(2600);
+        }
+      };
+      run();
+
+      // Stop the loop for good once the console scrolls out of view.
+      const io = new IntersectionObserver((entries) => {
+        if (entries.every((e) => !e.isIntersecting)) {
+          cancelled = true;
+          io.disconnect();
+          renderStatic();
+        }
+      });
+      io.observe(el);
+    }
+  }
+</script>

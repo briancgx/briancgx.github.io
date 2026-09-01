@@ -1,0 +1,44 @@
+---
+import { PUBLICATIONS } from '@/consts';
+---
+
+{
+  PUBLICATIONS.length > 0 && (
+    <div class="mt-8">
+      <h3 class="mb-3 font-mono text-xs uppercase tracking-widest text-muted">
+        <span class="text-ai">#</span> publications
+      </h3>
+      <ul class="space-y-3">
+        {PUBLICATIONS.map((p) => (
+          <li class="card p-5">
+            <div class="mb-1 flex items-baseline gap-2 font-mono text-xs text-muted">
+              <span class="text-ai">{p.venue}</span>
+              <span aria-hidden="true">·</span>
+              <span>{p.year}</span>
+              <span aria-hidden="true">·</span>
+              <span class="text-ops">{p.role}</span>
+            </div>
+            <a
+              href={p.url}
+              rel="noopener noreferrer"
+              target="_blank"
+              class="text-sm font-semibold text-text underline-offset-4 hover:text-ai hover:underline"
+            >
+              {p.title} <span class="text-muted" aria-hidden="true">↗</span>
+            </a>
+            <p class="mt-2 max-w-prose text-sm leading-6 text-text/75">
+              {p.summary}
+            </p>
+            <ul class="mt-3 flex flex-wrap gap-1.5 font-mono text-[11px]">
+              {p.tags.map((t) => (
+                <li class="rounded border border-border px-2 py-0.5 text-muted">
+                  {t}
+                </li>
+              ))}
+            </ul>
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
+}

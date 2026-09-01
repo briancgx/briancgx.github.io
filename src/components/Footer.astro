@@ -1,0 +1,35 @@
+---
+import { SITE, SOCIAL } from '@/consts';
+const year = new Date().getFullYear();
+const links = [
+  { label: 'GitHub', href: SOCIAL.github },
+  { label: 'LinkedIn', href: SOCIAL.linkedin },
+  { label: 'Instagram', href: SOCIAL.instagram },
+  { label: 'RSS', href: '/rss.xml' },
+];
+---
+
+<footer class="mt-20 border-t border-border">
+  <div
+    class="mx-auto flex max-w-content flex-col gap-3 px-4 py-8 font-mono text-xs text-muted sm:flex-row sm:items-center sm:justify-between"
+  >
+    <p><span class="text-ai">$</span> echo "{SITE.title} — {year}"</p>
+    <div class="flex flex-wrap gap-4">
+      {
+        links.map((l) => (
+          <a
+            href={l.href}
+            class="transition-colors hover:text-ai"
+            rel={l.href.startsWith('http') ? 'me noopener noreferrer' : undefined}
+            target={l.href.startsWith('http') ? '_blank' : undefined}
+          >
+            {l.label}
+          </a>
+        ))
+      }
+      <a href={`mailto:${SOCIAL.email}`} class="transition-colors hover:text-ai">
+        {SOCIAL.email}
+      </a>
+    </div>
+  </div>
+</footer>

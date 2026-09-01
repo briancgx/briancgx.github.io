@@ -1,43 +1,87 @@
 ---
-// src/layouts/Writeup.astro
-// TODO: Agent 2 (Claude) - Implement writeup post layout (TOC, metadata badge HUD, breadcrumbs, copy button)
+import type { MarkdownHeading } from 'astro';
 import Base from './Base.astro';
+import MetaBar from '@/components/writeup/MetaBar.astro';
+import Toc from '@/components/writeup/Toc.astro';
+import ReadingProgress from '@/components/writeup/ReadingProgress.astro';
 
 interface Props {
   title: string;
   date: Date;
-  platform?: string;
-  difficulty?: string;
+  platform: string;
+  difficulty: string;
+  lang: string;
   tags?: string[];
   excerpt?: string;
   machine_image?: string;
-  lang?: string;
+  slug: string;
+  headings: MarkdownHeading[];
+  readingTime: number;
 }
 
-const { title, date, platform, difficulty, tags, excerpt, machine_image, lang } = Astro.props;
+const {
+  title,
+  date,
+  platform,
+  difficulty,
+  lang,
+  tags = [],
+  excerpt,
+  slug,
+  headings,
+  readingTime,
+} = Astro.props;
+
+const ogImage = `/og/writeups/${slug}.png`;
 ---
-<Base title={`${title} | briancgx`} description={excerpt} image={machine_image}>
-  <article class="writeup-container">
-    <header class="writeup-header">
-      <h1>{title}</h1>
-      <div class="writeup-metadata">
-        {platform && <span class="badge platform">{platform}</span>}
-        {difficulty && <span class="badge difficulty">{difficulty}</span>}
-        {lang && <span class="badge lang">{lang}</span>}
-        <time datetime={date ? new Date(date).toISOString() : ''}>
-          {date ? new Date(date).toLocaleDateString() : ''}
-        </time>
+
+<Base title={title} description={excerpt} ogImage={ogImage} ogType="article">
+  <ReadingProgress />
+
+  <nav aria-label="Ruta" class="mb-6 font-mono text-xs text-muted">
+    <a href="/" class="hover:text-ai">~</a>
+    <span aria-hidden="true"> / </span>
+    <a href="/writeups" class="hover:text-ai">writeups</a>
+    <span aria-hidden="true"> / </span>
+    <span class="text-text">{slug}</span>
+  </nav>
+
+  <div class="grid gap-10 lg:grid-cols-[1fr_16rem]">
+    <article data-pagefind-body class="min-w-0">
+      <header class="mb-8 border-b border-border pb-6">
+        <h1 class="mb-3 text-2xl font-bold text-text sm:text-3xl">{title}</h1>
+        <MetaBar
+          date={date}
+          platform={platform}
+          difficulty={difficulty}
+          lang={lang}
+          readingTime={readingTime}
+        />
+        {
+          tags.length > 0 && (
+            <div class="mt-4 flex flex-wrap gap-2 font-mono text-xs">
+              {tags.map((t) => (
+                <a
+                  href={`/tags/${t}`}
+                  class="rounded border border-border px-2 py-0.5 text-muted transition-colors hover:border-ai/40 hover:text-ai"
+                >
+                  #{t}
+                </a>
+              ))}
+            </div>
+          )
+        }
+      </header>
+
+      <div class="prose-writeup">
+        <slot />
       </div>
-      {tags && tags.length > 0 && (
-        <div class="writeup-tags">
-          {tags.map((tag) => (
-            <a href={`/tags/${tag}/`} class="tag-link">#{tag}</a>
-          ))}
-        </div>
-      )}
-    </header>
-    <div class="writeup-content">
-      <slot />
-    </div>
-  </article>
+    </article>
+
+    <aside class="hidden lg:block">
+      <div class="sticky top-20">
+        <Toc headings={headings} />
+      </div>
+    </aside>
+  </div>
 </Base>

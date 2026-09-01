@@ -1,36 +1,53 @@
 ---
-// src/pages/tags/[tag].astro
-// TODO: Agent 2 (Claude) - Implement Tag filtering view for writeups
-import Base from '../../layouts/Base.astro';
-import { getCollection } from 'astro:content';
+import Base from '@/layouts/Base.astro';
+import WriteupCard from '@/components/writeup/WriteupCard.astro';
+import { getWriteups, writeupHref } from '@/lib/writeups';
 
 export async function getStaticPaths() {
-  const writeups = await getCollection('writeups', ({ data }) => !data.draft);
-  const tags = [...new Set(writeups.flatMap((w) => w.data.tags || []))];
-
+  const writeups = await getWriteups();
+  const tags = [...new Set(writeups.flatMap((w) => w.data.tags))];
   return tags.map((tag) => ({
     params: { tag },
     props: {
       tag,
-      writeups: writeups.filter((w) => w.data.tags?.includes(tag)),
+      writeups: writeups.filter((w) => w.data.tags.includes(tag)),
     },
   }));
 }
 
 const { tag, writeups } = Astro.props;
 ---
-<Base title={`Tag: #${tag} - briancgx`}>
-  <div class="max-w-4xl mx-auto px-4 py-8">
-    <h1 class="text-3xl font-bold mb-6">Writeups tagged with <span class="text-emerald-400">#{tag}</span></h1>
-    <ul class="space-y-4">
-      {writeups.map((w) => (
-        <li class="border border-neutral-800 p-4 rounded-lg">
-          <a href={`/writeups/${w.slug || w.id.replace(/\.md$/, '')}/`} class="text-xl text-emerald-400 hover:underline font-semibold">
-            {w.data.title}
-          </a>
-          <p class="text-neutral-400 text-sm mt-1">{w.data.excerpt}</p>
-        </li>
-      ))}
-    </ul>
+
+<Base
+  title={`#${tag}`}
+  description={`Writeups etiquetados con #${tag} en briancgx.me.`}
+>
+  <nav aria-label="Ruta" class="mb-6 font-mono text-xs text-muted">
+    <a href="/writeups" class="hover:text-ai">writeups</a>
+    <span aria-hidden="true"> / </span>
+    <span class="text-text">tags/{tag}</span>
+  </nav>
+
+  <h1 class="mb-6 font-mono text-2xl font-bold text-text">
+    <span class="text-ai">#</span>{tag}
+    <span class="ml-2 text-base font-normal text-muted">({writeups.length})</span>
+  </h1>
+
+  <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    {
+      writeups.map((w) => (
+        <WriteupCard
+          title={w.data.title}
+          href={writeupHref(w)}
+          excerpt={w.data.excerpt}
+          platform={w.data.platform}
+          difficulty={w.data.difficulty}
+          lang={w.data.lang}
+          tags={w.data.tags}
+          date={w.data.date}
+          machine_image={w.data.machine_image}
+        />
+      ))
+    }
   </div>
 </Base>
