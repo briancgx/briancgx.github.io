@@ -71,12 +71,11 @@ export const CERTS: {
 // HTB Pro Labs (sin badge público — se muestran como chips de texto).
 export const HTB_PRO_LABS = ['Dante', 'FullHouse', 'POO'] as const;
 
-// Publicaciones revisadas por pares (datos verificados desde las fuentes).
+// Peer-reviewed publications (data verified against the sources).
 export const PUBLICATIONS: {
   title: string;
   venue: string;
   year: string;
-  role: string;
   url: string;
   summary: string;
   tags: string[];
@@ -86,10 +85,9 @@ export const PUBLICATIONS: {
       'Counterfactual Explanation of a Classification Model for Detecting SQL Injection Attacks',
     venue: 'ICCBR 2024 · XCBR Workshop (CEUR-WS Vol-3708)',
     year: '2024',
-    role: 'Primer autor',
     url: 'https://ceur-ws.org/Vol-3708/paper_05.pdf',
     summary:
-      'Propone un modelo de machine learning para detectar ataques de inyección SQL y lo dota de interpretabilidad con explicaciones contrafactuales (XAI): muestra qué cambios mínimos en una consulta alterarían la decisión del modelo. Acerca la IA explicable a la seguridad de bases de datos para que los analistas entiendan y confíen en las alertas en lugar de tratarlas como una caja negra.',
+      'Proposes a machine-learning classifier to detect SQL injection attacks and makes it interpretable through counterfactual explanations (XAI) — surfacing the minimal changes to a query that would flip the model’s decision. It brings explainable AI to database security so analysts can understand and trust alerts instead of treating them as a black box.',
     tags: ['XAI', 'Counterfactuals', 'SQL Injection', 'Machine Learning'],
   },
   {
@@ -97,10 +95,9 @@ export const PUBLICATIONS: {
       'A Deep Learning Approach for Automated Identification of Triatoma infestans Using YOLOv8',
     venue: 'JAICA · Vol. 2 (2)',
     year: '2024',
-    role: 'Coautor',
     url: 'https://zenodo.org/records/14976415',
     summary:
-      'Aplica visión por computadora con YOLOv8 para identificar automáticamente a Triatoma infestans, principal vector de la enfermedad de Chagas, entrenando con 91 imágenes etiquetadas y 9,100 aumentadas. Alcanza un mAP@50 de 0.9588 y distingue al vector de insectos similares sin falsos positivos, sentando la base para vigilancia entomológica en sistemas móviles y embebidos.',
+      'Applies computer vision with YOLOv8 to automatically identify Triatoma infestans, the main vector of Chagas disease, training on 91 labeled images and 9,100 augmented ones. It reaches a mAP@50 of 0.9588 and tells the vector apart from similar insects with no false positives, laying the groundwork for entomological surveillance on mobile and embedded systems.',
     tags: ['YOLOv8', 'Computer Vision', 'Chagas', 'Vector Surveillance'],
   },
 ];
